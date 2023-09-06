@@ -1,0 +1,18 @@
+{
+  "name": "dyma_javascript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "babel": "babel es6.js -o es6after.js" 
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/cli": "^7.22.15",
+    "@babel/core": "^7.22.15",
+    "@babel/preset-env": "^7.22.15"
+  }
+}
