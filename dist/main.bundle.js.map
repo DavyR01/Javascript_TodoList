@@ -1,0 +1,1 @@
+{"version":3,"file":"main.bundle.js","mappings":";;;;;AAAA,IAAIA,IAAI,GAAG,KAAK;AAEhBC,OAAO,CAACC,GAAG,CAACF,IAAI,CAAC;AAEjBC,OAAO,CAACC,GAAG,CAACC,CAAC,CAAC,C","sources":["webpack://dyma_javascript/./src/index.js"],"sourcesContent":["let test = '123'\n\nconsole.log(test);\n\nconsole.log($);\n"],"names":["test","console","log","$"],"sourceRoot":""}
