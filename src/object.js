@@ -106,3 +106,33 @@ console.log(copyTerre3); // De cette manière, copyTerre3 est une copie de terre
 
 copyTerre3['exemple'] = 'add exemple'
 console.log(copyTerre3);
+
+
+/************************** Fusionner des objets ****************************/
+
+const terre4 = {
+      population: 10e7,
+      satellite: 'Spoutnik',
+      ["surface ocean"]: '72%'
+}
+
+const terre5 = {
+      population: 11e7,
+      satellite: 'Lune',
+      temperature: {
+            min: -30,
+            max: 40,
+      },
+      isOld: false,
+}
+
+const terreAssign = Object.assign({}, terre4, terre5)
+console.log(terreAssign); // assign() permet de merger 2 objets en créant un autre objet à partir d'un objet vide. Si on ne place pas {}, terre4 sera écrasé et prendra la valeur de terreAssign, ce n'est donc pas ce que l'on souhaite avoir. Les valeurs fusionnées vont de la droite vers la gauche.
+
+console.log(terre4);
+// Autre solution avec le Spread...: 
+const terreSpread = { ...terre4, ...terre5 } // Permet de copier un ou plusieurs objet dans un nouvel objet
+
+console.log(terreSpread);
+console.log(terre4 === terreSpread); // false
+
