@@ -73,7 +73,7 @@ const terre3 = {
 };
 
 // const {resident: residentTerre, satellite3, temperature3, isOld3} = terre3
-const {resident: residentTerre, satellite3 = "A définir", ...rest} = terre3 // satellite3 a une valeur par défaut si aucune valeur ne lui est affecté dans l'objet terre3. Ici, on donne un alias qu'on va extirper depuis l'objet terre3.
+const {resident: residentTerre, satellite3 = "Valeur par défaut", ...rest} = terre3 // satellite3 a une valeur par défaut si aucune valeur ne lui est affecté dans l'objet terre3. Ici, on donne un alias qu'on va extirper depuis l'objet terre3.
 
 // console.log(resident, satellite3, temperature3);
 // console.log(residentTerre, satellite3, temperature3);
@@ -92,3 +92,17 @@ if ("resident" in terre3 && terre3.hasOwnProperty('resident')) {
 (terre3['isOld3'] === false) 
 ? console.log('the key isOld3 has a value false in the object terre3') 
 : console.log('the key isOld3 is true');
+
+/************************** Supprimer ou écarter des propriétés ************************/
+
+console.log(terre3);
+// delete terre3.satellite3
+terre3.satellite3 = null // Utiliser null et non undefined pour assigner de manière déclarative une propriété à l'absence de valeur. Nous savons de cette façon que c'est volontaire.
+console.log(terre3);
+
+const {resident : toDelete, ...copyTerre3} = terre3 // On souhaite récupérer toute les props de terre3 mais sans la population. On déclare donc population et on crée un objet avec le reste qui sera copyTerre3.
+
+console.log(copyTerre3); // De cette manière, copyTerre3 est une copie de terre3 sans la propriété population.
+
+copyTerre3['exemple'] = 'add exemple'
+console.log(copyTerre3);
