@@ -197,3 +197,38 @@ console.log("format object :", parse);
       <lastname>Jean</lastname>
       <age>Jean</age>
 </object> */}
+
+
+/*********************** Copier un objet ****************************/
+
+// * Shallow copy ou copie superficielle de l'objet pour les objets nestés car les objets imbriqués dans l'objet sont copiés par référence. Seulement les primitivés sont copiées avec une nouvelle référence d'un objet.
+const g = {
+	name: 'Toto',
+	foo: {
+		bar: 'zoo'
+	}
+}
+
+const h = Object.assign({}, g) // Nouvel objet => Shallow copy.
+const i = { ...g } // Nouvel objet par décomposition => Shallow copy car avec les objets nestés, nous allons avoir la même problématique (avec foo).
+// La raison est que pour les propriétés qui ne contiennent pas de valeur de type primitive, c'est-à-dire qui contiennent des objets, les références seront copiées.
+
+i.name = "Titi"
+i.foo.bar = "zoozoo"
+
+console.log("objet g :", g);
+console.log("objet i :", i);
+
+// * Deep copy pour créer une copie profonde qui ne partage aucune référence des objets imbriqués.
+const j = {
+	name: 'Jean',
+	foo: {
+		bar: 'boo'
+	}
+}
+
+const k = JSON.parse(JSON.stringify(j, null, 3)); // De cette façon, il n'y a plus de partage de référence entre nos objets.
+k.foo.bar = "booboo";
+
+console.log("objet j :", j);
+console.log("objet k :", k);
