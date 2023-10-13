@@ -136,3 +136,12 @@ const terreSpread = { ...terre4, ...terre5 } // Permet de copier un ou plusieurs
 console.log(terreSpread);
 console.log(terre4 === terreSpread); // false
 
+
+/************************** Comparer des objets ****************************/
+
+const d = {a: 1}
+const e = {a: 1}
+const f = e
+
+console.log( d === e ); //false car pas la même référence. On compare les références et non le contenu. Ce sont 2 références d'objet différentes. La référence à un objet correspond à son adresse dans la mémoire.
+console.log( f === e ); //true car dans ce cas, on aura la même adresse sur la heap, elles contiennent la même référence.
