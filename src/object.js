@@ -143,8 +143,8 @@ const d = {a: 1}
 const e = {a: 1}
 const f = e
 
-console.log( d === e ); //false car pas la même référence. On compare les références et non le contenu. Ce sont 2 références d'objet différentes. La référence à un objet correspond à son adresse dans la mémoire.
-console.log( f === e ); //true car dans ce cas, on aura la même adresse sur la heap, elles contiennent la même référence.
+console.log( d === e ); //false car pas la même référence. On compare les références et non le contenu. Ce sont 2 références d'objet différentes. La référence à un objet correspond à son adresse dans la mémoire. 
+console.log( f === e ); //true car dans ce cas, on aura la même adresse sur la heap, elles contiennent la même référence. Ces 2 objets pointent sur le même objet de la heap donc si on modifien l'un, l'autre sera modifié.
 
 
 /************************** Itérer sur des objets ****************************/
@@ -165,3 +165,35 @@ for (prop in obj) {
 console.log(Object.keys(obj)); // On extrait les différentes keys en renvoyant un tableau.
 console.log(Object.values(obj)); // On extrait les différentes valeurs de l'objet en renvoyant un tableau
 console.log(Object.entries(obj)); // On extrait les différentes propriétés de l'objet en renvoyant un tableau contenant des tableaux.
+
+
+/************************** Le format JSON != XML ****************************/
+
+const obj2 = {
+      firstname: 'Jean',
+      lastName: 'Louis',
+      age: 15
+}
+
+const stringify = JSON.stringify(obj2, null, 3) // Le 3eme argument permet de gérer les espaces pour l'affichage
+console.log("format JSON:", stringify);
+
+const parse = JSON.parse(stringify)
+console.log("format object :", parse);
+
+/***** FORMAT JSON très similaire à un objet Javascript *******/
+// Tous les noms de propriétés devront être entourés de double quotes en JSON. Ce format retourne une chaine de caractères exploitable côté serveur.
+
+// '{
+//       "firstname": 'Jean',
+//       "lastName": 'Louis',
+//       "age": 15
+// }'
+      
+/***** FORMAT XML *******/
+
+{/* <object>
+      <firstname>Jean</firstname>
+      <lastname>Jean</lastname>
+      <age>Jean</age>
+</object> */}
