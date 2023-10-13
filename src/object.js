@@ -35,3 +35,25 @@ console.log(terre["temperature"]); // the same output than previous using bracke
 console.log(terre["satellite"]); // Lune
 console.log(terre.getTemperature());
 terre.getTemperature2();
+
+
+/********* Ici, nous allons faire une référence à nos variables dans l' objet terre2 ********/
+
+const population= 8e7;
+const satellite= 'Lune';
+const temperature= {
+      min: -80,
+      max: 50,
+};
+const pop = "population"
+
+const terre2 = {
+      [pop]: population, 
+      satellite : satellite, // : satellite n'est plus nécessaire depuis ES6 car on suppose qu'on a déclaré une variable au dessus qui a le même nom que la key.
+      temperature,
+      isOld: false
+}
+
+// terre2[pop] = population;
+
+console.log(terre2);
