@@ -57,3 +57,24 @@ const terre2 = {
 // terre2[pop] = population;
 
 console.log(terre2);
+
+/********* La décomposition d'objet ********/
+
+const resident = 50
+
+const terre3 = {
+      resident: 9e7,
+      satellite3: 'Lune',
+      temperature3: {
+            min: -75,
+            max: 65,
+      },
+      isOld3: false,
+};
+
+// const {resident: residentTerre, satellite3, temperature3, isOld3} = terre3
+const {resident: residentTerre, satellite3 = "A définir", ...rest} = terre3 // satellite3 a une valeur par défaut si aucune valeur ne lui est affecté dans l'objet terre3. Ici, on donne un alias qu'on va extirper depuis l'objet terre3.
+
+// console.log(resident, satellite3, temperature3);
+// console.log(residentTerre, satellite3, temperature3);
+console.log("With spread operator :", resident, residentTerre, satellite3, rest); // Avec le spread operator rest, on récupère toutes les propriétés qui n'ont pas été explicitement affectés à des variables provenant de l' objet en question, ici terre3.
