@@ -78,3 +78,17 @@ const {resident: residentTerre, satellite3 = "A définir", ...rest} = terre3 // 
 // console.log(resident, satellite3, temperature3);
 // console.log(residentTerre, satellite3, temperature3);
 console.log("With spread operator :", resident, residentTerre, satellite3, rest); // Avec le spread operator rest, on récupère toutes les propriétés qui n'ont pas été explicitement affectés à des variables provenant de l' objet en question, ici terre3.
+
+
+/************************** Tester l'existence et la valeur d'une propriété ************************/
+
+if ("resident" in terre3 && terre3.hasOwnProperty('resident')) {
+      console.log('the key resident is present in the object terre3');
+} else {
+      console.log('the key resident is absent here');
+}
+
+
+(terre3['isOld3'] === false) 
+? console.log('the key isOld3 has a value false in the object terre3') 
+: console.log('the key isOld3 is true');
