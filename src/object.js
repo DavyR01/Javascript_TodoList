@@ -145,3 +145,23 @@ const f = e
 
 console.log( d === e ); //false car pas la même référence. On compare les références et non le contenu. Ce sont 2 références d'objet différentes. La référence à un objet correspond à son adresse dans la mémoire.
 console.log( f === e ); //true car dans ce cas, on aura la même adresse sur la heap, elles contiennent la même référence.
+
+
+/************************** Itérer sur des objets ****************************/
+
+const obj = {
+      a: "un",
+      b: "deux",
+      c: "trois",
+      d: "quatre",
+      e: "cinq",
+}
+
+for (prop in obj) {
+      // console.log(prop);
+      console.log(obj[prop]);
+}
+
+console.log(Object.keys(obj)); // On extrait les différentes keys en renvoyant un tableau.
+console.log(Object.values(obj)); // On extrait les différentes valeurs de l'objet en renvoyant un tableau
+console.log(Object.entries(obj)); // On extrait les différentes propriétés de l'objet en renvoyant un tableau contenant des tableaux.
