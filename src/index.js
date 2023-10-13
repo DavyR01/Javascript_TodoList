@@ -19,7 +19,7 @@ console.timeEnd();
 // Affichage d'un tableau, nous verrons en détails les tableaux dans les
 // leçons suivantes :
 console.table(["chat", "chien", "koala"]);
-console.table({animal:"lama", animal2:"dromadaire", animal3:"chameau"});
+console.table({ animal: "lama", animal2: "dromadaire", animal3: "chameau" });
 
 
 // Affichera une erreur pour le deuxième car l'assertion est fausse :
@@ -29,5 +29,5 @@ console.assert(false, "Bonjour 2 !");
 // Compter le nombre d'exécution :
 // Nous étudierons les boucles en détails plus tard également.
 for (let i = 0; i < 5; i++) {
-  console.count();
+	console.count();
 }

@@ -9,23 +9,23 @@ console.log(a, b, c);
 // console.log(d, e, f);
 
 const terre = {
-      population: 7e7,
-      satellite: 'Lune',
-      temperature: {
-            min: -70,
-            max: 60,
-            current: {
-                  min: 10,
-                  max: 30
-            }
-      },
-      isOld: false,
-      getTemperature(){
-            return (this.temperature["min"])
-      },
-      getTemperature2: function() {
-            console.log(this.temperature["max"])
-      }
+	population: 7e7,
+	satellite: 'Lune',
+	temperature: {
+		min: -70,
+		max: 60,
+		current: {
+			min: 10,
+			max: 30
+		}
+	},
+	isOld: false,
+	getTemperature() {
+		return (this.temperature["min"])
+	},
+	getTemperature2: function () {
+		console.log(this.temperature["max"])
+	}
 }
 
 console.log("terre :", terre);
@@ -39,19 +39,19 @@ terre.getTemperature2();
 
 /********* Ici, nous allons faire une référence à nos variables dans l' objet terre2 ********/
 
-const population= 8e7;
-const satellite= 'Lune';
-const temperature= {
-      min: -80,
-      max: 50,
+const population = 8e7;
+const satellite = 'Lune';
+const temperature = {
+	min: -80,
+	max: 50,
 };
 const pop = "population"
 
 const terre2 = {
-      [pop]: population, 
-      satellite : satellite, // : satellite n'est plus nécessaire depuis ES6 car on suppose qu'on a déclaré une variable au dessus qui a le même nom que la key.
-      temperature,
-      isOld: false
+	[pop]: population,
+	satellite: satellite, // : satellite n'est plus nécessaire depuis ES6 car on suppose qu'on a déclaré une variable au dessus qui a le même nom que la key.
+	temperature,
+	isOld: false
 }
 
 // terre2[pop] = population;
@@ -63,17 +63,17 @@ console.log(terre2);
 const resident = 50
 
 const terre3 = {
-      resident: 9e7,
-      satellite3: 'Lune',
-      temperature3: {
-            min: -75,
-            max: 65,
-      },
-      isOld3: false,
+	resident: 9e7,
+	satellite3: 'Lune',
+	temperature3: {
+		min: -75,
+		max: 65,
+	},
+	isOld3: false,
 };
 
 // const {resident: residentTerre, satellite3, temperature3, isOld3} = terre3
-const {resident: residentTerre, satellite3 = "Valeur par défaut", ...rest} = terre3 // satellite3 a une valeur par défaut si aucune valeur ne lui est affecté dans l'objet terre3. Ici, on donne un alias qu'on va extirper depuis l'objet terre3.
+const { resident: residentTerre, satellite3 = "Valeur par défaut", ...rest } = terre3 // satellite3 a une valeur par défaut si aucune valeur ne lui est affecté dans l'objet terre3. Ici, on donne un alias qu'on va extirper depuis l'objet terre3.
 
 // console.log(resident, satellite3, temperature3);
 // console.log(residentTerre, satellite3, temperature3);
@@ -83,15 +83,15 @@ console.log("With spread operator :", resident, residentTerre, satellite3, rest)
 /************************** Tester l'existence et la valeur d'une propriété ************************/
 
 if ("resident" in terre3 && terre3.hasOwnProperty('resident')) {
-      console.log('the key resident is present in the object terre3');
+	console.log('the key resident is present in the object terre3');
 } else {
-      console.log('the key resident is absent here');
+	console.log('the key resident is absent here');
 }
 
 
-(terre3['isOld3'] === false) 
-? console.log('the key isOld3 has a value false in the object terre3') 
-: console.log('the key isOld3 is true');
+(terre3['isOld3'] === false)
+	? console.log('the key isOld3 has a value false in the object terre3')
+	: console.log('the key isOld3 is true');
 
 /************************** Supprimer ou écarter des propriétés ************************/
 
@@ -100,7 +100,7 @@ console.log(terre3);
 terre3.satellite3 = null // Utiliser null et non undefined pour assigner de manière déclarative une propriété à l'absence de valeur. Nous savons de cette façon que c'est volontaire.
 console.log(terre3);
 
-const {resident : toDelete, ...copyTerre3} = terre3 // On souhaite récupérer toute les props de terre3 mais sans la population. On déclare donc population et on crée un objet avec le reste qui sera copyTerre3.
+const { resident: toDelete, ...copyTerre3 } = terre3 // On souhaite récupérer toute les props de terre3 mais sans la population. On déclare donc population et on crée un objet avec le reste qui sera copyTerre3.
 
 console.log(copyTerre3); // De cette manière, copyTerre3 est une copie de terre3 sans la propriété population.
 
@@ -111,19 +111,19 @@ console.log(copyTerre3);
 /************************** Fusionner des objets ****************************/
 
 const terre4 = {
-      population: 10e7,
-      satellite: 'Spoutnik',
-      ["surface ocean"]: '72%'
+	population: 10e7,
+	satellite: 'Spoutnik',
+	["surface ocean"]: '72%'
 }
 
 const terre5 = {
-      population: 11e7,
-      satellite: 'Lune',
-      temperature: {
-            min: -30,
-            max: 40,
-      },
-      isOld: false,
+	population: 11e7,
+	satellite: 'Lune',
+	temperature: {
+		min: -30,
+		max: 40,
+	},
+	isOld: false,
 }
 
 const terreAssign = Object.assign({}, terre4, terre5)
@@ -139,27 +139,27 @@ console.log(terre4 === terreSpread); // false
 
 /************************** Comparer des objets ****************************/
 
-const d = {a: 1}
-const e = {a: 1}
+const d = { a: 1 }
+const e = { a: 1 }
 const f = e
 
-console.log( d === e ); //false car pas la même référence. On compare les références et non le contenu. Ce sont 2 références d'objet différentes. La référence à un objet correspond à son adresse dans la mémoire. 
-console.log( f === e ); //true car dans ce cas, on aura la même adresse sur la heap, elles contiennent la même référence. Ces 2 objets pointent sur le même objet de la heap donc si on modifien l'un, l'autre sera modifié.
+console.log(d === e); //false car pas la même référence. On compare les références et non le contenu. Ce sont 2 références d'objet différentes. La référence à un objet correspond à son adresse dans la mémoire. 
+console.log(f === e); //true car dans ce cas, on aura la même adresse sur la heap, elles contiennent la même référence. Ces 2 objets pointent sur le même objet de la heap donc si on modifien l'un, l'autre sera modifié.
 
 
 /************************** Itérer sur des objets ****************************/
 
 const obj = {
-      a: "un",
-      b: "deux",
-      c: "trois",
-      d: "quatre",
-      e: "cinq",
+	a: "un",
+	b: "deux",
+	c: "trois",
+	d: "quatre",
+	e: "cinq",
 }
 
 for (prop in obj) {
-      // console.log(prop);
-      console.log(obj[prop]);
+	// console.log(prop);
+	console.log(obj[prop]);
 }
 
 console.log(Object.keys(obj)); // On extrait les différentes keys en renvoyant un tableau.
@@ -170,9 +170,9 @@ console.log(Object.entries(obj)); // On extrait les différentes propriétés de
 /************************** Le format JSON != XML ****************************/
 
 const obj2 = {
-      firstname: 'Jean',
-      lastName: 'Louis',
-      age: 15
+	firstname: 'Jean',
+	lastName: 'Louis',
+	age: 15
 }
 
 const stringify = JSON.stringify(obj2, null, 3) // Le 3eme argument permet de gérer les espaces pour l'affichage
@@ -189,7 +189,7 @@ console.log("format object :", parse);
 //       "lastName": 'Louis',
 //       "age": 15
 // }'
-      
+
 /***** FORMAT XML *******/
 
 {/* <object>
