@@ -22,7 +22,7 @@ const fn2 = function () {
 
 console.log(fn.name); // Sur les objets fonction, on a une propriété name.
 console.log(fn2.name); // Sur un fonction anonyme, le name prend la valeur du nom de la variable.
-fn();
+fn(); br()
 
 // Vous pouvez cependant également déclarer un nom pour utiliser la récursivité. La récursivité est le fait d'invoquer la fonction dans la fonction, afin de l'exécuter jusqu'à ce qu'une condition soit remplie :
 const factorielle = function f(n) { return n < 2 ? 1 : n * f(n - 1) };
@@ -40,11 +40,45 @@ function func2 (param = "default2") {
 
 func2('parametre')
 func2()
+br()
 
+// **************** 48) Objet arguments et utilisation de l'opérateur Rest (...) **************************
 
-// **************** 48)  **************************
+// Avec l'objet argument : Il contient tous les arguments passés à la fonction (Old school et déprécié)
+function add() {
+   console.log(/* arguments */);
+   // console.log(arguments[0]);
+   let total = 0;
+   for (let i = 0; i < arguments.length; i++) {
+      total += arguments[i];
+   }
+   console.log(total);
+}
 
+// Avec l'opérateur REST...
+function add2(...numbers) {
+   console.log(numbers);
+   let total = 0;
+   numbers.forEach(el => {
+      total += el
+   });
+   console.log(total);
+}
 
+function add3(operator, ...numbers) {
+   let total = 0;
+   if (operator === "+"){
+      numbers.forEach(el => {
+         total += el
+      });
+      console.log(total);
+   } else console.log('we must add numbers');
+}
+
+add(1,2,3,4,5,6,7,8); br()
+add2(1,2,3,4); br()
+add3("+",1,3,5,7,9,11,13,15)
+add3("*",1,3,5,7,9,11,13,15)
 
 // **************** 49)  **************************
 
