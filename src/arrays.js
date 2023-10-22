@@ -39,11 +39,44 @@ const arr8 = [["terre", "lune"], "soleil"]
 console.log(arr8[0][0]);
 console.log(arr8[0][arr8[0].length - 1 ]);
 console.log(arr8);
+br()
 
 
 
-// **************** 61) Décomposition de tableaux et opérateur rest  **************************
+// **************** 61) Décomposition de tableaux et opérateur rest **************************
 
+const arr9 = [1,2,3,4,5]
+const arr10 = [[1,2,3],4,5]
+
+const [a, b] = arr9; // Ici, on décompose notre array en récupérant les 2 premiers éléments.
+const [c, ...rest] = arr9; // Ici, on décompose notre array en récupérant les 2 premiers éléments.
+
+console.log(a);
+console.log(b);
+console.log(rest); // Opérateur rest
+
+const[[d,e], f] = arr10
+const [,,g]= arr10 // On saute les 2 premiers éléments et on récupère le 3eme élément.
+
+console.log(d,e,f);
+console.log(g);
+
+let h = 'h';
+let i = 'i';
+
+// const tmp = h; // Old school
+// h=i;
+// i=tmp;
+
+[h,i] = [i, h]; // Permet de switcher le contenu (valeurs) de 2 variables.
+
+console.log("h : ", h);
+console.log("i : ", i);
+
+const tableau = [1];
+const [j = 0, k = 2] = tableau;
+console.log('value j :', j); // 1
+console.log('value k :', k); // 2
 
 
 // **************** 62)   **************************
