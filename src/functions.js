@@ -233,16 +233,27 @@ a6.fn() // Correspond à l'objet global
 
 const a7 = {
    foo: "bar",
-   fn () {
+   fn() {
       const fn2 = () => {
-         console.log(this); 
+         console.log(this);
       }
       fn2()
    }
 }
 
 a7.fn() // Correspond à l'objet a7
+br();
+
+// **************** 56) Les fonctions de rappel (callback) **************************
 
 
-// **************** 56)  **************************
+function fn3(a, cb) {
+   console.log("a : ", a);
+   const p1 = 1, p2 = 2
+   cb(p1, p2)
+}
+
+fn3('affichage de a', (p1, p2) => console.log('cb', p1, p2))
+
+// **************** 57) **************************
 
