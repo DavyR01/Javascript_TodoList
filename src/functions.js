@@ -147,9 +147,9 @@ const c2 = {
    foo: "bar",
    fn() {
       function d2() {
-         console.log(this); 
+         console.log(this);
       }
-      d2() // Fait référence à l'objet window en l'absence du mode strict (import ou export fichier ou en notifiant "use strict" en haut de fichier)
+      d2() // Fait référence à l'objet window en l'absence du mode strict (sans import ou export fichier ou de notification "use strict" en haut de fichier)
       d2.call(this); // call permet de spécifier le this. call est une méthode des fonctions. this fait référence à l'objet c2.
       d2.call(d3)
    }
@@ -185,12 +185,64 @@ bindC3("en")
 
 function multiplier(nombre) {
    return this * nombre;
- }
- 
- const doubler = multiplier.bind(2); // définir this comme étant la valeur 2
- console.log(doubler(4));  //  8
+}
+
+const doubler = multiplier.bind(2); // définir this comme étant la valeur 2
+console.log(doubler(4));  //  8
+br();
+
+// **************** 55) Les fonctions fléchées **************************
+
+// On déclare un objet : 
+const a4 = (a, b) => ({
+   a, b, total: a + b
+})
+
+console.log(a4(2, 3));
+
+// On déclare une fonction :
+
+const a5 = () => {
+   console.log(this);
+}
+// function a5() {
+//    console.log(this);
+// }
+
+a5();
+const b5 = {
+   foo: "bar"
+}
+
+a5.call(b5)
+a5(b5) // Lorsque l'on déclarer une arrow function, le this est toujours le this du contexte de l'environnement lexical du parent.
+
+// On déclare une méthode avec les functions pour que le this fasse référence  l'objet parent et non l'objet global :  
+
+const a6 = {
+   foo: "bar",
+   fn: () => {
+      console.log(this); // Ici le this fait référence à l'objet global (arrow function). On déclare notre fonction lorsque l'on déclare l'objet. Et l'environnement lexical est l'objet global.
+   }
+   // fn: function () {
+   //    console.log(this); // Ici le this fait référence à l'objet parent.
+   // }
+}
+
+a6.fn() // Correspond à l'objet global
+
+const a7 = {
+   foo: "bar",
+   fn () {
+      const fn2 = () => {
+         console.log(this); 
+      }
+      fn2()
+   }
+}
+
+a7.fn() // Correspond à l'objet a7
 
 
-// **************** 55)  **************************
 // **************** 56)  **************************
 
