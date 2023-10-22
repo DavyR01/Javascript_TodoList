@@ -1,4 +1,4 @@
-import './test' // Sans l'import d'un autre fichier, le mode strict de webPack n'est pas pris en compte. (chapitre 53: this)
+// import './test' // Sans l'import d'un autre fichier, le mode strict de webPack n'est pas pris en compte. (chapitre 53: this)
 
 const br = () => console.log('\n');
 
@@ -79,7 +79,7 @@ function add3(operator, ...numbers) {
 
 add(1, 2, 3, 4, 5, 6, 7, 8); br()
 add2(1, 2, 3, 4); br()
-add3("+", 1, 3, 5, 7, 9, 11, 13, 15)
+add3("+", 1, 3, 5, 7, 9, 11, 13, 15);
 add3("*", 1, 3, 5, 7, 9, 11, 13, 15)
 
 // **************** 49) Valeur de retour des fonctions **************************
@@ -120,7 +120,8 @@ function c() {
 }
 
 let foo2 = 2
-c()
+c();
+br();
 
 
 // **************** 52) Namespace et IIFE **************************
@@ -133,9 +134,63 @@ function func3() {
    console.log(this); // this fait référence à undefined en mode strict, donc lorsque l'on importe un fichier par exemple (haut de page). 
 }
 
-func3()
+func3();
+br()
 
-// **************** 54)  **************************
+// **************** 54) Définir ou lier this **************************
+
+const d3 = {
+   foo: "not bar"
+};
+
+const c2 = {
+   foo: "bar",
+   fn() {
+      function d2() {
+         console.log(this); 
+      }
+      d2() // Fait référence à l'objet window en l'absence du mode strict (import ou export fichier ou en notifiant "use strict" en haut de fichier)
+      d2.call(this); // call permet de spécifier le this. call est une méthode des fonctions. this fait référence à l'objet c2.
+      d2.call(d3)
+   }
+};
+
+c2.fn();
+
+function a2() { }
+
+a2.foo = "bar";
+
+console.log(a2);
+console.log(a2.foo);
+
+
+const c3 = {
+   name: 'Jean',
+   lastName: 'Louis'
+};
+
+function bonjour(lang) {
+   if (lang === 'fr') {
+      console.log(`bonjour ${this.name} ${this.lastName}`);
+   } else {
+      console.log(`hello ${this.name + this.lastName}`);
+   }
+}
+
+bonjour.call(c3, 'fr'); // Ici, on passe une liste de paramètres.
+bonjour.apply(c3, ['fr']); // Pareil que call sauf qu'on lui passe un tableau qui va contenir l'ensemble des paramètres.
+const bindC3 = bonjour.bind(c3); // La méthode bind() permet de créer un clone d'une fonction en liant définitivement la valeur de this à l'argument passé en premier paramètre.
+bindC3("en")
+
+function multiplier(nombre) {
+   return this * nombre;
+ }
+ 
+ const doubler = multiplier.bind(2); // définir this comme étant la valeur 2
+ console.log(doubler(4));  //  8
+
+
 // **************** 55)  **************************
 // **************** 56)  **************************
 

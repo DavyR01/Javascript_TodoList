@@ -235,11 +235,16 @@ function func3() {
 
 func3();
 
-// **************** 54)  **************************
+// **************** 54) Définir ou lier this **************************
+
+function a2() {}
+a.foo = "bar";
+console.log(a);
+
 // **************** 55)  **************************
 // **************** 56)  **************************
 })();
 
 /******/ })()
 ;
-//# sourceMappingURL=main.bundle.js.map
+//# sourceMappingURL=mainEntry.bundle.js.map
