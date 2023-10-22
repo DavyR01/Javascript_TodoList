@@ -90,9 +90,6 @@ arr11.push(4, 5)
 const arr13 = [...arr11, 6];
 const arr14 = [-2, ...arr11];
 
-arr12.pop();
-arr12.shift();
-
 arr12.splice(1, 0, 12.5); // Méthode splice
 
 console.log(arr11);
@@ -101,7 +98,18 @@ console.log(arr13);
 console.log(arr14);
 
 
-// **************** 63)  **************************
+// **************** 63) Supprimer des éléments dans un tableau  **************************
+
+const arr15 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+arr15.shift();
+arr15.pop();
+
+const [, ...arr16] = arr15
+arr16.splice(2, 2)
+
+// console.log(arr15);
+console.log(arr16);
 
 
 // **************** 64)  **************************
