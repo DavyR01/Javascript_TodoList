@@ -253,7 +253,60 @@ function fn3(a, cb) {
    cb(p1, p2)
 }
 
-fn3('affichage de a', (p1, p2) => console.log('cb', p1, p2))
+fn3('affichage de a', (p1, p2) => console.log('cb', p1, p2));
+br();
 
-// **************** 57) **************************
+// **************** 57) Les fermetures (closures) **************************
 
+function powerBy(power) {
+   return function(number) {
+      return number ** power
+   }
+}
+
+const powerBy2 = powerBy(2)
+console.log(powerBy2(3));
+
+console.log(powerBy(2)(3));
+
+// Avec la variable var :q
+const closure = () => {
+   let arr = [];
+   for (var i=0; i<3; i++) {
+      arr.push(function() {
+         console.log(i);
+      })
+   }
+   return arr;
+}
+
+const tab = closure();
+tab[0]();
+tab[1]();
+tab[2]();
+
+// Exemple 2 : 
+
+function fonction1() {
+   const prenom = "Jean";
+   return () => console.log(prenom); // fonction 1 n'est plus sur la stack de part le return mais a quand même accès à la variable prenom (concept de closure)
+ }
+ 
+ fonction1()();
+ const fonction2 = fonction1(); // La fonction 2 capture l'environnement de la fonction 1 grâce à la fermeture.
+//  En fait, la fonction imbriquée a une photographie de son environnement lors de sa création. Cela veut dire que même après la fin de l'exécution de la fonction1() et sa disparition de la stack, la fonction imbriquée peut accèder à l'environnement lexical parent qui est gardé en mémoire.
+ fonction2(); // "Jean"
+
+ // Exemple 3 : 
+
+ function créerCompteur() {
+   let compteur = 0;
+   return () => ++compteur;
+ }
+ 
+ const compteur1 = créerCompteur();
+ const compteur2 = créerCompteur();
+ 
+ compteur1(); // 1
+ compteur1(); // 2
+ compteur2(); // 1
