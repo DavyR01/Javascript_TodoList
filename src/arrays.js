@@ -140,8 +140,45 @@ console.log(index);
 console.log(elem);
 
 
-// **************** 65)  **************************
+// **************** 65) Copier un tableau **************************
 
+const arr19 = [1,2,3, {name: 'soleil'}]
+
+// Copie par référence inutile:
+const copyByRef = arr19; // Inutile car il est très rare que l'on ait besoin de plus d'une référence sur un même tableau (objet)
+
+copyByRef.push(4)
+console.log(arr19);
+
+const b1 = (arr) => {
+   arr19.push(6)
+}
+
+b1(arr19)
+console.log(arr19);
+
+// Copie par valeurs => copyShallow :
+
+const copyShallow = arr19.slice() // Shallow copy (Ne fonctionne qu'avec les primitives car les objets pour rappel vot garder la même référence). Sans paramètres sur le slice, cela copie l'intégralité du paramètre dans un nouveau tableau.
+const copyShallow2 = [...arr19]
+const copyShallow3 = Array.from(arr19)
+
+copyShallow[3].name = 'lune';
+copyShallow.push(7);
+
+console.log("arr19", arr19);
+console.log("copyShallow", copyShallow);
+console.log("copyShallow2", copyShallow2);
+console.log("copyShallow3", copyShallow3);
+
+// Copie par valeurs => copyDeep :
+
+const copyDeep = JSON.parse(JSON.stringify(arr19));
+
+copyDeep[3].name = "mars";
+
+console.log("arr19", arr19);
+console.log("copyDeep", copyDeep);
 
 // **************** 66)  **************************
 
