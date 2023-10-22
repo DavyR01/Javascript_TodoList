@@ -32,10 +32,21 @@ console.log(arr7[arr7.length - 1]);
 arr7.length = 0 // Reset un tableau sans modifier sa référence.
 console.log(arr7);
 
-// **************** 60)  **************************
+// **************** 60) Imbrication de tableaux **************************
+
+const arr8 = [["terre", "lune"], "soleil"]
+
+console.log(arr8[0][0]);
+console.log(arr8[0][arr8[0].length - 1 ]);
+console.log(arr8);
 
 
-// **************** 62)  **************************
+
+// **************** 61) Décomposition de tableaux et opérateur rest  **************************
+
+
+
+// **************** 62)   **************************
 
 
 // **************** 63)  **************************
