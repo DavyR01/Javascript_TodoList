@@ -1,3 +1,5 @@
+import './test' // Sans l'import d'un autre fichier, le mode strict de webPack n'est pas pris en compte. (chapitre 53: this)
+
 const br = () => console.log('\n');
 
 // **************** 46) Les expressions de fonction et leur déclaration **************************
@@ -10,12 +12,12 @@ function func() {
 func();
 
 // expression : On assigne une fonction à une variable
-   // => Fonction nommée :
+// => Fonction nommée :
 const fn = function func2() {
    console.log('func2 exec');
 }
 
-   // => Fonction anonyme : 
+// => Fonction anonyme : 
 const fn2 = function () {
    console.log('func2 exec');
 }
@@ -31,9 +33,9 @@ const factorielle = function f(n) { return n < 2 ? 1 : n * f(n - 1) };
 
 // **************** 47) Paramètres, arguments et paramètres par défaut **************************
 
-function func2 (param = "default2") {
+function func2(param = "default2") {
    // param = param || 'default1';
-   if(param) {
+   if (param) {
       console.log(param.toUpperCase());
    }
 }
@@ -67,7 +69,7 @@ function add2(...numbers) {
 
 function add3(operator, ...numbers) {
    let total = 0;
-   if (operator === "+"){
+   if (operator === "+") {
       numbers.forEach(el => {
          total += el
       });
@@ -75,10 +77,10 @@ function add3(operator, ...numbers) {
    } else console.log('we must add numbers');
 }
 
-add(1,2,3,4,5,6,7,8); br()
-add2(1,2,3,4); br()
-add3("+",1,3,5,7,9,11,13,15)
-add3("*",1,3,5,7,9,11,13,15)
+add(1, 2, 3, 4, 5, 6, 7, 8); br()
+add2(1, 2, 3, 4); br()
+add3("+", 1, 3, 5, 7, 9, 11, 13, 15)
+add3("*", 1, 3, 5, 7, 9, 11, 13, 15)
 
 // **************** 49) Valeur de retour des fonctions **************************
 
@@ -90,7 +92,7 @@ function operation(...numbers) {
    return total
 }
 
-const total = operation(3,6,9,12,15)
+const total = operation(3, 6, 9, 12, 15)
 console.log(total); br()
 
 // **************** 50) Environnement lexical et contexte d’exécution **************************
@@ -125,8 +127,14 @@ c()
 
 
 
+// **************** 53) Le mot-clé this **************************
 
-// **************** 53)  **************************
+function func3() {
+   console.log(this); // this fait référence à undefined en mode strict, donc lorsque l'on importe un fichier par exemple (haut de page). 
+}
+
+func3()
+
 // **************** 54)  **************************
 // **************** 55)  **************************
 // **************** 56)  **************************

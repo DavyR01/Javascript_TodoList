@@ -10,7 +10,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
 		crossorigin="anonymous"></script>
-	<!-- <script type="text/javascript" src="dist/es6.js"></script> -->
+	<script type="text/javascript" src="dist/es6.js"></script>
 	<script>
 		// var c = 3
 		// const $ = (function (){
@@ -28,6 +28,37 @@
 		// console.log($);
 		// console.log($());
 		// console.log('valeur de b :', b);
+	</script>
+	<script>
+		"use strict"; // Le mode strict va nous pousser à optimiser notre code et à empêcher certaines erreurs.
+		// Pas d'association entre this et l'objet global. Le mode strict intervient lorsque l'on ne précise pas l'objet par lequel on invoque une fonction.
+ 
+		// x = 11; // Il ne reconnait pas la valeur x avec le mode strict. Il sera undefined
+
+		// console.log(this); // This fait référence à l'objet window
+		// function func() {
+		// 	console.log(this);
+		// }
+		// console.log(window.func);
+		// // func()
+		// window.func()
+
+		// const obj ={
+		// 	a:1,
+		// 	func() {
+		// 		console.log("Selon le contexte d'exécution : ", this);
+		// 	}
+		// }
+
+		// obj.func()
+
+		// function func2(cb) {
+		// 	cb( )
+		// }
+
+		// func2(obj.func);
+
+
 	</script>
 </head>
 
