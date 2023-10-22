@@ -112,7 +112,32 @@ arr16.splice(2, 2)
 console.log(arr16);
 
 
-// **************** 64)  **************************
+// **************** 64) Trouver des éléments dans un tableau **************************
+
+const arr17 = ['un', '2', 'trois'];
+
+console.log(arr17.indexOf('deux'));
+console.log(arr17[arr17.indexOf('deux')]); // indexOf ne fonctionne qu'avec des primitives dans le tableau.
+console.log(arr17.indexOf(2)); // indexOf ne fonctionne qu'avec des primitives dans le tableau (avec une comparaison stricte ===). Si retourne -1, il n'y a aucune valeur 2 dans le tableau.
+console.log(arr17.includes(2));  // retourne un boolean. includes ne fonctionne qu'avec des primitives aussi.
+
+const arr18 = [
+   {
+      name: 'terre'
+   },
+   {
+      name: 'lune'
+   },
+   {
+      name: 'soleil'
+   }
+]
+
+
+const index = arr18.findIndex(elem => elem.name === 'soleil') // Fonction de callback = fonction de rappel
+const elem = arr18.find(elem => elem.name === 'soleil') // Fonction de callback 
+console.log(index);
+console.log(elem);
 
 
 // **************** 65)  **************************
