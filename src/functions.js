@@ -1,3 +1,4 @@
+
 // import './test' // Sans l'import d'un autre fichier, le mode strict de webPack n'est pas pris en compte. (chapitre 53: this)
 
 const br = () => console.log('\n');
