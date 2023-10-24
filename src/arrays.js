@@ -218,8 +218,28 @@ arr29.reverse()
 
 console.log(arr23, arr24, arr25, arr26, arr27, arr28, arr29);
 
-// **************** 68)  **************************
+// **************** 68) Itérer sur un tableau **************************
 
+const arr30 = [11, 12, 13, 14, 15];
+
+// for (let i = 0; i < arr30.length; i++) {
+//    console.log(arr30[i]);
+// }
+
+for (const i of arr30) {
+   if (i == 12) continue; // Instructions de controle
+   if (i == 14) break;
+   console.log(i);
+}
+
+// Ne pas utiliser for...in... pour les tableaux. Cela n'a aucun intérêt.
+// for (const i in arr30) {
+//    console.log(i);
+// }
+
+arr30.forEach((el, index) => {
+   console.log(`value: ${el}, index: ${index}`);
+});
 
 // **************** 69)  **************************
 
