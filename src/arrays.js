@@ -258,9 +258,9 @@ const arr35 = arr34.map(el => {
 })
 
 const arr36 = arr34.filter(el => el.quantity > 5)
-const arr37 = arr34.filter(el => el.quantity > 8).map(el=>{
+const arr37 = arr34.filter(el => el.quantity > 8).map(el => {
    return {
-      ...el, 
+      ...el,
       name: el.name.toLowerCase() // On opère des transformations directement sur ce nouvel array. Cette key name va être prioritaire et va écraser l'ancienne valeur.
    }
 })
@@ -279,4 +279,32 @@ console.log('arr37 :', arr37); //
 console.log('arr39 :', arr39); // 
 br();
 
-// **************** 70)  **************************
+// **************** 70) D'autres méthodes de programmation fonctionnelle **************************
+
+const panier = [
+   { quantity: 1, name: 'CHAUSSURES', price: 50 },
+   { quantity: 1, name: 'CHEMISES', price: 75 },
+   { quantity: 2, name: 'PANTALONS', price: 60 },
+];
+
+const total = panier.reduce((acc, value, index) => {
+   console.log(`acc : ${acc}, value : ${value}, index : ${index}`);
+   acc += value.price * value.quantity
+   return acc;
+}, 0);
+
+// total refactorisé : 
+const total2 = panier.reduce((acc, value) => (acc += value.price * value.quantity), 0); // 0 sera la valeur initiale.
+// const total2 = panier.reduce((fonction de rappel), (valeur intiale)); 
+
+console.log(total);
+console.log(total2);
+
+// Méthode flat() :
+const tableau0 = [1, 2, [3, 4], [[5], [6,7]]];
+const tableau2 = tableau0.flat();
+const tableau3 = tableau0.flat(2);
+
+console.log(tableau0); // [1, 2, 3, 4, [5], [6, 7]]
+console.log(tableau2); // [1, 2, 3, 4, [5], [6, 7]]
+console.log(tableau3); // [1, 2, 3, 4, 5, 6, 7]
