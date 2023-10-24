@@ -142,7 +142,7 @@ console.log(elem);
 
 // **************** 65) Copier un tableau **************************
 
-const arr19 = [1,2,3, {name: 'soleil'}]
+const arr19 = [1, 2, 3, { name: 'soleil' }]
 
 // Copie par référence inutile:
 const copyByRef = arr19; // Inutile car il est très rare que l'on ait besoin de plus d'une référence sur un même tableau (objet)
@@ -182,9 +182,9 @@ console.log("copyDeep", copyDeep);
 
 // **************** 66) Fusionner des tableaux **************************
 
-const arr20 = [1,2,3]
-const arr21 = [4,5,6]
-const arr22 = [7,8,9]
+const arr20 = [1, 2, 3]
+const arr21 = [4, 5, 6]
+const arr22 = [7, 8, 9]
 
 const merge1 = [...arr20, ...arr21]
 const merge2 = arr20.concat(arr21).concat(arr22)
@@ -192,8 +192,31 @@ const merge2 = arr20.concat(arr21).concat(arr22)
 console.log(merge1);
 console.log(merge2);
 
-// **************** 67)  **************************
 
+// **************** 67) Trier un tableau **************************
+
+const arr23 = [2, 10, 3, 15, 4]
+const arr24 = ["Orange", 'banana', 'apple']
+const arr25 = ["Orange", 'banana', 'apple']
+const arr26 = [2, 10, 3, 15, 4]
+const arr27 = [2, 10, 3, 15, 4]
+const arr28 = [
+   { quantity: 30 }, { quantity: 10 }, { quantity: 40 }, { quantity: 20 }, 
+]
+const arr29 = [2, 10, 3, 15, 4]
+
+
+arr23.sort(); // [10, 15, 2, 3, 4] => Comparaison des modes ASCII des strings selon les valeurs UTF-16 des caractères.
+
+// arr24.sort();
+arr24.sort((a, b) => a.localeCompare(b)); // Ne prend pas en compte la casse.
+arr25.sort((a, b) => a.localeCompare(b) * -1);
+arr26.sort((a, b) => a - b); // Bonne méthode avec les nombres
+arr27.sort((a, b) => b - a);
+arr28.sort((a, b) => a.quantity - b.quantity); // Comparaison avec des objets.
+arr29.reverse()
+
+console.log(arr23, arr24, arr25, arr26, arr27, arr28, arr29);
 
 // **************** 68)  **************************
 
