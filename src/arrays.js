@@ -42,7 +42,6 @@ console.log(arr8);
 br()
 
 
-
 // **************** 61) Décomposition de tableaux et opérateur rest **************************
 
 const arr9 = [1, 2, 3, 4, 5]
@@ -77,7 +76,7 @@ const tableau = [1];
 const [j = 0, k = 2] = tableau;
 console.log('value j :', j); // 1
 console.log('value k :', k); // 2
-
+br()
 
 // **************** 62) Ajouter des éléments à un tableau  **************************
 
@@ -95,7 +94,7 @@ arr12.splice(1, 0, 12.5); // Méthode splice
 console.log(arr11);
 console.log(arr12);
 console.log(arr13);
-console.log(arr14);
+console.log(arr14); br()
 
 
 // **************** 63) Supprimer des éléments dans un tableau  **************************
@@ -109,7 +108,7 @@ const [, ...arr16] = arr15
 arr16.splice(2, 2)
 
 // console.log(arr15);
-console.log(arr16);
+console.log(arr16); br()
 
 
 // **************** 64) Trouver des éléments dans un tableau **************************
@@ -137,7 +136,7 @@ const arr18 = [
 const index = arr18.findIndex(elem => elem.name === 'soleil') // Fonction de callback = fonction de rappel
 const elem = arr18.find(elem => elem.name === 'soleil') // Fonction de callback 
 console.log(index);
-console.log(elem);
+console.log(elem); br()
 
 
 // **************** 65) Copier un tableau **************************
@@ -178,7 +177,7 @@ const copyDeep = JSON.parse(JSON.stringify(arr19));
 copyDeep[3].name = "mars";
 
 console.log("arr19", arr19);
-console.log("copyDeep", copyDeep);
+console.log("copyDeep", copyDeep); br()
 
 // **************** 66) Fusionner des tableaux **************************
 
@@ -190,7 +189,7 @@ const merge1 = [...arr20, ...arr21]
 const merge2 = arr20.concat(arr21).concat(arr22)
 
 console.log(merge1);
-console.log(merge2);
+console.log(merge2); br()
 
 
 // **************** 67) Trier un tableau **************************
@@ -201,7 +200,7 @@ const arr25 = ["Orange", 'banana', 'apple']
 const arr26 = [2, 10, 3, 15, 4]
 const arr27 = [2, 10, 3, 15, 4]
 const arr28 = [
-   { quantity: 30 }, { quantity: 10 }, { quantity: 40 }, { quantity: 20 }, 
+   { quantity: 30 }, { quantity: 10 }, { quantity: 40 }, { quantity: 20 },
 ]
 const arr29 = [2, 10, 3, 15, 4]
 
@@ -216,7 +215,7 @@ arr27.sort((a, b) => b - a);
 arr28.sort((a, b) => a.quantity - b.quantity); // Comparaison avec des objets.
 arr29.reverse()
 
-console.log(arr23, arr24, arr25, arr26, arr27, arr28, arr29);
+console.log(arr23, arr24, arr25, arr26, arr27, arr28, arr29); br()
 
 // **************** 68) Itérer sur un tableau **************************
 
@@ -240,8 +239,44 @@ for (const i of arr30) {
 arr30.forEach((el, index) => {
    console.log(`value: ${el}, index: ${index}`);
 });
+br()
 
-// **************** 69)  **************************
+// **************** 69) Introduction à la programmation fonctionnelle **************************
 
+const arr31 = ['UN', 'DEUX', 'TROIS', 'QUATRE', 'CINQ']
+const arr32 = arr31.map(el => el.toLowerCase())
+const arr33 = new Array
+arr31.forEach(el => arr33.push(el.toLowerCase())) // Identique au map
+
+const arr34 = [
+   { quantity: 5, name: 'CHAUSSURES' },
+   { quantity: 10, name: 'CHEMISES' },
+   { quantity: 15, name: 'PANTALONS' },
+]
+const arr35 = arr34.map(el => {
+   return el.name;
+})
+
+const arr36 = arr34.filter(el => el.quantity > 5)
+const arr37 = arr34.filter(el => el.quantity > 8).map(el=>{
+   return {
+      ...el, 
+      name: el.name.toLowerCase() // On opère des transformations directement sur ce nouvel array. Cette key name va être prioritaire et va écraser l'ancienne valeur.
+   }
+})
+
+const arr38 = ["12", "111", "4", "56", "42"];
+const arr39 = arr38.map(Number).filter(el => el > 20);
+
+console.log('arr31 :', arr31);
+console.log('arr32 :', arr32);
+console.log(arr31 == arr32);
+console.log('arr33 :', arr33); // forEach arr31
+console.log('arr34 :', arr34);
+console.log('arr35 :', arr35); // map
+console.log('arr36 :', arr36); // filter
+console.log('arr37 :', arr37); // 
+console.log('arr39 :', arr39); // 
+br();
 
 // **************** 70)  **************************
