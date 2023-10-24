@@ -180,8 +180,17 @@ copyDeep[3].name = "mars";
 console.log("arr19", arr19);
 console.log("copyDeep", copyDeep);
 
-// **************** 66)  **************************
+// **************** 66) Fusionner des tableaux **************************
 
+const arr20 = [1,2,3]
+const arr21 = [4,5,6]
+const arr22 = [7,8,9]
+
+const merge1 = [...arr20, ...arr21]
+const merge2 = arr20.concat(arr21).concat(arr22)
+
+console.log(merge1);
+console.log(merge2);
 
 // **************** 67)  **************************
 
