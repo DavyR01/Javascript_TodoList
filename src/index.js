@@ -1,5 +1,4 @@
 import './app/app.js'
-import "./dom/dom.js";
 
 const br = () => console.log('\n');
 
