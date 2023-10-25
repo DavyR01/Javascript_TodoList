@@ -1,3 +1,5 @@
+import "../style/style.css"
+
 
 // **************** 76) Le DOM: Le DOM HTML **************************
 
