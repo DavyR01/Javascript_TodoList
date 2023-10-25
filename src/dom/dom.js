@@ -121,3 +121,29 @@ img.removeAttribute('test1');
 console.log(img.getAttribute('test1'));
 
 console.log(input.dataset.test2) // dataset utilisé par Bootstrap notamment.
+
+
+// **************** 80) L'exemple de l'élément HTMLInputElement **************************
+
+// Seul les attributs blur et focus ne sont pas définissables sur la page HTML (ce sont des méthodes). Pour le reste des attributs, c'est possible.
+
+const input2 = document.querySelector("#input2")
+
+input.type = 'date'
+input.focus();
+
+setTimeout(() => {
+   input.blur();
+}, 3000)
+
+input.value = '2023-10-25';
+// input.disabled = true
+input2.placeholder = 'my placeholder'
+input2.minLength = 8
+input2.maxLength = 20
+// input2.max = 50
+
+console.log(input.validity);
+// console.log(input.setCustomValidity(''));
+console.log(input.checkValidity());
+console.log(input.reportValidity());
