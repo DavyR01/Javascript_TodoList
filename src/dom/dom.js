@@ -73,3 +73,38 @@ console.log(paul.closest(".employes")); // div
 console.log(divsLive);
 console.log(divsStatiques);
 // divsLive contiendra une div puis deux. Alors que divsStatiques contiendra toujours une seule div. La différence est que les collections live se mettent à jour automatiquement lorsqu'il y a des changements dans le document, alors que les collections statiques non.  Dans la grande majorité des cas vous n'aurez besoin que de collections statiques pour effectuer vos manipulations.
+
+HTMLInputElement
+
+
+// **************** 78) Modifier des éléments du DOM **************************
+
+const p = document.querySelector("p")
+const section = document.querySelector("section")
+const img = document.querySelector("img")
+const a = document.querySelector("#id-test2")
+
+console.log(section.childNodes[1]);
+console.log(p.childNodes);
+console.log(p.childNodes[0]);
+console.log(p.childNodes[0].nodeValue = "Salut !!");
+
+p.innerHTML = "<strong>HELLO !</strong>" // HELLO !
+p.innerText = "<strong>Helloooooo !</strong>" // <strong>Helloooooo !</strong>
+
+console.log(img.childNodes); // Node attributes
+console.log(img.attributes);
+
+
+img.src = "https://miro.medium.com/v2/resize:fit:640/1*kCD_6R3UkMHkpS_YgFoU9w.jpeg";
+// img.attributes[0].nodeValue = "https://miro.medium.com/v2/resize:fit:640/1*kCD_6R3UkMHkpS_YgFoU9w.jpeg"; // Idem
+img.alt = "image ES6" 
+
+a.href = "https://dyma.fr/developer/list/chapters/core/5dfbc811c7b96a25633bce2c/lesson/javascript/5e091deac4752e64ce912788/11/4"
+
+const maDiv = document.getElementById("ma-div");
+console.log(maDiv.outerHTML);
+
+document.getElementById("ma-div").innerText; // Ceci est un test de text
+
+document.getElementById("ma-div").textContent;
