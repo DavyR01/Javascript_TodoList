@@ -83,6 +83,7 @@ const p = document.querySelector("p")
 const section = document.querySelector("section")
 const img = document.querySelector("img")
 const a = document.querySelector("#id-test2")
+const input = document.querySelector("input")
 
 console.log(section.childNodes[1]);
 console.log(p.childNodes);
@@ -108,3 +109,15 @@ console.log(maDiv.outerHTML);
 document.getElementById("ma-div").innerText; // Ceci est un test de text
 
 document.getElementById("ma-div").textContent;
+
+
+// **************** 79) Attributs et propriétés **************************
+
+console.log(img.attributes);
+console.log(img.hasAttribute('test1')); // Check l'existence d'un attribut et retourne un boolean.
+console.log(img.setAttribute('test1', 'autre chose'));
+console.log(img.getAttribute('test1'));
+img.removeAttribute('test1');
+console.log(img.getAttribute('test1'));
+
+console.log(input.dataset.test2) // dataset utilisé par Bootstrap notamment.
