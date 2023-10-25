@@ -1,3 +1,4 @@
+import './app/app.js'
 
 const br = () => console.log('\n');
 
