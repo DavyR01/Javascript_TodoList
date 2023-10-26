@@ -60,10 +60,49 @@
 
 
 	</script>
+<!-- <link rel="stylesheet" href="./style/style.css"> -->
 <script defer src="mainEntry.bundle.js"></script></head>
 
 <body>
-	<h1>Mon Application pour la formation Javascript</h1>
+	<section class="container">
+		<h1 id="title">Mon Application pour la formation Javascript</h1>
+		<p class="class-test">
+			Je suis un paragraphe
+			<a href="http://dyma.fr">Dyma</a>
+		</p>
+		<p class="class-test2">
+			<a id="id-test2">Dyma cours 78</a>
+		</p>
+		
+		<img 
+			test1="quelque chose"
+			src="https://media.istockphoto.com/id/1470130937/photo/young-plants-growing-in-a-crack-on-a-concrete-footpath-conquering-adversity-concept.webp?b=1&s=170667a&w=0&k=20&c=IRaA17rmaWOJkmjU_KD29jZo4E6ZtG0niRpIXQN17fc=" alt="random1">
+		<img src="https://www.shutterstock.com/image-photo/surreal-concept-roll-world-dice-260nw-1356798002.jpg" alt="random2">
+		<p id="id-2">Mon deuxième paragraphe</p>
+
+		<section class="employes">
+			<ul class="liste-employes">
+			  <li class="employe">Paul</li>
+			  <li class="employe">Jean</li>
+			</ul>
+		</section>
+
+		<div>Je suis la première div</div>
+		<script>
+			const divsLive = document.getElementsByTagName("div");
+			const divsStatiques = document.querySelectorAll("div");
+		</script>
+		<div>Je suis la deuxième div</div>
+
+		<input data-test2="jean" type="text"/>
+		<input id="input2" type="text"/>
+
+		<div id="ma-div">
+			<p>         Un paragraphe</p>
+			<p>     Deux paragraphe</p>
+		 </div>
+
+	</section>
 </body>
 
 </html>
