@@ -83,7 +83,7 @@ const evenment = new MouseEvent("click", {
    bubbles: true,
    clientX: 550,
    clientY: 550
- });
+});
 
 function becomeGreen() {
    square3.style.backgroundColor = 'green'
@@ -99,3 +99,35 @@ square3.addEventListener('mouseout', () => {
 bouton2.addEventListener('click', () => {
    square3.dispatchEvent(new Event('mouseover')) // Permet de simuler un événement natif.
 })
+
+
+// **************** 90) Le bouillonnement et la capture**************************
+
+const square4 = document.querySelector(".container4")
+const span = document.querySelector('span')
+
+square4.addEventListener('click', () => {
+   console.log('click on div');
+}, {
+   capture: true
+})
+
+span.addEventListener('click', () => {
+   console.log('click on span');
+}, {
+   capture: true
+})
+
+// Par défaut, on sera en mode bubbling et pour passer en mode capturing, on rajouter en 3eme paramètre du event listener, la propriété, l’option capture.
+
+
+// Le pattern de la délégation d'événement
+
+const ancetre = document.querySelector("#container5");
+ancetre.addEventListener("click", event => {
+  if (event.target.className != "bouton-supprimer") {
+    return null;
+  }
+  const panneau = event.target.closest(".panneau");
+  return panneau ? panneau.remove() : null;
+});
