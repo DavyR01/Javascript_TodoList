@@ -28,6 +28,49 @@ square.onmouseleave = () => {
 const input1 = document.querySelector("#fonction-flechee");
 const input2 = document.querySelector("#fonction");
 input1.onclick = () => console.log(this);
-input2.onclick = function() {
-  console.log(this);
+input2.onclick = function () {
+   console.log(this);
 };
+
+
+// **************** 88) La méthode addEventListener() **************************
+
+const square2 = document.querySelector(".container2")
+const bouton = document.querySelector("#bouton1");
+
+square2.addEventListener('mouseover', () => {
+   square2.classList.add('red')
+}, {
+   once: true // permet d'exécuter l'event handler une seule fois
+})
+
+square2.addEventListener('mouseover', () => {
+   square2.style.width = '250px'
+   square2.style.height = '250px'
+})
+
+square2.addEventListener('mouseout', () => {
+   square2.classList.remove('red')
+})
+
+square2.addEventListener('mouseout', () => {
+   square2.style.width = '200px'
+   square2.style.height = '200px'
+})
+
+
+const gestionnaireComplexe = {
+  handleEvent(event) {
+    switch (event.type) {
+      case "mousedown":
+        bouton.innerHTML = "Le bouton est pressé";
+        break;
+      case "mouseup":
+        bouton.innerHTML += "...puis relâché.";
+        break;
+    }
+  }
+};
+
+bouton.addEventListener("mousedown", gestionnaireComplexe);
+bouton.addEventListener("mouseup", gestionnaireComplexe);
