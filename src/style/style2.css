@@ -8,6 +8,10 @@ body {
    flex-direction: column;
 }
 
+button {
+   margin-bottom: 5px;
+}
+
 div {
    width: 200px;
    height: 200px;
@@ -21,4 +25,8 @@ div {
 
 .red {
    background-color: red;
+}
+
+.greeeen {
+   background-color: greenyellow;
 }

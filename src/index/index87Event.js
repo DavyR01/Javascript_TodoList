@@ -60,17 +60,42 @@ square2.addEventListener('mouseout', () => {
 
 
 const gestionnaireComplexe = {
-  handleEvent(event) {
-    switch (event.type) {
-      case "mousedown":
-        bouton.innerHTML = "Le bouton est pressé";
-        break;
-      case "mouseup":
-        bouton.innerHTML += "...puis relâché.";
-        break;
-    }
-  }
+   handleEvent(event) {
+      switch (event.type) {
+         case "mousedown":
+            bouton.innerHTML = "Le bouton est pressé";
+            break;
+         case "mouseup":
+            bouton.innerHTML += "...puis relâché.";
+            break;
+      }
+   }
 };
 
 bouton.addEventListener("mousedown", gestionnaireComplexe);
 bouton.addEventListener("mouseup", gestionnaireComplexe);
+
+// **************** 89) Supprimer un gestionnaire d'événement et déclencher un événement **************************
+
+const square3 = document.querySelector(".container3")
+const bouton2 = document.querySelector("#bouton2")
+const evenment = new MouseEvent("click", {
+   bubbles: true,
+   clientX: 550,
+   clientY: 550
+ });
+
+function becomeGreen() {
+   square3.style.backgroundColor = 'green'
+}
+
+square3.addEventListener('mouseover', becomeGreen)
+
+square3.addEventListener('mouseout', () => {
+   square3.style.backgroundColor = '#eee'
+   square3.removeEventListener('mouseover', becomeGreen)
+})
+
+bouton2.addEventListener('click', () => {
+   square3.dispatchEvent(new Event('mouseover')) // Permet de simuler un événement natif.
+})
