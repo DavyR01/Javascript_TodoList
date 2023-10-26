@@ -1,3 +1,11 @@
 .container {
    border: 1px solid red;
 }
+
+.green {
+   background: rgb(200, 255, 193);
+}
+
+.text-primary {
+   color: rgb(89, 0, 167);
+}

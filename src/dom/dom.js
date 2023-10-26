@@ -149,3 +149,37 @@ console.log(input.validity);
 // console.log(input.setCustomValidity(''));
 console.log(input.checkValidity());
 console.log(input.reportValidity());
+
+
+// **************** 82) Modification du style et des classes **************************
+
+const cours82 = document.querySelector(".class-cours82")
+
+// section.style.width = '200px';
+// section.style.backgroundColor = 'purple'; // On utilis du camelCase au lieu d'inscrire background-color car le tiret n'est pas une notation valide en Javascript.
+// console.log(window.getComputedStyle(section)); // CSSStyleDeclaration
+// console.log(section.style);
+
+console.log(cours82.className); // class-cours82
+// cours82.className += ' green text-primary' // On concatène avec le += pour ne pas écraser la class existante class-cours82
+
+console.log(cours82.classList);
+
+cours82.classList.add('green') // Avec classList, on n'écrase aucun valeur déja présentes.
+
+cours82.classList.remove('class-cours82')
+
+setTimeout(() => {
+   cours82.classList.toggle('green')
+   console.log(cours82.classList.contains('green'));
+}, 3000);
+
+setTimeout(() => {
+   cours82.classList.toggle('green')
+   console.log(cours82.classList.contains('green'))
+}, 6000);
+
+
+for (const classes of cours82.classList) {
+   console.log(classes);
+ } // Permet de liste les classes d'un élément en particulier.
