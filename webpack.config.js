@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: {
-    mainEntry : path.resolve(__dirname, "src/index83.js"),
+    mainEntry : path.resolve(__dirname, "src/index/index85.js"),
   },
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -26,7 +26,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, "src/index83.html")
+      template: path.resolve(__dirname, "src/index/index85.html")
     })
   ],
   devtool: "source-map",
