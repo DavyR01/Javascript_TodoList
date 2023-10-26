@@ -125,9 +125,49 @@ span.addEventListener('click', () => {
 
 const ancetre = document.querySelector("#container5");
 ancetre.addEventListener("click", event => {
-  if (event.target.className != "bouton-supprimer") {
-    return null;
-  }
-  const panneau = event.target.closest(".panneau");
-  return panneau ? panneau.remove() : null;
+   if (event.target.className != "bouton-supprimer") {
+      return null;
+   }
+   const panneau = event.target.closest(".panneau");
+   return panneau ? panneau.remove() : null;
 });
+
+
+// **************** 91) Empêcher le comportement par défaut et l'objet event en détails **************************
+
+const form3 = document.querySelector('#form3')
+const input3 = document.querySelector('#input3')
+
+const form4 = document.querySelector('#form4')
+const input4 = document.querySelector('#input4')
+
+form3.addEventListener('submit', (event) => {
+   console.log(event);
+   event.preventDefault()
+})
+
+form4.addEventListener('submit', (event) => {
+   event.preventDefault()
+})
+
+input3.addEventListener('keydown', (e) => {
+   console.log('keydown', e)
+   if (e.key === 'r') {
+      input3.style.backgroundColor = 'black'
+      input3.style.borderColor = 'red'
+      input3.style.color = 'white'
+   }
+})
+
+// input3.addEventListener('keyup', (e)=>console.log('keyup',e))
+// input3.addEventListener('keypress', (e)=>console.log('keypress', e))
+
+form4.addEventListener('click', () => {
+   console.log(('click form'));
+})
+
+input4.addEventListener('click', (event) => {
+   event.stopPropagation()
+   console.log(('click input'));
+   input4.style.borderColor = 'red'
+})

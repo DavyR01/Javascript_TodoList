@@ -16,6 +16,11 @@ div {
    margin-right: 20px;
 }
 
+input {
+   outline: none;
+   border: 2px solid;
+}
+
 .marginHorizontal {
    margin-right: 20px;  
    margin-left: 20px;
