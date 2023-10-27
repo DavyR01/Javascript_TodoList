@@ -40,3 +40,36 @@ const createTodoElement = (todo, index) => {
 }
 
 displayTodos(todos)
+
+
+
+// **************** 94) Ajouter une todo **************************
+
+const form = document.querySelector('form');
+const input = document.querySelector('form > input'); // Pour sélectionner uniquement le champ input contenu dans le form en lui indiquant que l'on veut récupérer l'enfant direct de form.
+
+console.log(form, input);
+
+form.addEventListener('submit', (e) => {
+   e.preventDefault()
+   // console.log(input);
+   const value = input.value
+   console.log(value);
+   input.value = '' // Permet de vider le champ
+   addTodo(value)
+   console.log(todos);
+   displayTodos(todos); // On réinvoque la méthode en rafraichissant la liste des todos.
+})
+
+const addTodo = (text) => {
+   todos.push(
+      {
+         text, // text: text
+         done: false
+      }
+   )
+}
+
+console.log('One time');
+
+// displayTodos(todos);
