@@ -77,7 +77,7 @@ console.log(form, input);
 form.addEventListener('submit', (e) => {
    e.preventDefault()
    // console.log(input);
-   const value = input.value
+   const value = input.value.trim()
    console.log(value);
    input.value = '' // Permet de vider le champ
    addTodo(value)
@@ -85,12 +85,14 @@ form.addEventListener('submit', (e) => {
 })
 
 const addTodo = (text) => {
-   todos.push(
-      {
-         text, // text: text
-         done: false
-      }
-   )
+   if (text !== '' && text !== null) {
+      todos.push(
+         {
+            text, // text: text
+            done: false
+         }
+      )
+   }
    displayTodos(todos); // On réinvoque la méthode en rafraichissant la liste des todos.
 }
 
@@ -161,8 +163,8 @@ const toggleEditMode = (index) => {
    displayTodos()
 }
 
-const editTodo = (index, input)=> {
-   todos[index].text = input.value; 
+const editTodo = (index, input) => {
+   todos[index].text = input.value;
    toggleEditMode(index)
 }
 
