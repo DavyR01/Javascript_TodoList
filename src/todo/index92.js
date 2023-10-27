@@ -10,17 +10,23 @@ const ul = document.querySelector('ul')
 const todos = [
    {
       text: 'Première todo',
-      done: false
+      done: false,
+      editMode: false
    },
    {
       text: 'Faire du javascript',
-      done: true
+      done: true,
+      editMode: false
    }
 ]
 
 const displayTodos = (/* todosArray */) => {
    const todosNode = todos.map((todo, index) => {
-      return createTodoElement(todo, index)
+      if (todo.editMode) {
+         return createTodoEditElement(todo, index)
+      } else {
+         return createTodoElement(todo, index)
+      }
    })
    console.log(todosNode);
    ul.innerHTML = ''; // on vide le HTML éventellement contenu dans ul.
@@ -30,8 +36,13 @@ const displayTodos = (/* todosArray */) => {
 
 const createTodoElement = (todo, index) => {
    const li = document.createElement("li");
+
    const buttonDelete = document.createElement("button")
    buttonDelete.innerHTML = `Supprimer`;
+
+   const buttonEdit = document.createElement("button")
+   buttonEdit.innerHTML = `Editer`;
+
    buttonDelete.addEventListener('click', (event) => {
       event.stopPropagation()
       console.log(event);
@@ -39,21 +50,21 @@ const createTodoElement = (todo, index) => {
       deleteTodo(index) // closure avec index, La valeur de l'index passé est ainsi liée à l'environnement lexical et non au contexte d'exécution.
       console.log(todos);
    })
+   buttonEdit.addEventListener('click', event => {
+      event.stopPropagation();
+      toggleEditMode(index)
+   })
    li.innerHTML = `
       <span class="todo ${todo.done ? 'done' : ''}"></span>
       <p>${todo.text}</p>
-      <button>Editer</button>
    `;
    li.addEventListener('click', (event) => {
       console.log(index);
       toggleTodo(index);
    })
-   li.appendChild(buttonDelete)
+   li.append(buttonEdit, buttonDelete)
    return li;
 }
-
-displayTodos(todos)
-
 
 
 // **************** 94) Ajouter une todo **************************
@@ -112,7 +123,7 @@ const toggleTodo = (index) => {
 // }
 
 
- // Exemples opérateur de double négation !!
+// Exemples opérateur de double négation !!
 
 console.log(!!NaN); // false
 console.log(!!'woooooooord'); // true
@@ -120,3 +131,40 @@ console.log(!!12345); // true
 console.log(!!undefined); // false
 console.log(!!null); // false
 console.log(!!0); // false
+
+
+// **************** 97) Editer une todo **************************
+
+const createTodoEditElement = (todo, index) => {
+   const li = document.createElement('li');
+   const input = document.createElement('input');
+   input.type = 'text';
+   input.value = todo.text;
+   const buttonSave = document.createElement('button');
+   buttonSave.innerHTML = 'Save';
+   const buttonCancel = document.createElement('button');
+   buttonCancel.innerHTML = 'Cancel';
+   buttonCancel.addEventListener('click', event => {
+      event.stopPropagation();
+      toggleEditMode(index)
+   })
+   buttonSave.addEventListener('click', (event) => {
+      event.stopPropagation()
+      editTodo(index, input)
+   })
+   li.append(input, buttonCancel, buttonSave);
+   return li;
+};
+
+const toggleEditMode = (index) => {
+   todos[index].editMode = !todos[index].editMode;
+   displayTodos()
+}
+
+const editTodo = (index, input)=> {
+   todos[index].text = input.value; 
+   toggleEditMode(index)
+}
+
+
+displayTodos(todos)

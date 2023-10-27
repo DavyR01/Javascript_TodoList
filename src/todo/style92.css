@@ -59,6 +59,10 @@ li {
    margin-bottom: 10px;
 }
 
+li input {
+   flex: 1
+}
+
 li p {
    flex: 1
 }
