@@ -33,6 +33,7 @@ const createTodoElement = (todo, index) => {
    const buttonDelete = document.createElement("button")
    buttonDelete.innerHTML = `Supprimer`;
    buttonDelete.addEventListener('click', (event) => {
+      event.stopPropagation()
       console.log(event);
       console.log('index : ', index);
       deleteTodo(index) // closure avec index, La valeur de l'index passé est ainsi liée à l'environnement lexical et non au contexte d'exécution.
@@ -43,6 +44,10 @@ const createTodoElement = (todo, index) => {
       <p>${todo.text}</p>
       <button>Editer</button>
    `;
+   li.addEventListener('click', (event) => {
+      console.log(index);
+      toggleTodo(index);
+   })
    li.appendChild(buttonDelete)
    return li;
 }
@@ -66,7 +71,6 @@ form.addEventListener('submit', (e) => {
    input.value = '' // Permet de vider le champ
    addTodo(value)
    console.log(todos);
-   displayTodos(todos); // On réinvoque la méthode en rafraichissant la liste des todos.
 })
 
 const addTodo = (text) => {
@@ -76,6 +80,7 @@ const addTodo = (text) => {
          done: false
       }
    )
+   displayTodos(todos); // On réinvoque la méthode en rafraichissant la liste des todos.
 }
 
 console.log('One time');
@@ -89,3 +94,29 @@ const deleteTodo = (index) => {
    todos.splice(index, 1)
    displayTodos(/* todosArray */)
 }
+
+// **************** 96) Modifier le statut d'une todo**************************
+
+const toggleTodo = (index) => {
+   todos[index].done = !todos[index].done
+   displayTodos()
+}
+
+// const toggleTodo = (index) => {
+//    if (todos[index].done == true) {
+//       todos[index].done = false
+//    } else {
+//       todos[index].done = true
+//    }
+//    displayTodos()
+// }
+
+
+ // Exemples opérateur de double négation !!
+
+console.log(!!NaN); // false
+console.log(!!'woooooooord'); // true
+console.log(!!12345); // true
+console.log(!!undefined); // false
+console.log(!!null); // false
+console.log(!!0); // false
