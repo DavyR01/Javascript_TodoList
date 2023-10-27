@@ -18,7 +18,7 @@ const todos = [
    }
 ]
 
-const displayTodos = (todos) => {
+const displayTodos = (/* todosArray */) => {
    const todosNode = todos.map((todo, index) => {
       return createTodoElement(todo, index)
    })
@@ -30,12 +30,20 @@ const displayTodos = (todos) => {
 
 const createTodoElement = (todo, index) => {
    const li = document.createElement("li");
+   const buttonDelete = document.createElement("button")
+   buttonDelete.innerHTML = `Supprimer`;
+   buttonDelete.addEventListener('click', (event) => {
+      console.log(event);
+      console.log('index : ', index);
+      deleteTodo(index) // closure avec index, La valeur de l'index passé est ainsi liée à l'environnement lexical et non au contexte d'exécution.
+      console.log(todos);
+   })
    li.innerHTML = `
       <span class="todo ${todo.done ? 'done' : ''}"></span>
       <p>${todo.text}</p>
       <button>Editer</button>
-      <button>Supprimer</button>
    `;
+   li.appendChild(buttonDelete)
    return li;
 }
 
@@ -73,3 +81,11 @@ const addTodo = (text) => {
 console.log('One time');
 
 // displayTodos(todos);
+
+
+// **************** 95) Supprimer une todo **************************
+
+const deleteTodo = (index) => {
+   todos.splice(index, 1)
+   displayTodos(/* todosArray */)
+}
