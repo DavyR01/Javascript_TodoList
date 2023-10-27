@@ -192,6 +192,33 @@ const doubler = multiplier.bind(2); // définir this comme étant la valeur 2
 console.log(doubler(4));  //  8
 br();
 
+
+
+function Product(name, price) {
+	this.name = name;
+	this.price = price;
+ }
+ 
+ function Food(name, price) {
+	Product.call(this, name, price);
+	this.category = "food";
+ }
+ 
+ class Toy {
+	constructor(name, price) {
+		Product.call(this, name, price);
+		this.category = "toy";
+	}
+}
+ 
+var cheese = new Food("feta", 5);
+var fun = new Toy("robot", 40);
+var test1 = new Product("test2", 40);
+
+console.log(cheese, fun, test1);
+
+
+
 // **************** 55) Les fonctions fléchées **************************
 
 // On déclare un objet : 
@@ -217,32 +244,33 @@ const b5 = {
 
 a5.call(b5)
 a5(b5) // Lorsque l'on déclarer une arrow function, le this est toujours le this du contexte de l'environnement lexical du parent.
+console.log(a5.call(b5) === a5(b5)); // true
 
 // On déclare une méthode avec les functions pour que le this fasse référence  l'objet parent et non l'objet global :  
 
 const a6 = {
    foo: "bar",
-   fn: () => {
-      console.log(this); // Ici le this fait référence à l'objet global (arrow function). On déclare notre fonction lorsque l'on déclare l'objet. Et l'environnement lexical est l'objet global.
-   }
-   // fn: function () {
-   //    console.log(this); // Ici le this fait référence à l'objet parent.
-   // }
-}
-
-a6.fn() // Correspond à l'objet global
-
-const a7 = {
-   foo: "bar",
-   fn() {
-      const fn2 = () => {
-         console.log(this);
+   fn1: () => {
+      console.log('fn1 : ', this); // Ici le this fait référence à l'objet global (arrow function). On déclare notre fonction lorsque l'on déclare l'objet. Et l'environnement lexical est l'objet global. Donc objet vide.
+   },
+   fn4: function () {
+      console.log('fn4 : ', this); // Ici le this fait référence à l'objet parent.
+   },
+   fn5() {
+      console.log('fn5 : ', this); // Ici le this fait référence à l'objet parent. fn4 et fn5 sont identiques, on a juste enlevé (: function).
+   },
+   fn6() {
+      const fn7 = () => {
+         console.log('fn7 inside fn6 : ', this);
       }
-      fn2()
+      fn7()
    }
 }
 
-a7.fn() // Correspond à l'objet a7
+a6.fn1() // Correspond à l'objet global donc objet vide car pas de mode strict
+a6.fn4()
+a6.fn5()
+a6.fn6() // Correspond à l'environnement lexicale de l'objet a6. Même résultat que fn4 et fn5.
 br();
 
 // **************** 56) Les fonctions de rappel (callback) **************************

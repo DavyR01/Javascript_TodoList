@@ -1,7 +1,10 @@
 
+import '../functions.js'
+
 // **************** 87) Utilisation des propriétés du DOM on* **************************
 
 import '../style/style2.css'
+// import '../functions'
 
 const square = document.querySelector("div")
 
@@ -10,8 +13,8 @@ console.log(square);
 
 square.onmouseover = () => {
    square.classList.toggle('blue')
-   // square.classList.add('blue')
-   // square.style.backgroundColor = 'blue'
+   // square.classList.add('blue') // Se réfère à la classe blue
+   // square.style.backgroundColor = 'blue' // Valeur blue de la propriété style
    console.log('over !');
 }
 
@@ -169,5 +172,15 @@ form4.addEventListener('click', () => {
 input4.addEventListener('click', (event) => {
    event.stopPropagation()
    console.log(('click input'));
+   // input4.classList.add('border-red')
    input4.style.borderColor = 'red'
+})
+
+document.addEventListener('click', (event) => {
+   console.log(event);
+   if (!input4.contains(event.target) && !form4.contains(event.target)) {
+      console.log('click outside input4');
+      // input4.classList.remove('border-red')
+      input4.style.borderColor = 'black'
+   }
 })
