@@ -35,6 +35,9 @@ const promesse1 = new Promise((resolve, reject) => {
    reject('promesse 1 failed')
 });
 
+// const promesse1 = Promise.reject("promesse 1 failed");
+
+
 promesse1
    .then(result => console.log(result))
    .catch(err => console.error(err))
@@ -46,7 +49,6 @@ const promesse2 = new Promise((resolve, reject) => {
    setTimeout(() => {
       resolve('timer promesse2 finished')
    }, 1000);
-
 });
 
 promesse2
@@ -97,8 +99,8 @@ promesse4
    ))
    .catch(err => console.error('catch error 4 :', err))
    .then(result => {
-      console.log('then 5 :', result)
-      // throw new Error('throw error 4 after catch') // Non protégé par le catch.
+      // throw new Error('throw error 4 after catch') // Non protégé par le catch 
+      console.log('then 5 affiché :', result)
    })
 
 // le 1er then retourne une nouvelle promesse. Donc c'est sur cette nouvelle promesse que l'on va positionner le then. Et la 1ere promesse retourne 'new value 3' donc aura cette valeur dans la nouvelle promesse.
@@ -137,8 +139,8 @@ const promesse6 = new Promise((resolve, reject) => {
 
 promesse6
    .then(result => {
-      console.log('then 7 :', result)
       throw new Error('throw error 6')
+      console.log('then 7 :', result)
    }/* , err => console.error('an error promesse 6') */)
    .catch(err => console.error('catch error 6 :', err))
    .finally(() => console.log('finally promesse 6'))
@@ -155,8 +157,8 @@ const promesse7 = new Promise((resolve, reject) => {
    }, 6000);
    // reject('promesse 7 failed')
 }).then(result => {
-   console.log('then 8 :', result)
    throw new Error('throw error 7')
+   console.log('then 8 :', result)
 })
 
 

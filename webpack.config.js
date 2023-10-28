@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: {
-    mainEntry : path.resolve(__dirname, "src/async/async98.js"), // Important
+    mainEntry : path.resolve(__dirname, "src/async/async101.js"), // Important
   },
   output: {
     path: path.resolve(__dirname, "dist"),
