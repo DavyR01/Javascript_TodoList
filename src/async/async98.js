@@ -25,8 +25,37 @@ const intervalId = setInterval(() => {
 
 console.log(intervalId);
 
-// clearInterval(intervalId)
+clearInterval(intervalId)
 
 
+// **************** 99) Les promesses **************************
+
+const promesse1 = new Promise((resolve, reject) => {
+   // resolve("Promesse ok !")
+   reject('promesse 1 failed')
+});
+
+promesse1
+   .then(result => console.log(result))
+   .catch(err => console.log(err))
+
+// promesse1
+// .then(result => console.log(result), err => console.log(err)) 
+
+console.log(promesse1);
 
 
+const promesse2 = new Promise((resolve, reject) => {
+   setTimeout(() => {
+      resolve('timer promesse2 finished')
+   }, 3000);
+
+});
+
+promesse2
+   .then(result => console.log(result))
+   .catch(err => console.log(err))
+
+console.log(promesse2);
+
+// On peut passer une 2eme fonction de callback en 2eme paramètre du then qui représente le catch. Les 2 façons de faire sont identiques pour la gestion d'erreur. Cependant, cette notation est très rare et non recommandée.
