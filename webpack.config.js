@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: {
-    mainEntry : path.resolve(__dirname, "src/async/thencatch101.js"), // Important
+    mainEntry : path.resolve(__dirname, "src/async/async-await.js"), // Important
   },
   output: {
     path: path.resolve(__dirname, "dist"),
