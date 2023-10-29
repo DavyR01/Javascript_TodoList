@@ -58,6 +58,6 @@ console.log('hello');
 
 
 // ! Promise.resolve() ou Promise.reject() 
-// On reste tout de même sur event asynchrone même si c'est instantanée. Donc tout événement asynchrone se déclenchera après le reste de l'exécution du script.
+// On reste tout de même sur event asynchrone même si c'est instantanée et qu'il n'y a pas de timer. Donc tout événement asynchrone se déclenchera après le reste de l'exécution du script.
 
 

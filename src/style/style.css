@@ -9,3 +9,8 @@
 .text-primary {
    color: rgb(89, 0, 167);
 }
+
+button {
+   width: 90px;
+   height: 45px;
+}
