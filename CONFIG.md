@@ -6,6 +6,9 @@ npm i -D @babel/cli @babel/core @babel/preset-env babel-loader css-loader html-w
 - Rajouter node_modules et dist dans le fichier .gitignore.
 - Modifier le fichier package.json
 - Importer le fichier de style css.
+- Pour utiliser des polyfills avec webpack pour la compatibilité des navigateurs sur les fonctionnalités récentes :
+   - npm i -D core-js@3 regenerator-runtime
+   - Puis modifier le fichier babel.config
 
 Astuces : 
 
