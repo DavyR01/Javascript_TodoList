@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: {
-    mainEntry : path.resolve(__dirname, "src/async/loop.js"), // Important
+    mainEntry : path.resolve(__dirname, "src/network/network.js"), // Important
   },
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -26,7 +26,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, "src/async/async.html") // Important
+      template: path.resolve(__dirname, "src/network/network.html") // Important
     })
   ],
   devtool: "source-map",
