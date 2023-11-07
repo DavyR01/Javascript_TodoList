@@ -262,3 +262,16 @@ form2.onsubmit = e => {
       afficherLeResultat2(`${nom} : ${valeur}`);
    }
 };
+
+
+
+
+// **************** 112) La Web API URL **************************
+
+const url = new URL('https://wikipedia.fr/napoleon?key1=value1 &key2=value2');
+
+url.searchParams.append("key3", "value3")
+url.searchParams.set("key4", "tom&jerry")
+
+console.log(url);
+console.log(url.toString());
