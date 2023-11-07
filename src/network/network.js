@@ -155,7 +155,8 @@ const promesse2 = fetch("https://jsonplaceholder.typicode.com/users", {
       'Content-Type': 'application/json'
    },
    // mode: "cors",
-   // cache: "default"
+   // cache: "default",
+   // credentials: 'include'
 })
 promesse2.then(async response => {
    try {
@@ -171,5 +172,9 @@ promesse2.then(async response => {
 
 
 // **************** 108) Les CORS **************************
+
+
+// **************** 109) Options avancées des requêtes fetch **************************
+
 
 
