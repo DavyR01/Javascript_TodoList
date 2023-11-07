@@ -177,4 +177,31 @@ promesse2.then(async response => {
 // **************** 109) Options avancées des requêtes fetch **************************
 
 
+// **************** 110) Annuler des requêtes en cours **************************
 
+const controller = new AbortController();
+
+console.log(controller);
+
+controller.signal.addEventListener('abort', (event) => {
+   console.log(event);
+})
+
+
+const promesse3 = fetch("https://jsonplaceholder.typicode.com/users", {
+   signal: controller.signal
+})
+
+const promesse4 = fetch("https://jsonplaceholder.typicode.com/todos", {
+   signal: controller.signal
+})
+
+controller.abort()
+
+promesse3
+   .then(response => console.log(response))
+   .catch(e => console.log('The fetch has been aborted : ', e))
+
+promesse4
+   .then(response => console.log(response))
+   .catch(e => console.log('The fetch has been aborted : ', e))
