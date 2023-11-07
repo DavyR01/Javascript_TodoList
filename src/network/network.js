@@ -135,3 +135,35 @@ button1.addEventListener('click', () => {
    // }, 2000);
 })
 
+
+
+
+
+
+// **************** 107) Effectuer une requête POST **************************
+
+
+const user = {
+   name: 'tintin',
+   email: 'tintin@gmail.com'
+}
+
+const promesse2 = fetch("https://jsonplaceholder.typicode.com/users", {
+   method: 'POST',
+   body: JSON.stringify(user),
+   headers: {
+      'Content-Type': 'application/json'
+   },
+   // mode: "cors",
+   // cache: "default"
+})
+promesse2.then(async response => {
+   try {
+      console.log(response);
+      const body = await response.json()
+      console.log(body);
+   } catch (error) {
+      console.log(error);
+   }
+
+})
