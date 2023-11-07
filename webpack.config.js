@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: {
-    mainEntry : path.resolve(__dirname, "src/network/network.js"), // Important
+    mainEntry : path.resolve(__dirname, "src/network/xmlHttpRequest.js"), // Important
   },
   output: {
     path: path.resolve(__dirname, "dist"),
