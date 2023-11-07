@@ -205,3 +205,60 @@ promesse3
 promesse4
    .then(response => console.log(response))
    .catch(e => console.log('The fetch has been aborted : ', e))
+
+
+
+
+// **************** 111) Les objets FormData **************************
+
+const form = document.querySelector('form');
+form.addEventListener('submit', (e) => {
+   e.preventDefault()
+
+   const formData = new FormData(form); // Permet d'extaire toutes les informations d'un formulaire facilement.
+
+   console.log(formData);
+
+   formData.append('name', '123');
+   formData.set('email', 'tintin@gmail.fr')
+   formData.set('email', 'tintin2@gmail.fr')
+   formData.set('email', 'tintin3@gmail.fr')
+   console.log(formData.get('email'));
+
+   for (let pair of formData) {
+      console.log(pair);
+   }
+
+   const fetchData = async () => {
+      await fetch('/test', {
+         method: 'POST',
+         body: formData
+      })
+   }
+   fetchData()
+})
+
+
+
+
+// Exemple
+
+const ul = document.createElement("ul");
+
+function afficherLeResultat2(data) {
+   const li = document.createElement("li");
+   li.innerText = data;
+   li.classList.add("item");
+   ul.append(li);
+   document.querySelector("#app2").append(ul);
+}
+
+const form2 = document.querySelector("#monForm");
+
+form2.onsubmit = e => {
+   e.preventDefault();
+   const data = new FormData(form2);
+   for (const [nom, valeur] of data) {
+      afficherLeResultat2(`${nom} : ${valeur}`);
+   }
+};
