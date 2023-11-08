@@ -58,7 +58,7 @@ const terre2 = {
 
 console.log(terre2);
 
-/********* La décomposition d'objet ********/
+// ********* La décomposition d'objet ********/
 
 const resident = 50
 
@@ -80,7 +80,7 @@ const { resident: residentTerre, satellite3 = "Valeur par défaut", ...rest } = 
 console.log("With spread operator :", resident, residentTerre, satellite3, rest); // Avec le spread operator rest, on récupère toutes les propriétés qui n'ont pas été explicitement affectés à des variables provenant de l' objet en question, ici terre3.
 
 
-/************************** Tester l'existence et la valeur d'une propriété ************************/
+// ************************** Tester l'existence et la valeur d'une propriété ************************
 
 if ("resident" in terre3 && terre3.hasOwnProperty('resident')) {
 	console.log('the key resident is present in the object terre3');
@@ -108,7 +108,7 @@ copyTerre3['exemple'] = 'add exemple'
 console.log(copyTerre3);
 
 
-/************************** Fusionner des objets ****************************/
+//************************** Fusionner des objets ****************************/
 
 const terre4 = {
 	population: 10e7,
@@ -137,7 +137,7 @@ console.log(terreSpread);
 console.log(terre4 === terreSpread); // false
 
 
-/************************** Comparer des objets ****************************/
+//************************** Comparer des objets ****************************/
 
 const d = { a: 1 }
 const e = { a: 1 }
@@ -147,7 +147,7 @@ console.log(d === e); //false car pas la même référence. On compare les réf�
 console.log(f === e); //true car dans ce cas, on aura la même adresse sur la heap, elles contiennent la même référence. Ces 2 objets pointent sur le même objet de la heap donc si on modifien l'un, l'autre sera modifié.
 
 
-/************************** Itérer sur des objets ****************************/
+// ************************** Itérer sur des objets ****************************/
 
 const obj = {
 	a: "un",
@@ -167,7 +167,7 @@ console.log(Object.values(obj)); // On extrait les différentes valeurs de l'obj
 console.log(Object.entries(obj)); // On extrait les différentes propriétés de l'objet en renvoyant un tableau contenant des tableaux.
 
 
-/************************** Le format JSON != XML ****************************/
+// ************************** Le format JSON != XML ****************************/
 
 const obj2 = {
 	firstname: 'Jean',
