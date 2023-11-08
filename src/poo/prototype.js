@@ -116,7 +116,7 @@ function Car2(brand) {
    this.brand = brand;
 }
 
-Car2.prototype.stop = function() {
+Car2.prototype.stop = function () {
    console.log('break');
 }
 
@@ -135,7 +135,7 @@ Object.prototype = {
 }
 
 const foo = {};
-const bar =  new Object();
+const bar = new Object();
 
 console.log(foo);
 
@@ -150,3 +150,33 @@ console.log(Date.__proto__.__proto__ === foo.__proto__);
 console.log(Function.__proto__.__proto__);
 
 
+
+// **************** 151) Utilisation des prototypes **************************
+
+
+const vehicle4 = {
+   hasEngine: true
+};
+
+const car3 = Object.create(vehicle4, {
+   wheels: {
+      value: 4,
+      writable: true,
+      enumerable: true,
+      configurable: true
+   }
+})
+
+console.log(car3);
+console.log(Object.getPrototypeOf(car3));
+
+
+
+
+const car4 = {wheels: 6}
+
+console.log(Object.getPrototypeOf(car4));
+
+Object.setPrototypeOf(car4, vehicle4)
+
+console.log(Object.getPrototypeOf(car4));
