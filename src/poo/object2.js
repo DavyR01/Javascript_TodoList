@@ -61,7 +61,7 @@ const user2 = {
 }
 
 Object.defineProperty(user2, "fullname1", {
-   get: function() {
+   get: function () {
       return this.firstname + " " + this.lastname;
    },
    set() {
@@ -75,3 +75,52 @@ const descriptor2 = Object.getOwnPropertyDescriptor(user2, 'fullname1')
 
 console.log(descriptor2);
 console.log(user2.fullname1);
+
+
+
+// **************** 147) La POO et les constructeurs **************************
+
+// const tesla = {
+//    brand: 'tesla',
+//    roues: 4,
+//    hasEngine: true
+// };
+
+// const renault = {
+//    brand: 'renaults',
+//    roues: 4,
+//    hasEngine: true
+// };
+
+
+// function Car(brand) {
+//    this.brand = brand;
+//    this.roues = 4;
+//    this.hasEngine = true;
+// }
+
+class Car {
+   constructor(brand) {
+      // this = {};
+      this.brand = brand;
+      this.roues = 4;
+      this.hasEngine = true;
+      this.start = () => {
+         console.log('Vroum');
+      };
+      this.stop = function () {
+         console.log('Break');
+      }
+
+      // return this // Par défautl le this est retourné, sinon on peut retourner un objet comme un objet vide. C'est cette objet vide qui sera pris en compte.
+   }
+}
+
+const tesla = new Car('tesla');
+const renault = new Car("renault")
+
+console.log(tesla);
+console.log(renault);
+
+tesla.start()
+tesla.stop()
