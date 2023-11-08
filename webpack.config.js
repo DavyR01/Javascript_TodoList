@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: {
-    mainEntry : path.resolve(__dirname, "src/poo/prototype.js"), // Important
+    mainEntry : path.resolve(__dirname, "src/class/class.js"), // Important
   },
   output: {
     path: path.resolve(__dirname, "dist"),

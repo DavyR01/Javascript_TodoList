@@ -1,0 +1,93 @@
+[33m8353eb0[m[33m ([m[1;36mHEAD -> [m[1;32mfromMain[m[33m)[m Chapitre 21: Leçon 153 - Déclaration d'une classe
+[33mfade5df[m[33m ([m[1;31morigin/fromMain[m[33m)[m Chapitre 20: Leçon 152 - API d'Object
+[33m1bf8d85[m Chapitre 20: Leçon 151 - Utilisation des prototypes
+[33mce2f144[m Chapitre 20: Leçon 150 - Les prototypes natifs
+[33m6eb0bfb[m Chapitre 20: Leçon 149 - Le pattern constructeur et la propriété prototype
+[33mf260e7d[m Chapitre 20: Leçon 148 - Introduction aux prototypes
+[33m533eb6f[m Chapitre 20: Leçon 147 - La POO et les constructeurs
+[33m35253c2[m Chapitre 20: Leçon 146 - Les accesseurs et les mutateurs
+[33m020c535[m Chapitre 20: Leçon 145 - Objectifs et description des propriétés d'un objet
+[33m81c692c[m Chapitre 14 : Leçon 114 - Utilisations avancées de XMLHttpRequest
+[33m525b33f[m Chapitre 14 : Leçon 113 - XMLHttpRequest
+[33mfe25f61[m Chapitre 14 : Leçon 112 - La Web API URL
+[33ma8c4d47[m Chapitre 14 : Leçon 111 - Les objets FormData
+[33m875276c[m Chapitre 14 : Leçon 110 - Annuler des requêtes en cours
+[33mafa9c8c[m Chapitre 14 : Leçon 109 - Options avancées des requêtes fetch
+[33m763162e[m Chapitre 14 : Leçon 108 - Les CORS
+[33m8d0c8ef[m Chapitre 14 : Leçon 107 - Effectuer une requête POST
+[33m5777cdc[m Chapitre 14 : Leçon 106 - Première requête HTTP avec fetch
+[33m7b6b978[m Chapitre 14 : Leçon 104 - Event loop
+[33m5539057[m Chapitre 14 : Leçon 103 - Les fonctions asynchrones avec async / await
+[33mfffbacf[m Chapitre 14 : Leçon 102 - Utilisation de polyfills avec Webpack
+[33mc2797cc[m Chapitre 14 : Leçon 101 - Les méthodes des promesses
+[33md311b8e[m Chapitre 14 : Leçon 100 - Chaîner les promesses
+[33m404926b[m Chapitre 14 : Leçon 99 - Les promesses
+[33m8699b8b[m Chapitre 14 : Leçon 98 - Introduction à l'asynchrone et timers
+[33m3c6e765[m Chapitre 13 : Exercice - Majuscule texte todo
+[33m3b24c29[m Chapitre 13 : Exercice - Empecher l'ajout de todo vide
+[33mbee9014[m Chapitre 13 : Leçon 97 - Editer une todo
+[33m1dad727[m Chapitre 13 : Leçon 96 - Modifier le statut d'une todo
+[33mfff89de[m Chapitre 13 : Leçon 95- Supprimer une todo
+[33mfcc9f67[m  Chapitre 13 : Leçon 94 - Ajouter une todo
+[33m67c327f[m Chapitre 13 : Leçon 93 - Affichage des todos
+[33m4277df4[m Chapitre 13 : Leçon 92 - Présentation du projet Todo
+[33mf8ac81c[m Chapitre 8 : Leçon 55 - Les fonctions fléchées
+[33m9652860[m Chapitre 12 : Leçon 91 - Empêcher le comportement par défaut et l'objet event en détails
+[33m325b255[m Chapitre 12 : Leçon 90 -Le bouillonnement et la capture
+[33me9e31c2[m Chapitre 12 : Leçon 89 - Supprimer un gestionnaire d'événement et déclencher un événement
+[33md6c6e27[m Chapitre 12 : Leçon 88 - La méthode addEventListener()
+[33m55e859c[m Chapitre 12 : Leçon 87 - Utilisation des propriétés du DOM on*
+[33m7149a61[m Chapitre 11 : Leçon 85 - Supprimer et remplacer des nœuds
+[33m32e297b[m Chapitre 11 : Leçon 84 - Positionner des nœuds
+[33m9a14fbf[m Chapitre 11 : Leçon 83 - Créer des nœuds
+[33ma1b9e14[m Chapitre 11 : Leçon 82 - Modification du style et des classes
+[33m86810da[m Chapitre 11 : Leçon 81 - Utilisation de CSS avec Webpack (npm run webpack)
+[33m5a1e0b6[m  Chapitre 11 : Leçon 81 - Utilisation de CSS avec Webpack
+[33m9fe976e[m Chapitre 11 : Leçon 80 - L'exemple de l'élément HTMLInputElement
+[33mce8f8bf[m  Chapitre 11 : Leçon 79 - Attributs et propriétés
+[33m32dce54[m Chapitre 11 : Leçon 78 - Modifier des éléments du DOM
+[33m105567c[m Chapitre 11 : Leçon 77 - Sélectionner des éléments du DOM
+[33m79d26d8[m Chapitre 11 : Leçon 76 - Le DOM HTML
+[33md8b7d5f[m Chapitre 10 : Leçon 74 - Réexporter et les imports dynamiques
+[33mf1d7bc6[m Chapitre 10 : Leçon 73 - Importer
+[33m815b07c[m Chapitre 10 : Leçon 72 - Exporter
+[33m03b4452[m[33m ([m[1;32mfromMainBackUp[m[33m)[m Chapitre 9 : Leçon 70 - D'autres méthodes de programmation fonctionnelle
+[33ma601046[m Chapitre 9 : Leçon 69 - Introduction à la programmation fonctionnelle
+[33m1a2ad3e[m Chapitre 9 : Leçon 68 - Itérer sur un tableau
+[33mf3533f0[m Chapitre 9 : Leçon 67 - Trier un tableau
+[33m1184952[m Chapitre 9 : Leçon 66 - Fusionner des tableaux
+[33m431dc05[m Chapitre 9 : Leçon 65 - Copier un tableau
+[33mea6367c[m Chapitre 9 : Leçon 64 - Trouver des éléments dans un tableau
+[33ma66dbb2[m Chapitre 9 : Leçon 63 - Supprimer des éléments à un tableau
+[33ma27ecdd[m Chapitre 9 : Leçon 62 - Ajouter des éléments à un tableau
+[33mbbf45b2[m Chapitre 9 : Leçon 61 - Décomposition de tableaux et opérateur rest
+[33ma1ee72b[m  Chapitre 9 : Leçon 60 - Imbrication de tableaux
+[33m7c2fcdb[m Chapitre 9 : Leçon 59 - Accéder aux propriétés d'un tableau
+[33mf24e490[m Chapitre 9 : Leçon 58 - Introduction aux tableaux
+[33m111d15a[m Chapitre 8 : Leçon 57 - Les fermetures (closures)
+[33ma96f989[m Chapitre 8 : Leçon 56 - Les fonctions de rappel (callback)
+[33m3bc1670[m Chapitre 8 : Leçon 55 - Les fonctions fléchées
+[33mbb4285f[m Chapitre 8 : Leçon 54 - Définir ou lier this
+[33m1d55160[m Chapitre 8 : Leçon 53 - Le mot-clé this
+[33mdbb1fbd[m Chapitre 8 : Leçon 52 - Namespace et IIFE
+[33ma3b7a09[m Chapitre 8 : Leçon 51 - La chaine de portée
+[33m399954f[m Chapitre 8 : Leçon 49 - Valeur de retour des fonctions
+[33m7da1c4a[m Chapitre 8 : Leçon 48 - Objet arguments et utilisation de l'opérateur Rest
+[33m03fc34b[m Chapitre 8 : Leçon 47 - Paramètres, arguments et paramètres par défaut
+[33m3458ab1[m Chapitre 8 : Leçon 46 - Les expressions de fonction et leur déclaration
+[33meec034c[m Chapitre 7 : Leçon 45 - Copier un objet
+[33mcda6686[m fix: format Document
+[33m9736f45[m Chapitre 7 : Leçon 44 - Le format JSON
+[33m64575fd[m Chapitre 7 : Leçon 43 - Itérer sur des objets
+[33m418b03b[m Chapitre 7 : Leçon 42 - Comparer des objets
+[33m21e38ae[m Chapitre 7 : Leçon 41 - Fusionner des objets
+[33m71bc80e[m Chapitre 7 : Leçon 40 - Supprimer ou écarter des propriétés
+[33mbd5e301[m Chapitre 7 : Leçon 39 - Tester l'existence et la valeur d'une propriété
+[33m1563f9a[m Chapitre 7 : Leçon 38 - La décomposition d'objet
+[33m5d5870c[m Chapitre 7 : Leçon 37 - Raccourcis syntaxiques
+[33m308f61f[m[33m ([m[1;31morigin/main[m[33m, [m[1;32mmain[m[33m)[m Chapitre 7 : Leçon 36 - Les propriétés des objets
+[33md646b0b[m Chapitre 7 : Leçon 35 - Introduction aux objets
+[33m4e4794c[m Chapitre 2 : Leçon 11 - La console JavaScript
+[33m5add7ea[m Chapitre 2 : Leçon 10 - Installation et configuration de Webpack
+[33m67f16c3[m Chapitre 2 : Leçon 9 - Les différentes façons d'utiliser du JavaScript dans un document HTML
+[33m0151074[m Chapitre 2 : Leçon 8 - Installation et configuration de Babel
