@@ -99,21 +99,19 @@ console.log(user2.fullname1);
 //    this.hasEngine = true;
 // }
 
-class Car {
-   constructor(brand) {
-      // this = {};
-      this.brand = brand;
-      this.roues = 4;
-      this.hasEngine = true;
-      this.start = () => {
-         console.log('Vroum');
-      };
-      this.stop = function () {
-         console.log('Break');
-      }
-
-      // return this // Par défautl le this est retourné, sinon on peut retourner un objet comme un objet vide. C'est cette objet vide qui sera pris en compte.
+function Car(brand) {
+   // this = {};
+   this.brand = brand;
+   this.roues = 4;
+   this.hasEngine = true;
+   this.start = () => {
+      console.log('Vroum');
+   };
+   this.stop = function () {
+      console.log('Break');
    }
+
+   // return this // Par défautl le this est retourné, sinon on peut retourner un objet comme un objet vide. C'est cette objet vide qui sera pris en compte.
 }
 
 const tesla = new Car('tesla');

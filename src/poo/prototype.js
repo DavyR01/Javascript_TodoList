@@ -78,3 +78,31 @@ for (let key in car2) {
    console.log('key', key);
 }
 
+
+
+
+// **************** 149) Le pattern constructeur et la propriété prototype **************************
+
+
+const vehicle3 = {
+   hasEngine: true,
+   start() {
+      console.log('Go ahead !');
+   }
+}
+
+function Car(brand) {
+   this.brand = brand;
+}
+
+Car.prototype = vehicle3;
+Car.prototype.constructor = Car;
+
+const mycar = new Car("peugeot")
+console.log(mycar);
+
+// const car3 = new mycar.__proto__.constructor('Tesla')
+// console.log(car3);
+
+
+// console.log(mycar.__proto__.constructor === Car);
