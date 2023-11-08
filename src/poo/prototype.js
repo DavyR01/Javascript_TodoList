@@ -173,10 +173,66 @@ console.log(Object.getPrototypeOf(car3));
 
 
 
-const car4 = {wheels: 6}
+const car4 = { wheels: 6 }
 
 console.log(Object.getPrototypeOf(car4));
 
 Object.setPrototypeOf(car4, vehicle4)
 
 console.log(Object.getPrototypeOf(car4));
+
+
+
+
+// **************** 152) API d'Object **************************
+
+// En Javascript, une fonction est un object, un objet spécial car on peut l'exécuter.
+
+function Hello() {
+   //
+}
+
+Hello.foo = () => {
+   console.log('foo');
+}
+
+Hello.foo();
+
+
+
+const blob = {
+   test: 10
+}
+
+console.log(Object.entries(blob))
+console.log(Object.keys(blob))
+console.log(Object.values(blob))
+
+blob.toc = 2
+Object.freeze(blob); // la key bar ne sera pas rajouté sur l'objet blob avec la méthode freeze.
+blob.bar = 3;
+console.log(Object.isFrozen(blob))
+
+console.log(blob);
+
+
+
+const pop = {
+   test: 20
+}
+
+// Object.preventExtensions(pop) // Empeche l'ajout de nouvelles propriétés sur l'objet.
+pop.test = 30
+pop.jazz = 40
+
+console.log(Object.isExtensible(pop));
+console.log(pop);
+
+Object.seal(pop); // EMpeche d'ajouter ou de supprimer une key.
+pop.test = 50;
+pop.funk = 60;
+console.log(pop);
+
+delete pop.test;
+console.log(Object.isSealed(pop));
+console.log(pop);
