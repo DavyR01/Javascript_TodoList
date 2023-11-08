@@ -1,4 +1,6 @@
 
+const br = () => console.log('\n'); br()
+
 // **************** 148) Introduction aux prototypes **************************
 
 // => Pour la lecture : 
@@ -42,9 +44,7 @@ console.log(vehicle.seats);
 console.log(car.__proto__);
 console.log(car.__proto__.__proto__);
 console.log(car.__proto__.__proto__.__proto__);
-
-
-
+br();
 
 
 
@@ -78,6 +78,7 @@ for (let key in car2) {
    console.log('key', key);
 }
 
+br()
 
 
 
@@ -106,3 +107,46 @@ console.log(mycar);
 
 
 // console.log(mycar.__proto__.constructor === Car);
+
+
+
+
+
+function Car2(brand) {
+   this.brand = brand;
+}
+
+Car2.prototype.stop = function() {
+   console.log('break');
+}
+
+const mycar2 = new Car2("toyota")
+console.log(mycar2);
+br();
+
+
+
+// **************** 150) Les prototypes natifs **************************
+
+Object.prototype = {
+   constructor: Object,
+   hasOwnProperty: () => {
+   }
+}
+
+const foo = {};
+const bar =  new Object();
+
+console.log(foo);
+
+const date = new Date();
+
+// Object.prototype
+
+console.log(Date.__proto__.__proto__.constructor === Object);
+
+console.log(Date.__proto__.__proto__ === foo.__proto__);
+
+console.log(Function.__proto__.__proto__);
+
+
