@@ -330,7 +330,7 @@ console.log(arr);
 
 // **************** 158) L'opérateur instanceof **************************
 
-class Boat {}
+class Boat { }
 
 const boat = new Boat();
 
@@ -344,3 +344,31 @@ console.log(boat.__proto__ === Object.prototype) // false
 console.log(boat.__proto__ === Boat.prototype) // true
 console.log(boat.__proto__.__proto__ === Object.prototype) // true
 console.log(Boat.prototype.__proto__ === Object.prototype) // true
+
+
+
+
+
+// **************** 159) Les mixins **************************
+
+
+const options = {
+   startRadio() {
+      console.log('start radio');
+   },
+   stopRadio() {
+      console.log('stop radio');
+   }
+}
+
+class Jet { }
+
+// Les options sont les mixins.
+Object.assign(Jet.prototype, options)
+
+class Bus { }
+
+const jet = new Jet();  
+
+jet.startRadio()
+console.log(jet);
