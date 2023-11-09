@@ -301,3 +301,27 @@ plane.gas = -20;
 console.log(plane);
 console.log(plane.gas);
 
+
+
+// **************** 157) Etendre les objets natifs avec extends **************************
+
+
+class ExtendedArray extends Array {
+   random() {
+      const length = this.length;
+      let i = 0;
+      while (i < length) {
+         this[i] = Math.round(Math.random() * 10)
+         i++;
+      }
+   }
+}
+
+console.log(new Array(1, 2, 3));
+
+const arr = new ExtendedArray(1, 2, 3)
+
+arr.random()
+console.log(arr);
+
+// Array.prototype.random = function(){} // Pas la meilleur pratique
