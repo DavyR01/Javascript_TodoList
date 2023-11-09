@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: {
-    mainEntry : path.resolve(__dirname, "src/class/class.js"), // Important
+    mainEntry : path.resolve(__dirname, "src/errors/errors.js"), // Important
   },
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -26,7 +26,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, "src/index.html") // Important
+      template: path.resolve(__dirname, "src/errors/errors.html") // Important
     })
   ],
   devtool: "source-map",
