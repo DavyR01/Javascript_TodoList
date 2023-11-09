@@ -154,28 +154,97 @@ car2.start()
 class Voiture {
 
    constructor(sieges) {
-     this.sieges = sieges;
+      this.sieges = sieges;
    }
- 
+
    rouler() {
-     return 'Je roule.';
+      return 'Je roule.';
    }
- }
- 
- class Sportive extends Voiture {
- 
+}
+
+class Sportive extends Voiture {
+
    constructor(sieges, chevaux) {
-     super(sieges);
-     this.chevaux = chevaux;
+      super(sieges);
+      this.chevaux = chevaux;
    }
- 
+
    faireLaCourse() {
-     console.log(`${super.rouler()} Et je fais la course.`);
+      console.log(`${super.rouler()} Et je fais la course.`);
    }
- 
- }
- const monBolide = new Sportive(4, 960) ;
- 
- console.log(monBolide);// {sieges: 4, chevaux: 960}
- monBolide.faireLaCourse(); // Je roule. Et je fais la course.
- console.log(monBolide.sieges);
+
+}
+const monBolide = new Sportive(4, 960);
+
+console.log(monBolide);// {sieges: 4, chevaux: 960}
+monBolide.faireLaCourse(); // Je roule. Et je fais la course.
+console.log(monBolide.sieges);
+
+
+
+// **************** 155) Les méthodes statiques **************************
+
+// Les fonctions statiques ont plus de sens d'être positionnées, associées sur la classe elle-même plutôt que sur une instance de la classe. Nous y accédons donc depuis la classe et non les instances.
+
+// Avec une fonction constructeur considéré comme un objet : 
+
+function Truck() { }
+
+Truck.description = function () {
+   console.log('Sert à construire un camion');
+};
+
+Truck.description();
+
+const truck = new Truck();
+console.log(truck);
+
+// truck.description() // La fonction n'existe pas car on ne récupère pas la proriété sur l'instance. N'a pas vocation à être présent sur toutes les instances de la class Truck.
+
+
+
+
+// Avec une classe : 
+
+class MotorBike {
+   constructor() { }
+   static description() {
+      console.log('je décris ma moto !');
+   }
+   static compareCar(car1, car2) { }
+}
+
+MotorBike.description()
+
+const motorbike = new MotorBike();
+
+MotorBike.compareCar(/** */)
+
+// motorbike.description(); // erreur car on tente d'accéder à une méthofe static à partir d'une instance de class.
+
+
+
+
+
+
+class Vehicle3 {
+   constructor() { }
+   static description() {
+      console.log('je décris mon véhicule ! ');
+   }
+}
+
+
+class Bike extends Vehicle3 {
+   static compareCar(car1, car2) { }
+}
+
+Bike.description();
+
+console.log(Bike.__proto__ === Vehicle3);
+
+const bike = new Bike();
+
+console.log(bike.__proto__ === Bike.prototype);
+
+console.log(bike.__proto__.__proto__ === Vehicle3.prototype);
