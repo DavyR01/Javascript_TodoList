@@ -325,3 +325,22 @@ arr.random()
 console.log(arr);
 
 // Array.prototype.random = function(){} // Pas la meilleur pratique
+
+
+
+// **************** 158) L'opérateur instanceof **************************
+
+class Boat {}
+
+const boat = new Boat();
+
+console.log(boat instanceof Boat);
+console.log(boat instanceof Object);
+
+
+console.log(boat.__proto__ === Object.prototype) // false
+
+
+console.log(boat.__proto__ === Boat.prototype) // true
+console.log(boat.__proto__.__proto__ === Object.prototype) // true
+console.log(Boat.prototype.__proto__ === Object.prototype) // true
