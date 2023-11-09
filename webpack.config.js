@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: {
-    mainEntry : path.resolve(__dirname, "src/errors/errors.ts"), // Important
+    mainEntry : path.resolve(__dirname, "src/errors/errors.js"), // Important
   },
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -12,10 +12,10 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.ts$/,
+        test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: "ts-loader"
+          loader: "babel-loader"
         }
       },
       {
