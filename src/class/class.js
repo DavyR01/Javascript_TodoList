@@ -248,3 +248,56 @@ const bike = new Bike();
 console.log(bike.__proto__ === Bike.prototype);
 
 console.log(bike.__proto__.__proto__ === Vehicle3.prototype);
+
+
+
+
+// **************** 156) Les propriétés privées **************************
+
+class Plane {
+   constructor() {
+      this.key = false;
+      this._gas = 80;
+   }
+
+   set gas(value) {
+      if (value > 0) {
+         this._gas = value;
+      }
+   }
+
+   get gas() {
+      return this._gas
+   }
+
+   putKey() {
+      this.key = true;
+   }
+
+   start() {
+      console.log('the plane start');
+      if (this.key) {
+         this.#startEngine()
+      } else {
+         console.log('should have keys');
+      }
+   }
+
+   #startEngine() {
+      console.log('the plane engine start');
+   }
+
+}
+
+const plane = new Plane();
+
+plane.putKey()
+plane.start()
+// plane.startEngine()
+
+plane.gas = 40
+plane.gas = -20;
+
+console.log(plane);
+console.log(plane.gas);
+
