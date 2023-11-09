@@ -73,3 +73,109 @@ console.log(foo.doubleName);
 foo.changeName = "foo2" // On ne l'invoque pas comme une fonction, c'est un setter donc cela reste une propriété. Donc on n'écrira pas foo.changeName("Jean").
 console.log(foo.doubleName);
 console.log(foo.maProp)
+
+
+
+
+
+// **************** 154) L'héritage avec les classes **************************
+
+// ! façon OLD SCHOOL : 
+
+function Vehicle() {
+   this.hasEngine = true
+}
+
+Vehicle.prototype.stop = function () {
+   console.log('engine stop');
+}
+
+function Car() {
+   Vehicle.call(this);
+   this.wheels = 4
+}
+
+Car.prototype = Object.create(Vehicle.prototype) // Permet de créer un nouvel objet et de définir le prototype de cet objet comme étant = à l'objet en paramètre donc Vehicle.prototype. Bien le positionner juste avant que l'on ajoute la fonction start sur le prototype sinon cela écrase la fonction start.
+Car.prototype.constructor = Car
+
+Car.prototype.start = function () {
+   console.log('car start');
+}
+
+
+const car = new Car();
+
+console.log(car);
+console.log(car.hasEngine);
+
+
+
+
+
+
+// ! façon NEW AGE : 
+
+
+class Vehicle2 {
+   constructor() {
+      this.hasEngine = true;
+   }
+   stop() {
+      console.log('engine stop');
+   }
+   start() {
+      console.log('engine start');
+   }
+}
+
+class Car2 extends Vehicle2 {
+   constructor() {
+      super() // Le keyword super fait toujours référence à la classe que l'on a extend soit Vehicle2. On va exécuter également son constructor. Le this fera donc référence au même objet que dans le constructeur de la class Car2.
+      this.wheels = 4
+   }
+   start() {
+      super.start() // Si je souhaite, je peux invoque la fonction start de la class parente.
+      // console.log('car start');
+   }
+}
+
+const car2 = new Car2;
+console.log(car2);
+car2.start()
+
+
+
+
+
+
+
+// Autre exemple : 
+
+class Voiture {
+
+   constructor(sieges) {
+     this.sieges = sieges;
+   }
+ 
+   rouler() {
+     return 'Je roule.';
+   }
+ }
+ 
+ class Sportive extends Voiture {
+ 
+   constructor(sieges, chevaux) {
+     super(sieges);
+     this.chevaux = chevaux;
+   }
+ 
+   faireLaCourse() {
+     console.log(`${super.rouler()} Et je fais la course.`);
+   }
+ 
+ }
+ const monBolide = new Sportive(4, 960) ;
+ 
+ console.log(monBolide);// {sieges: 4, chevaux: 960}
+ monBolide.faireLaCourse(); // Je roule. Et je fais la course.
+ console.log(monBolide.sieges);
