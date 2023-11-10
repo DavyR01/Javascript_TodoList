@@ -78,12 +78,13 @@ form.addEventListener('submit', (e) => {
    e.preventDefault()
    // console.log(input);
    let value = input.value.trim()
+   if (value !== '') {
    value = value[0].toUpperCase() + value.slice(1) /* value.substring(1) */ /* value.replace(value[0], '') */
    console.log(value);
    input.value = '' // Permet de vider le champ
    addTodo(value)
    console.log(todos);
-})
+}})
 
 const addTodo = (text) => {
    if (text !== '' && text !== null) {
