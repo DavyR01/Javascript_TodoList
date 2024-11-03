@@ -29,8 +29,8 @@ const terre = {
 }
 
 console.log("terre :", terre);
-console.log(terre.temperature); // without brackets with dot
-console.log(terre["temperature"]); // the same output than previous using brackets without dot
+console.log(terre.temperature); //? without brackets with dot
+console.log(terre["temperature"]); //? the same output than previous using brackets without dot
 
 console.log(terre["satellite"]); // Lune
 console.log(terre.getTemperature());
@@ -49,7 +49,7 @@ const pop = "population"
 
 const terre2 = {
 	[pop]: population,
-	satellite: satellite, // : satellite n'est plus nécessaire depuis ES6 car on suppose qu'on a déclaré une variable au dessus qui a le même nom que la key.
+	satellite: satellite, //? : satellite n'est plus nécessaire depuis ES6 car on suppose qu'on a déclaré une variable au dessus qui a le même nom que la key.
 	temperature,
 	isOld: false
 }
@@ -73,11 +73,11 @@ const terre3 = {
 };
 
 // const {resident: residentTerre, satellite3, temperature3, isOld3} = terre3
-const { resident: residentTerre, satellite3 = "Valeur par défaut", ...rest } = terre3 // satellite3 a une valeur par défaut si aucune valeur ne lui est affecté dans l'objet terre3. Ici, on donne un alias qu'on va extirper depuis l'objet terre3.
+const { resident: residentTerre, satellite3 = "Valeur par défaut", ...rest } = terre3 //? satellite3 a une valeur par défaut si aucune valeur ne lui est affecté dans l'objet terre3. Ici, on donne un alias qu'on va extirper depuis l'objet terre3.
 
 // console.log(resident, satellite3, temperature3);
 // console.log(residentTerre, satellite3, temperature3);
-console.log("With spread operator :", resident, residentTerre, satellite3, rest); // Avec le spread operator rest, on récupère toutes les propriétés qui n'ont pas été explicitement affectés à des variables provenant de l' objet en question, ici terre3.
+console.log("With spread operator :", resident, residentTerre, satellite3, rest); //? Avec le spread operator rest, on récupère toutes les propriétés qui n'ont pas été explicitement affectés à des variables provenant de l' objet en question, ici terre3.
 
 
 // ************************** 39) Tester l'existence et la valeur d'une propriété ************************
@@ -97,12 +97,12 @@ if ("resident" in terre3 && terre3.hasOwnProperty('resident')) {
 
 console.log(terre3);
 // delete terre3.satellite3
-terre3.satellite3 = null // Utiliser null et non undefined pour assigner de manière déclarative une propriété à l'absence de valeur. Nous savons de cette façon que c'est volontaire.
+terre3.satellite3 = null //? Utiliser null et non undefined pour assigner de manière déclarative une propriété à l'absence de valeur. Nous savons de cette façon que c'est volontaire.
 console.log(terre3);
 
-const { resident: toDelete, ...copyTerre3 } = terre3 // On souhaite récupérer toute les props de terre3 mais sans la population. On déclare donc population et on crée un objet avec le reste qui sera copyTerre3.
+const { resident: toDelete, ...copyTerre3 } = terre3 //? On souhaite récupérer toute les props de terre3 mais sans la population. On déclare donc population et on crée un objet avec le reste qui sera copyTerre3.
 
-console.log(copyTerre3); // De cette manière, copyTerre3 est une copie de terre3 sans la propriété population.
+console.log(copyTerre3); //? De cette manière, copyTerre3 est une copie de terre3 sans la propriété population.
 
 copyTerre3['exemple'] = 'add exemple'
 console.log(copyTerre3);
@@ -127,11 +127,11 @@ const terre5 = {
 }
 
 const terreAssign = Object.assign({}, terre4, terre5)
-console.log(terreAssign); // assign() permet de merger 2 objets en créant un autre objet à partir d'un objet vide. Si on ne place pas {}, terre4 sera écrasé et prendra la valeur de terreAssign, ce n'est donc pas ce que l'on souhaite avoir. Les valeurs fusionnées vont de la droite vers la gauche.
+console.log(terreAssign); //? assign() permet de merger 2 objets en créant un autre objet à partir d'un objet vide. Si on ne place pas {}, terre4 sera écrasé et prendra la valeur de terreAssign, ce n'est donc pas ce que l'on souhaite avoir. Les valeurs fusionnées vont de la droite vers la gauche.
 
 console.log(terre4);
 // Autre solution avec le Spread...: 
-const terreSpread = { ...terre4, ...terre5 } // Permet de copier un ou plusieurs objet dans un nouvel objet
+const terreSpread = { ...terre4, ...terre5 } //? Permet de copier un ou plusieurs objet dans un nouvel objet
 
 console.log(terreSpread);
 console.log(terre4 === terreSpread); // false
@@ -143,8 +143,8 @@ const d = { a: 1 }
 const e = { a: 1 }
 const f = e
 
-console.log(d === e); //false car pas la même référence. On compare les références et non le contenu. Ce sont 2 références d'objet différentes. La référence à un objet correspond à son adresse dans la mémoire. 
-console.log(f === e); //true car dans ce cas, on aura la même adresse sur la heap, elles contiennent la même référence. Ces 2 objets pointent sur le même objet de la heap donc si on modifien l'un, l'autre sera modifié.
+console.log(d === e); //? false car pas la même référence. On compare les références et non le contenu. Ce sont 2 références d'objet différentes. La référence à un objet correspond à son adresse dans la mémoire. 
+console.log(f === e); //? true car dans ce cas, on aura la même adresse sur la heap, elles contiennent la même référence. Ces 2 objets pointent sur le même objet de la heap donc si on modifien l'un, l'autre sera modifié.
 
 
 // ************************** 43) Itérer sur des objets ****************************/
@@ -162,9 +162,9 @@ for (prop in obj) {
 	console.log(obj[prop]);
 }
 
-console.log(Object.keys(obj)); // On extrait les différentes keys en renvoyant un tableau.
-console.log(Object.values(obj)); // On extrait les différentes valeurs de l'objet en renvoyant un tableau
-console.log(Object.entries(obj)); // On extrait les différentes propriétés de l'objet en renvoyant un tableau contenant des tableaux.
+console.log(Object.keys(obj)); //? On extrait les différentes keys en renvoyant un tableau.
+console.log(Object.values(obj)); //? On extrait les différentes valeurs de l'objet en renvoyant un tableau
+console.log(Object.entries(obj)); //? On extrait les différentes propriétés de l'objet en renvoyant un tableau contenant des tableaux.
 
 
 // ************************** 44) Le format JSON != XML ****************************/
@@ -182,7 +182,7 @@ const parse = JSON.parse(stringify)
 console.log("format object :", parse);
 
 /***** FORMAT JSON très similaire à un objet Javascript *******/
-// Tous les noms de propriétés devront être entourés de double quotes en JSON. Ce format retourne une chaine de caractères exploitable côté serveur.
+//? Tous les noms de propriétés devront être entourés de double quotes en JSON. Ce format retourne une chaine de caractères exploitable côté serveur.
 
 // '{
 //       "firstname": 'Jean',
@@ -201,7 +201,7 @@ console.log("format object :", parse);
 
 // *********************** 45) Copier un objet ****************************/
 
-// * Shallow copy ou copie superficielle de l'objet pour les objets nestés car les objets imbriqués dans l'objet sont copiés par référence. Seulement les primitivés sont copiées avec une nouvelle référence d'un objet.
+//? Shallow copy ou copie superficielle de l'objet pour les objets nestés car les objets imbriqués dans l'objet sont copiés par référence. Seulement les primitivés sont copiées avec une nouvelle référence d'un objet.
 const g = {
 	name: 'Toto',
 	foo: {
@@ -209,8 +209,8 @@ const g = {
 	}
 }
 
-const h = Object.assign({}, g) // Nouvel objet => Shallow copy.
-const i = { ...g } // Nouvel objet par décomposition => Shallow copy car avec les objets nestés, nous allons avoir la même problématique (avec foo).
+const h = Object.assign({}, g) //? Nouvel objet => Shallow copy.
+const i = { ...g } //? Nouvel objet par décomposition => Shallow copy car avec les objets nestés, nous allons avoir la même problématique (avec foo).
 // La raison est que pour les propriétés qui ne contiennent pas de valeur de type primitive, c'est-à-dire qui contiennent des objets, les références seront copiées.
 
 i.name = "Titi"
@@ -219,7 +219,7 @@ i.foo.bar = "zoozoo"
 console.log("objet g :", g);
 console.log("objet i :", i);
 
-// * Deep copy pour créer une copie profonde qui ne partage aucune référence des objets imbriqués.
+//? Deep copy pour créer une copie profonde qui ne partage aucune référence des objets imbriqués.
 const j = {
 	name: 'Jean',
 	foo: {
@@ -227,8 +227,38 @@ const j = {
 	}
 }
 
-const k = JSON.parse(JSON.stringify(j, null, 3)); // De cette façon, il n'y a plus de partage de référence entre nos objets.
+const k = JSON.parse(JSON.stringify(j, null, 3)); //? De cette façon, il n'y a plus de partage de référence entre nos objets.
 k.foo.bar = "booboo";
 
 console.log("objet j :", j);
 console.log("objet k :", k);
+
+
+
+
+// *********************** 48) Chaînage optionnel ****************************/
+
+const book = {
+   author: {
+      name:"Jacques",
+      sayHello(){
+         console.log('I say Hello !!!');
+         return true;
+      }
+   }
+}
+
+const usernameAuthor = book.author?.name;
+
+if (book.author?.name) {
+   console.log("il y a un nom !");
+}
+
+//? Accès aux propriétés grâce au nom de la clé avec ?.[]
+if (book.author?.["name"]) {
+   console.log("il y a un nom aussi!");
+}
+
+if(book.author?.sayHello?.()){
+   console.log("je suis affiché car sayHello retourne true");
+}
