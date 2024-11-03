@@ -30,6 +30,8 @@ console.log(location.href); // http://localhost:4005/
 
 // **************** 138) La Web API history ****************
 
+//? L'objet global history permet d'agir sur l'historique de navigation du navigateur.Il permet d'agir sur les pages visitées dans l'onglet en cours en utilisant du JavaScript.
+
 console.log(history);
 console.log(history.length);
 
@@ -44,3 +46,33 @@ next.addEventListener('click', () => {
 })
 
 // history.go(-5)
+
+
+// **************** 139) L'objet state d'history ****************
+
+console.log(history);
+
+let inputStateValue;
+let inputValue;
+const input = document.querySelector('input')
+
+if (history.state) {
+   inputStateValue = history.state.input
+   inputValue = inputStateValue
+   input.value = inputValue
+}
+
+setInterval(() => {
+   const value = input.value
+   if (value != inputValue) {
+      inputValue = value
+      history.replaceState({ input: value }, '') //? Remplace l'entrée de l'historique de navigation.
+      // history.pushState({ input: value }, '') //? Ajoute une entrée dans l'historique de navigation.
+   }
+}, 3000)
+
+window.addEventListener('popstate', event => {
+   console.log(event);
+}) //? L'événement popstate est émis sur l'objet window à chaque fois que l'historique change
+
+console.log(history.state);
