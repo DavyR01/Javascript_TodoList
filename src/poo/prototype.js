@@ -1,7 +1,7 @@
 
 const br = () => console.log('\n'); br()
 
-// **************** 148) Introduction aux prototypes **************************
+// **************** 151) Introduction aux prototypes **************************
 
 // => Pour la lecture : 
 
@@ -82,7 +82,7 @@ br()
 
 
 
-// **************** 149) Le pattern constructeur et la propriété prototype **************************
+// **************** 152) Le pattern constructeur et la propriété prototype **************************
 
 
 const vehicle3 = {
@@ -126,7 +126,7 @@ br();
 
 
 
-// **************** 150) Les prototypes natifs **************************
+// **************** 153) Les prototypes natifs **************************
 
 Object.prototype = {
    constructor: Object,
@@ -151,7 +151,7 @@ console.log(Function.__proto__.__proto__);
 
 
 
-// **************** 151) Utilisation des prototypes **************************
+// **************** 154) Utilisation des prototypes **************************
 
 
 const vehicle4 = {
@@ -184,7 +184,7 @@ console.log(Object.getPrototypeOf(car4));
 
 
 
-// **************** 152) API d'Object **************************
+// **************** 155) API d'Object **************************
 
 // En Javascript, une fonction est un object, un objet spécial car on peut l'exécuter.
 
@@ -236,3 +236,21 @@ console.log(pop);
 delete pop.test;
 console.log(Object.isSealed(pop));
 console.log(pop);
+
+
+// **************** 156) Les Maps **************************
+
+const myMap = new Map()
+
+const user = { name: 'François' }
+const func = () => 'Hello !'
+
+myMap.set('key', 'value')
+myMap.set(user, 'hasPaid')
+myMap.set(func, 'une fonction')
+
+
+console.log(
+   myMap.get('key')
+);
+
