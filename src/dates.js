@@ -19,7 +19,7 @@ console.log(date2);
 
 // **************** 132) Les formats des Dates en chaîne de caractères ****************
 
-//? Le z à la fin du format ISO JavaScript, signifie que le fuseau horaire est celui de Greenwich
+//? Le z à la fin du format ISO JavaScript, signifie que le fuseau horaire est celui de Greenwich (ou z ou GMT)
 br()
 const today2 = new Date();
 const today3 = new Date().toString();
@@ -36,6 +36,7 @@ console.log(today2.toDateString()); // Sun Nov 03 2024
 
 
 // **************** 133) Manipuler des timestamps ****************
+
 //? Préférer faire des calculs directements sur des timestamps si l'on a pas besoin d'exploiter les dates mais que l'on souhaite juste mesurer le temps écoulé entre 2 dates. Donc inutile de créer des objets dates en créant des variables.
 
 br()
@@ -53,3 +54,8 @@ const date6 = new Date("2024-11-03T18:54:16.747Z")
 console.log((todayTimeStamp - date6.getTime()) / 1000 / 60); // 26 minutes écoulées entre les 2 dates.
 
 
+// **************** 134) L'API des objets Date ****************
+
+const date7 = new Date();
+
+console.log(date7.getUTCDate(), date7.getFullYear(), date7.getDate(), date7.getHours())
