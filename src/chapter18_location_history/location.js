@@ -26,3 +26,21 @@ setTimeout(() => {
 console.log(location.toString()); // http://localhost:4005/
 console.log(location.href); // http://localhost:4005/
 
+
+
+// **************** 138) La Web API history ****************
+
+console.log(history);
+console.log(history.length);
+
+const back = document.querySelector('#back')
+const next = document.querySelector('#next')
+
+back.addEventListener('click', () => {
+   history.back()
+})
+next.addEventListener('click', () => {
+   history.forward()
+})
+
+// history.go(-5)
