@@ -59,3 +59,22 @@ console.log((todayTimeStamp - date6.getTime()) / 1000 / 60); // 26 minutes écou
 const date7 = new Date();
 
 console.log(date7.getUTCDate(), date7.getFullYear(), date7.getDate(), date7.getHours())
+
+
+// **************** 135) Affichage des dates ****************
+
+const date8 = new Date();
+console.log(date8.toLocaleDateString()); // 03/11/2024
+console.log(date8.toLocaleDateString('fr-FR')); // 03/11/2024
+
+console.log(date8.toLocaleDateString('en-EN')); // 11/3/2024
+console.log(date8.toLocaleDateString('fr-FR', {
+   weekday: "long",
+   month: "long",
+   day: "2-digit",
+   year:"numeric"
+})); // dimanche 03 novembre 2024
+
+console.log(date8.toLocaleString()); // 03/11/2024 20:48:53
+
+console.log(date8.toLocaleTimeString()); // 20:48:53
