@@ -1,5 +1,5 @@
 
-const br = () => console.log('\n'); br()
+const br = () => console.log('\n'); br();
 
 // **************** 151) Introduction aux prototypes **************************
 
@@ -7,22 +7,22 @@ const br = () => console.log('\n'); br()
 
 const engine = {
    power: 240
-}
+};
 
 const vehicle = {
    hasEngine: true,
    start() {
       console.log('Vroum !');
    }
-}
+};
 
 const car = {
    brand: "renault"
-}
+};
 
 const bus = {
    seats: 80
-}
+};
 
 car.__proto__ = vehicle; // On remonte la chaine des prototypes avec la key proto propre à un objet.
 vehicle.__proto__ = engine;
@@ -31,7 +31,7 @@ engine.__proto__ = bus;
 console.log(car);
 console.log(car.hasEngine);
 
-car.start() // La méthode start n'a pas été trouvé dans l'objet car, donc on remonte la chaine de prototype pour chercher la méthode start.
+car.start(); // La méthode start n'a pas été trouvé dans l'objet car, donc on remonte la chaine de prototype pour chercher la méthode start.
 
 console.log(vehicle.power); // 240
 console.log(car.power); // 240
@@ -58,11 +58,11 @@ const vehicle2 = {
       console.log(this.hasEngine);
       console.log('Go ahead !');
    }
-}
+};
 
 const car2 = {
    brand: "Ford"
-}
+};
 
 car2.__proto__ = vehicle2;
 
@@ -70,15 +70,15 @@ car2.hasEngine = false;
 
 console.log(car2);
 console.log(car2.hasEngine);
-car2.start()
+car2.start();
 
 
 for (let key in car2) {
-   console.log(car2.hasOwnProperty(key))
+   console.log(car2.hasOwnProperty(key));
    console.log('key', key);
 }
 
-br()
+br();
 
 
 
@@ -90,7 +90,7 @@ const vehicle3 = {
    start() {
       console.log('Go ahead !');
    }
-}
+};
 
 function Car(brand) {
    this.brand = brand;
@@ -99,7 +99,7 @@ function Car(brand) {
 Car.prototype = vehicle3;
 Car.prototype.constructor = Car;
 
-const mycar = new Car("peugeot")
+const mycar = new Car("peugeot");
 console.log(mycar);
 
 // const car3 = new mycar.__proto__.constructor('Tesla')
@@ -118,9 +118,9 @@ function Car2(brand) {
 
 Car2.prototype.stop = function () {
    console.log('break');
-}
+};
 
-const mycar2 = new Car2("toyota")
+const mycar2 = new Car2("toyota");
 console.log(mycar2);
 br();
 
@@ -132,7 +132,7 @@ Object.prototype = {
    constructor: Object,
    hasOwnProperty: () => {
    }
-}
+};
 
 const foo = {};
 const bar = new Object();
@@ -165,7 +165,7 @@ const car3 = Object.create(vehicle4, {
       enumerable: true,
       configurable: true
    }
-})
+});
 
 console.log(car3);
 console.log(Object.getPrototypeOf(car3));
@@ -173,11 +173,11 @@ console.log(Object.getPrototypeOf(car3));
 
 
 
-const car4 = { wheels: 6 }
+const car4 = { wheels: 6 };
 
 console.log(Object.getPrototypeOf(car4));
 
-Object.setPrototypeOf(car4, vehicle4)
+Object.setPrototypeOf(car4, vehicle4);
 
 console.log(Object.getPrototypeOf(car4));
 
@@ -194,7 +194,7 @@ function Hello() {
 
 Hello.foo = () => {
    console.log('foo');
-}
+};
 
 Hello.foo();
 
@@ -202,16 +202,16 @@ Hello.foo();
 
 const blob = {
    test: 10
-}
+};
 
-console.log(Object.entries(blob))
-console.log(Object.keys(blob))
-console.log(Object.values(blob))
+console.log(Object.entries(blob));
+console.log(Object.keys(blob));
+console.log(Object.values(blob));
 
-blob.toc = 2
+blob.toc = 2;
 Object.freeze(blob); // la key bar ne sera pas rajouté sur l'objet blob avec la méthode freeze.
 blob.bar = 3;
-console.log(Object.isFrozen(blob))
+console.log(Object.isFrozen(blob));
 
 console.log(blob);
 
@@ -219,11 +219,11 @@ console.log(blob);
 
 const pop = {
    test: 20
-}
+};
 
 // Object.preventExtensions(pop) // Empeche l'ajout de nouvelles propriétés sur l'objet.
-pop.test = 30
-pop.jazz = 40
+pop.test = 30;
+pop.jazz = 40;
 
 console.log(Object.isExtensible(pop));
 console.log(pop);
@@ -240,14 +240,14 @@ console.log(pop);
 
 // **************** 156) Les Maps **************************
 
-const myMap = new Map()
+const myMap = new Map();
 
-const user = { name: 'François' }
-const func = () => 'Hello !'
+const user = { name: 'François' };
+const func = () => 'Hello !';
 
-myMap.set('key', 'value')
-myMap.set(user, 'hasPaid')
-myMap.set(func, 'une fonction')
+myMap.set('key', 'value');
+myMap.set(user, 'hasPaid');
+myMap.set(func, 'une fonction');
 
 
 console.log(
