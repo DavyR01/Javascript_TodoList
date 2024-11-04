@@ -328,4 +328,44 @@ console.log(permission.entries());
 
 // **************** 158) La méthode groupBy() ****************
 
+//? La méthode statique Object.groupBy() permet de regrouper les éléments d'un itérable en fonction des valeurs renvoyées par une fonction de rappel. Utilisée pour regrouper des éléments d'un tableau en fonction de propriétés spécifiques ou de critères personnalisés.
+
+const numbers = [1, 2, 3, 4, 5, 6, 7];
+
+const users = [
+   {
+      name: "Jean",
+      age: 12,
+      gender: 'homme'
+   },
+   {
+      name: "Paul",
+      age: 15,
+      gender: 'homme'
+   },
+   {
+      name: "Marie",
+      age: 22,
+      gender: "femme"
+   },
+   {
+      name: "Pauline",
+      age: 17,
+      gender: "femme"
+   }
+];
+
+const result = Object.groupBy(numbers, (x) => {
+   return x <= 2 ? 'lessOrEqThanTwo' : "moreThanTwo";
+});
+const { lessOrEqThanTwo, moreThanTwo } = Object.groupBy(numbers, (x) => {
+   return x <= 2 ? 'lessOrEqThanTwo' : "moreThanTwo";
+});
+
+console.log(result);
+console.log(lessOrEqThanTwo);
+console.log(moreThanTwo);
+
+const result2 = Object.groupBy(users, user => user.age >= 18 ? "majeur" : "mineur");
+console.log(result2);
 
