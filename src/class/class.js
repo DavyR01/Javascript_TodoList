@@ -4,18 +4,18 @@
 
 // Notation avec une fonction constructor
 function Bar(name) {
-   this.name = name
+   this.name = name;
 }
 
 Bar.prototype.hello = function () {
    console.log('hello');
-}
+};
 
 Bar.prototype.hi = function () {
    console.log('hi');
-}
+};
 
-const bar = new Bar('bar')
+const bar = new Bar('bar');
 console.log(bar);
 
 for (let prop in bar) {
@@ -34,18 +34,18 @@ class Foo {
    maProp = 123; // Impossible de déclarer une propriété dans une classe, il faudra le déclarer via le constructor avec le this.
 
    constructor(name, surname) {
-      this.name = name
-      this.maProp = 456
-      this.surname = surname
+      this.name = name;
+      this.maProp = 456;
+      this.surname = surname;
    }
 
    get doubleName() {
       // return this.name + this.name
-      return `${this.name} ${this.name}`
+      return `${this.name} ${this.name}`;
    }
 
    set changeName(newName) {
-      this.name = newName
+      this.name = newName;
    }
    hola() {
       console.log('hola !');
@@ -58,7 +58,7 @@ class Foo {
 // const Foo = class {}; // Expression de class en stockant la class dans une variable.
 
 
-const foo = new Foo('foo')
+const foo = new Foo('foo');
 console.log(foo);
 
 // foo.hola();
@@ -70,9 +70,9 @@ for (let prop in foo) {
 
 
 console.log(foo.doubleName);
-foo.changeName = "foo2" // On ne l'invoque pas comme une fonction, c'est un setter donc cela reste une propriété. Donc on n'écrira pas foo.changeName("Jean").
+foo.changeName = "foo2"; // On ne l'invoque pas comme une fonction, c'est un setter donc cela reste une propriété. Donc on n'écrira pas foo.changeName("Jean").
 console.log(foo.doubleName);
-console.log(foo.maProp)
+console.log(foo.maProp);
 
 
 
@@ -83,24 +83,24 @@ console.log(foo.maProp)
 // ! façon OLD SCHOOL : 
 
 function Vehicle() {
-   this.hasEngine = true
+   this.hasEngine = true;
 }
 
 Vehicle.prototype.stop = function () {
    console.log('engine stop');
-}
+};
 
 function Car() {
    Vehicle.call(this);
-   this.wheels = 4
+   this.wheels = 4;
 }
 
-Car.prototype = Object.create(Vehicle.prototype) // Permet de créer un nouvel objet et de définir le prototype de cet objet comme étant = à l'objet en paramètre donc Vehicle.prototype. Bien le positionner juste avant que l'on ajoute la fonction start sur le prototype sinon cela écrase la fonction start.
-Car.prototype.constructor = Car
+Car.prototype = Object.create(Vehicle.prototype); // Permet de créer un nouvel objet et de définir le prototype de cet objet comme étant = à l'objet en paramètre donc Vehicle.prototype. Bien le positionner juste avant que l'on ajoute la fonction start sur le prototype sinon cela écrase la fonction start.
+Car.prototype.constructor = Car;
 
 Car.prototype.start = function () {
    console.log('car start');
-}
+};
 
 
 const car = new Car();
@@ -130,18 +130,18 @@ class Vehicle2 {
 
 class Car2 extends Vehicle2 {
    constructor() {
-      super() // Le keyword super fait toujours référence à la classe que l'on a extend soit Vehicle2. On va exécuter également son constructor. Le this fera donc référence au même objet que dans le constructeur de la class Car2.
-      this.wheels = 4
+      super(); // Le keyword super fait toujours référence à la classe que l'on a extend soit Vehicle2. On va exécuter également son constructor. Le this fera donc référence au même objet que dans le constructeur de la class Car2.
+      this.wheels = 4;
    }
    start() {
-      super.start() // Si je souhaite, je peux invoque la fonction start de la class parente.
+      super.start(); // Si je souhaite, je peux invoque la fonction start de la class parente.
       // console.log('car start');
    }
 }
 
 const car2 = new Car2;
 console.log(car2);
-car2.start()
+car2.start();
 
 
 
@@ -214,11 +214,11 @@ class MotorBike {
    static compareCar(car1, car2) { }
 }
 
-MotorBike.description()
+MotorBike.description();
 
 const motorbike = new MotorBike();
 
-MotorBike.compareCar(/** */)
+MotorBike.compareCar(/** */);
 
 // motorbike.description(); // erreur car on tente d'accéder à une méthofe static à partir d'une instance de class.
 
@@ -267,7 +267,7 @@ class Plane {
    }
 
    get gas() {
-      return this._gas
+      return this._gas;
    }
 
    putKey() {
@@ -277,7 +277,7 @@ class Plane {
    start() {
       console.log('the plane start');
       if (this.key) {
-         this.#startEngine()
+         this.#startEngine();
       } else {
          console.log('should have keys');
       }
@@ -291,11 +291,11 @@ class Plane {
 
 const plane = new Plane();
 
-plane.putKey()
-plane.start()
+plane.putKey();
+plane.start();
 // plane.startEngine()
 
-plane.gas = 40
+plane.gas = 40;
 plane.gas = -20;
 
 console.log(plane);
@@ -311,7 +311,7 @@ class ExtendedArray extends Array {
       const length = this.length;
       let i = 0;
       while (i < length) {
-         this[i] = Math.round(Math.random() * 10)
+         this[i] = Math.round(Math.random() * 10);
          i++;
       }
    }
@@ -319,9 +319,9 @@ class ExtendedArray extends Array {
 
 console.log(new Array(1, 2, 3));
 
-const arr = new ExtendedArray(1, 2, 3)
+const arr = new ExtendedArray(1, 2, 3);
 
-arr.random()
+arr.random();
 console.log(arr);
 
 // Array.prototype.random = function(){} // Pas la meilleur pratique
@@ -338,18 +338,21 @@ console.log(boat instanceof Boat);
 console.log(boat instanceof Object);
 
 
-console.log(boat.__proto__ === Object.prototype) // false
+console.log(boat.__proto__ === Object.prototype); // false
 
 
-console.log(boat.__proto__ === Boat.prototype) // true
-console.log(boat.__proto__.__proto__ === Object.prototype) // true
-console.log(Boat.prototype.__proto__ === Object.prototype) // true
+console.log(boat.__proto__ === Boat.prototype); // true
+console.log(boat.__proto__.__proto__ === Object.prototype); // true
+console.log(Boat.prototype.__proto__ === Object.prototype); // true
 
 
 
 
 
 // **************** 159) Les mixins **************************
+
+//? Ensemble de propriétés ou de fonctionnalités que l'on souhaite partager entre plusieurs classes (si l'on a énormément de classes à implémenter). Cela signifie que plusieurs classes et les instances de ces classes peuvent utiliser ces fonctionnalités sans avoir à hériter des mixins avec le pattern extends. Les mixins sont un pattern de programmation utilisé en POO mais pas une spécifité du langage JS.
+//! Rappel: En JavaScript, il n'existe pas d'héritage multiple : une classe ou un objet ne peut pas hériter de plus d'une source.
 
 
 const options = {
@@ -359,16 +362,16 @@ const options = {
    stopRadio() {
       console.log('stop radio');
    }
-}
+};
 
 class Jet { }
 
 // Les options sont les mixins.
-Object.assign(Jet.prototype, options)
+Object.assign(Jet.prototype, options);
 
 class Bus { }
 
-const jet = new Jet();  
+const jet = new Jet();
 
-jet.startRadio()
+jet.startRadio();
 console.log(jet);
