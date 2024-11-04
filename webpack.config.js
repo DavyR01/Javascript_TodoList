@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: {
-    mainEntry : path.resolve(__dirname, "src/chapter18_location_history/location.js"), // Important
+    mainEntry : path.resolve(__dirname, "src/poo/prototype.js"), // Important
   },
   output: {
     path: path.resolve(__dirname, "dist"),

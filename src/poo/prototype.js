@@ -240,17 +240,55 @@ console.log(pop);
 
 // **************** 156) Les Maps **************************
 
+//? Un Map est une collection de données clé-valeur, similaire à un objet. La principale différence réside dans le fait que Map accepte des clés de tout type..
+//! Map conserve l'ordre d'insertion, contrairement à un objet standard littéral.
+
 const myMap = new Map();
 
 const user = { name: 'François' };
 const func = () => 'Hello !';
 
-myMap.set('key', 'value');
-myMap.set(user, 'hasPaid');
+myMap.set('key', 'value of my key');
+myMap.set(user, 'hasPaid'); //? Utilisation d'objets comme clé avec l'objet Map.
 myMap.set(func, 'une fonction');
+myMap.set('mykey', 'other key');
 
+console.log(myMap.keys());
+console.log(myMap.values());
 
-console.log(
-   myMap.get('key')
-);
+console.log(myMap.get('key'));
+console.log(myMap.size); //4
+myMap.delete('key');
+console.log(myMap.size); //3
+console.log(myMap.has("key")); // false
+
+//?????? Itérations sur un map :
+for (let key of myMap.keys()) {
+   console.log('boucle for key :', key);
+} br();
+for (let value of myMap.values()) {
+   console.log('boucle for value :', value);
+} br();
+for (let entries of myMap.entries()) {
+   console.log('boucle for entries :', entries);
+} br();
+for (let [key, value] of myMap.entries()) {
+   console.log('key', key);
+   console.log('value', value);
+} br();
+
+myMap.forEach((value, key) => {
+   console.log(value);
+   console.log(key);
+}); br();
+
+// myMap.clear();
+// console.log(myMap.size);
+
+const user2 = {nom: "Fred"};
+console.log(typeof(user2));
+
+const map = new Map(Object.entries(user2));
+console.log(map.get("nom"));
+console.log(typeof(map));
 
