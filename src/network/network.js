@@ -3,7 +3,7 @@
 
 
 const promesse1 = fetch('https://jsonplaceholder.typicode.com/users')
-   .then((result) => console.log(result))
+   .then((result) => console.log(result));
 
 console.log(promesse1);
 
@@ -12,14 +12,14 @@ console.log(promesse1);
 
 fetch('https://jsonplaceholder.typicode.com/users')
    .then(response => {
-      const promesseUsers = response.json()
+      const promesseUsers = response.json();
       promesseUsers.then(users => {
          console.log(users);
-      })
+      });
    })
    // .then(response => response.text())
    // .then((result) => console.log(result))
-   .catch(err => console.log(err))
+   .catch(err => console.log(err));
 
 
 
@@ -28,7 +28,7 @@ fetch('https://jsonplaceholder.typicode.com/posts')
    .then(response => response.json())
    // .then(response => response.text())
    .then((result) => console.log(result))
-   .catch(err => console.log(err))
+   .catch(err => console.log(err));
 
 
 
@@ -38,13 +38,13 @@ fetch('https://jsonplaceholder.typicode.com/posts')
 fetch('https://jsonplaceholder.typicode.com/users')
    .then(async response => {
       try {
-         const users = await response.json()
+         const users = await response.json();
          console.log(users);
       } catch (error) {
          console.log(error);
       }
    })
-   .catch(err => console.log(err))
+   .catch(err => console.log(err));
 
 
 
@@ -54,14 +54,14 @@ fetch('https://jsonplaceholder.typicode.com/users')
 fetch('https://jsonplaceholder.typicode.com/users/1')
    .then(async response => {
       try {
-         const users = await response.text()
+         const users = await response.text();
          // console.log(users);
          console.log(JSON.parse(users));
       } catch (error) {
          console.log(error);
       }
    })
-   .catch(err => console.log(err))
+   .catch(err => console.log(err));
 
 
 
@@ -131,9 +131,9 @@ button1.addEventListener('click', () => {
       }
    }
    // setTimeout(() => {
-   envoyerRequete()
+   envoyerRequete();
    // }, 2000);
-})
+});
 
 
 
@@ -146,7 +146,7 @@ button1.addEventListener('click', () => {
 const user = {
    name: 'tintin',
    email: 'tintin@gmail.com'
-}
+};
 
 const promesse2 = fetch("https://jsonplaceholder.typicode.com/users", {
    method: 'POST',
@@ -157,17 +157,17 @@ const promesse2 = fetch("https://jsonplaceholder.typicode.com/users", {
    // mode: "cors",
    // cache: "default",
    // credentials: 'include'
-})
+});
 promesse2.then(async response => {
    try {
       console.log(response);
-      const body = await response.json()
+      const body = await response.json();
       console.log(body);
    } catch (error) {
       console.log(error);
    }
 
-})
+});
 
 
 
@@ -185,26 +185,26 @@ console.log(controller);
 
 controller.signal.addEventListener('abort', (event) => {
    console.log(event);
-})
+});
 
 
 const promesse3 = fetch("https://jsonplaceholder.typicode.com/users", {
    signal: controller.signal
-})
+});
 
 const promesse4 = fetch("https://jsonplaceholder.typicode.com/todos", {
    signal: controller.signal
-})
+});
 
-controller.abort()
+controller.abort();
 
 promesse3
    .then(response => console.log(response))
-   .catch(e => console.log('The fetch has been aborted : ', e))
+   .catch(e => console.log('The fetch has been aborted : ', e));
 
 promesse4
    .then(response => console.log(response))
-   .catch(e => console.log('The fetch has been aborted : ', e))
+   .catch(e => console.log('The fetch has been aborted : ', e));
 
 
 
@@ -213,16 +213,16 @@ promesse4
 
 const form = document.querySelector('form');
 form.addEventListener('submit', (e) => {
-   e.preventDefault()
+   e.preventDefault();
 
    const formData = new FormData(form); // Permet d'extaire toutes les informations d'un formulaire facilement.
 
    console.log(formData);
 
    formData.append('name', '123');
-   formData.set('email', 'tintin@gmail.fr')
-   formData.set('email', 'tintin2@gmail.fr')
-   formData.set('email', 'tintin3@gmail.fr')
+   formData.set('email', 'tintin@gmail.fr');
+   formData.set('email', 'tintin2@gmail.fr');
+   formData.set('email', 'tintin3@gmail.fr');
    console.log(formData.get('email'));
 
    for (let pair of formData) {
@@ -233,10 +233,10 @@ form.addEventListener('submit', (e) => {
       await fetch('/test', {
          method: 'POST',
          body: formData
-      })
-   }
-   fetchData()
-})
+      });
+   };
+   fetchData();
+});
 
 
 
@@ -270,8 +270,8 @@ form2.onsubmit = e => {
 
 const url = new URL('https://wikipedia.fr/napoleon?key1=value1 &key2=value2');
 
-url.searchParams.append("key3", "value3")
-url.searchParams.set("key4", "tom&jerry")
+url.searchParams.append("key3", "value3");
+url.searchParams.set("key4", "tom&jerry");
 
 console.log(url);
 console.log(url.toString());

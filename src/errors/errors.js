@@ -3,13 +3,13 @@
 // **************** 160) Introduction à la gestion d'erreur **************************
 
 
-const rightjson = `{"test":1}`
+const rightjson = `{"test":1}`;
 
-const parsedJSON = JSON.parse(rightjson)
+const parsedJSON = JSON.parse(rightjson);
 console.log(parsedJSON);
 
 try {
-   getData()
+   getData();
 } catch (error) {
    console.error('error fetch data :', error);
 } finally {
@@ -19,7 +19,7 @@ try {
 const button = document.querySelector('button');
 button.addEventListener('click', () => {
    console.log('click');
-})
+});
 
 console.log('Bonjour');
 
@@ -28,11 +28,11 @@ console.log('Bonjour');
 
 
 
-const wrongjson2 = `{test:1}`
+const wrongjson2 = `{test:1}`;
 
 try {
-   const wrongjson = `{'test':1}`
-   JSON.parse(wrongjson)
+   const wrongjson = `{'test':1}`;
+   JSON.parse(wrongjson);
 } catch (error) {
    console.error('error on JSON :', error);
 }
@@ -58,7 +58,7 @@ try {
 
 window.addEventListener('error', e => {
    console.log(e);
-})
+});
 
 // getData()
 

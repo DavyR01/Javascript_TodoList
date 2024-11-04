@@ -1,4 +1,4 @@
-const br = () => console.log('\n'); br()
+const br = () => console.log('\n'); br();
 
 
 // **************** 103) Les fonctions asynchrones avec async / await  **************************
@@ -8,7 +8,7 @@ const p1 = new Promise((resolve, reject) => {
       resolve('p1 ok');
    }, 1000);
    // reject('p1 failed')
-})
+});
 
 async function func() {
    try {
@@ -21,7 +21,7 @@ async function func() {
 
 func()
    .then(result => console.log(result))
-   .catch(err => console.log('catch error :', err))
+   .catch(err => console.log('catch error :', err));
 
 
 
@@ -82,7 +82,7 @@ const parrallel = async () => {
    } catch (err) {
       console.log(err);
    }
-}
+};
 parrallel();
 
 // ! Possibilité d'utiliser une arrow function pour déclarer une fonction asynchrone utilisant la syntaxe async/await.

@@ -1,5 +1,5 @@
-const a = {}
-const b = Object()
+const a = {};
+const b = Object();
 const c = new Object;
 // const d = Object.create();
 // const e = Object.assign();
@@ -21,12 +21,12 @@ const terre = {
 	},
 	isOld: false,
 	getTemperature() {
-		return (this.temperature["min"])
+		return (this.temperature["min"]);
 	},
 	getTemperature2: function () {
-		console.log(this.temperature["max"])
+		console.log(this.temperature["max"]);
 	}
-}
+};
 
 console.log("terre :", terre);
 console.log(terre.temperature); //? without brackets with dot
@@ -45,14 +45,14 @@ const temperature = {
 	min: -80,
 	max: 50,
 };
-const pop = "population"
+const pop = "population";
 
 const terre2 = {
 	[pop]: population,
 	satellite: satellite, //? : satellite n'est plus nécessaire depuis ES6 car on suppose qu'on a déclaré une variable au dessus qui a le même nom que la key.
 	temperature,
 	isOld: false
-}
+};
 
 // terre2[pop] = population;
 
@@ -60,7 +60,7 @@ console.log(terre2);
 
 // ********* 38) La décomposition d'objet ********/
 
-const resident = 50
+const resident = 50;
 
 const terre3 = {
 	resident: 9e7,
@@ -73,7 +73,7 @@ const terre3 = {
 };
 
 // const {resident: residentTerre, satellite3, temperature3, isOld3} = terre3
-const { resident: residentTerre, satellite3 = "Valeur par défaut", ...rest } = terre3 //? satellite3 a une valeur par défaut si aucune valeur ne lui est affecté dans l'objet terre3. Ici, on donne un alias qu'on va extirper depuis l'objet terre3.
+const { resident: residentTerre, satellite3 = "Valeur par défaut", ...rest } = terre3; //? satellite3 a une valeur par défaut si aucune valeur ne lui est affecté dans l'objet terre3. Ici, on donne un alias qu'on va extirper depuis l'objet terre3.
 
 // console.log(resident, satellite3, temperature3);
 // console.log(residentTerre, satellite3, temperature3);
@@ -97,14 +97,14 @@ if ("resident" in terre3 && terre3.hasOwnProperty('resident')) {
 
 console.log(terre3);
 // delete terre3.satellite3
-terre3.satellite3 = null //? Utiliser null et non undefined pour assigner de manière déclarative une propriété à l'absence de valeur. Nous savons de cette façon que c'est volontaire.
+terre3.satellite3 = null; //? Utiliser null et non undefined pour assigner de manière déclarative une propriété à l'absence de valeur. Nous savons de cette façon que c'est volontaire.
 console.log(terre3);
 
-const { resident: toDelete, ...copyTerre3 } = terre3 //? On souhaite récupérer toute les props de terre3 mais sans la population. On déclare donc population et on crée un objet avec le reste qui sera copyTerre3.
+const { resident: toDelete, ...copyTerre3 } = terre3; //? On souhaite récupérer toute les props de terre3 mais sans la population. On déclare donc population et on crée un objet avec le reste qui sera copyTerre3.
 
 console.log(copyTerre3); //? De cette manière, copyTerre3 est une copie de terre3 sans la propriété population.
 
-copyTerre3['exemple'] = 'add exemple'
+copyTerre3['exemple'] = 'add exemple';
 console.log(copyTerre3);
 
 
@@ -114,7 +114,7 @@ const terre4 = {
 	population: 10e7,
 	satellite: 'Spoutnik',
 	["surface ocean"]: '72%'
-}
+};
 
 const terre5 = {
 	population: 11e7,
@@ -124,14 +124,14 @@ const terre5 = {
 		max: 40,
 	},
 	isOld: false,
-}
+};
 
-const terreAssign = Object.assign({}, terre4, terre5)
+const terreAssign = Object.assign({}, terre4, terre5);
 console.log(terreAssign); //? assign() permet de merger 2 objets en créant un autre objet à partir d'un objet vide. Si on ne place pas {}, terre4 sera écrasé et prendra la valeur de terreAssign, ce n'est donc pas ce que l'on souhaite avoir. Les valeurs fusionnées vont de la droite vers la gauche.
 
 console.log(terre4);
 // Autre solution avec le Spread...: 
-const terreSpread = { ...terre4, ...terre5 } //? Permet de copier un ou plusieurs objet dans un nouvel objet
+const terreSpread = { ...terre4, ...terre5 }; //? Permet de copier un ou plusieurs objet dans un nouvel objet
 
 console.log(terreSpread);
 console.log(terre4 === terreSpread); // false
@@ -139,9 +139,9 @@ console.log(terre4 === terreSpread); // false
 
 //************************** 42) Comparer des objets ****************************/
 
-const d = { a: 1 }
-const e = { a: 1 }
-const f = e
+const d = { a: 1 };
+const e = { a: 1 };
+const f = e;
 
 console.log(d === e); //? false car pas la même référence. On compare les références et non le contenu. Ce sont 2 références d'objet différentes. La référence à un objet correspond à son adresse dans la mémoire. 
 console.log(f === e); //? true car dans ce cas, on aura la même adresse sur la heap, elles contiennent la même référence. Ces 2 objets pointent sur le même objet de la heap donc si on modifien l'un, l'autre sera modifié.
@@ -155,7 +155,7 @@ const obj = {
 	c: "trois",
 	d: "quatre",
 	e: "cinq",
-}
+};
 
 for (prop in obj) {
 	// console.log(prop);
@@ -173,12 +173,12 @@ const obj2 = {
 	firstname: 'Jean',
 	lastName: 'Louis',
 	age: 15
-}
+};
 
-const stringify = JSON.stringify(obj2, null, 3) // Le 3eme argument permet de gérer les espaces pour l'affichage
+const stringify = JSON.stringify(obj2, null, 3); // Le 3eme argument permet de gérer les espaces pour l'affichage
 console.log("format JSON:", stringify);
 
-const parse = JSON.parse(stringify)
+const parse = JSON.parse(stringify);
 console.log("format object :", parse);
 
 /***** FORMAT JSON très similaire à un objet Javascript *******/
@@ -207,14 +207,14 @@ const g = {
 	foo: {
 		bar: 'zoo'
 	}
-}
+};
 
-const h = Object.assign({}, g) //? Nouvel objet => Shallow copy.
-const i = { ...g } //? Nouvel objet par décomposition => Shallow copy car avec les objets nestés, nous allons avoir la même problématique (avec foo).
+const h = Object.assign({}, g); //? Nouvel objet => Shallow copy.
+const i = { ...g }; //? Nouvel objet par décomposition => Shallow copy car avec les objets nestés, nous allons avoir la même problématique (avec foo).
 // La raison est que pour les propriétés qui ne contiennent pas de valeur de type primitive, c'est-à-dire qui contiennent des objets, les références seront copiées.
 
-i.name = "Titi"
-i.foo.bar = "zoozoo"
+i.name = "Titi";
+i.foo.bar = "zoozoo";
 
 console.log("objet g :", g);
 console.log("objet i :", i);
@@ -225,7 +225,7 @@ const j = {
 	foo: {
 		bar: 'boo'
 	}
-}
+};
 
 const k = JSON.parse(JSON.stringify(j, null, 3)); //? De cette façon, il n'y a plus de partage de référence entre nos objets.
 k.foo.bar = "booboo";
@@ -246,7 +246,7 @@ const book = {
          return true;
       }
    }
-}
+};
 
 const usernameAuthor = book.author?.name;
 

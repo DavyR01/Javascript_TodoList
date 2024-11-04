@@ -3,9 +3,9 @@
 
 class ValidationError extends Error {
    constructor(message) {
-      super(message)
-      this.name = this.constructor.name
-      this.message = message
+      super(message);
+      this.name = this.constructor.name;
+      this.message = message;
    }
 }
 
@@ -20,7 +20,7 @@ function getTransaction() {
       throw e;
    }
 
-   throw new Error('Unexpecteeeeed errooor')
+   throw new Error('Unexpecteeeeed errooor');
 }
 
 function initApp() {
@@ -30,7 +30,7 @@ function initApp() {
       if (e.name === 'ValidationError') {
          console.log('you should retry');
       } else {
-         throw e // Si l'on rencontrer une erreur intattendue, que l'on ne connait pas, on utilise un throw de l'erreur, on la réexpédie. On ne va pas gérer ces erreurs. On va va l'étendre en espérant qu'un autre try catch intercepte l'erreur quelque part.
+         throw e; // Si l'on rencontrer une erreur intattendue, que l'on ne connait pas, on utilise un throw de l'erreur, on la réexpédie. On ne va pas gérer ces erreurs. On va va l'étendre en espérant qu'un autre try catch intercepte l'erreur quelque part.
       }
    }
 }
@@ -66,7 +66,7 @@ function getTransaction2() {
       throw e;
    }
 
-   throw new Error('Unexpected error 2')
+   throw new Error('Unexpected error 2');
 }
 
 function initApp2() {
@@ -76,7 +76,7 @@ function initApp2() {
       if (e instanceof ValidationError) {
          console.log('you should retry');
       } else {
-         throw e 
+         throw e; 
       }
    }
 }

@@ -16,19 +16,19 @@ func();
 // => Fonction nommée :
 const fn = function func2() {
    console.log('func2 exec');
-}
+};
 
 // => Fonction anonyme : 
 const fn2 = function () {
    console.log('func2 exec');
-}
+};
 
 console.log(fn.name); // Sur les objets fonction, on a une propriété name.
 console.log(fn2.name); // Sur un fonction anonyme, le name prend la valeur du nom de la variable.
-fn(); br()
+fn(); br();
 
 // Vous pouvez cependant également déclarer un nom pour utiliser la récursivité. La récursivité est le fait d'invoquer la fonction dans la fonction, afin de l'exécuter jusqu'à ce qu'une condition soit remplie :
-const factorielle = function f(n) { return n < 2 ? 1 : n * f(n - 1) };
+const factorielle = function f(n) { return n < 2 ? 1 : n * f(n - 1); };
 // La fonction s'invoquera elle-même jusqu'à ce que n soit inférieur à 2.
 
 
@@ -41,9 +41,9 @@ function func2(param = "default2") {
    }
 }
 
-func2('parametre')
-func2()
-br()
+func2('parametre');
+func2();
+br();
 
 // **************** 48) Objet arguments et utilisation de l'opérateur Rest (...) **************************
 
@@ -63,7 +63,7 @@ function add2(...numbers) {
    console.log(numbers);
    let total = 0;
    numbers.forEach(el => {
-      total += el
+      total += el;
    });
    console.log(total);
 }
@@ -72,29 +72,29 @@ function add3(operator, ...numbers) {
    let total = 0;
    if (operator === "+") {
       numbers.forEach(el => {
-         total += el
+         total += el;
       });
       console.log(total);
    } else console.log('we must add numbers');
 }
 
-add(1, 2, 3, 4, 5, 6, 7, 8); br()
-add2(1, 2, 3, 4); br()
+add(1, 2, 3, 4, 5, 6, 7, 8); br();
+add2(1, 2, 3, 4); br();
 add3("+", 1, 3, 5, 7, 9, 11, 13, 15);
-add3("*", 1, 3, 5, 7, 9, 11, 13, 15)
+add3("*", 1, 3, 5, 7, 9, 11, 13, 15);
 
 // **************** 49) Valeur de retour des fonctions **************************
 
 function operation(...numbers) {
    let total = 0;
    numbers.forEach(el => {
-      total += el
+      total += el;
    });
-   return total
+   return total;
 }
 
-const total = operation(3, 6, 9, 12, 15)
-console.log(total); br()
+const total = operation(3, 6, 9, 12, 15);
+console.log(total); br();
 
 // **************** 50) Environnement lexical et contexte d’exécution **************************
 
@@ -105,7 +105,7 @@ function a() {
 }
 function b() {
    let foo = 1;
-   a()
+   a();
 }
 let foo = 2;
 b();
@@ -120,7 +120,7 @@ function c() {
    d();
 }
 
-let foo2 = 2
+let foo2 = 2;
 c();
 br();
 
@@ -136,7 +136,7 @@ function func3() {
 }
 
 func3();
-br()
+br();
 
 // **************** 54) Définir ou lier this **************************
 
@@ -150,9 +150,9 @@ const c2 = {
       function d2() {
          console.log(this);
       }
-      d2() // Fait référence à l'objet window en l'absence du mode strict (sans import ou export fichier ou de notification "use strict" en haut de fichier)
+      d2(); // Fait référence à l'objet window en l'absence du mode strict (sans import ou export fichier ou de notification "use strict" en haut de fichier)
       d2.call(this); // call permet de spécifier le this. call est une méthode des fonctions. this fait référence à l'objet c2.
-      d2.call(d3)
+      d2.call(d3);
    }
 };
 
@@ -182,7 +182,7 @@ function bonjour(lang) {
 bonjour.call(c3, 'fr'); // Ici, on passe une liste de paramètres.
 bonjour.apply(c3, ['fr']); // Pareil que call sauf qu'on lui passe un tableau qui va contenir l'ensemble des paramètres.
 const bindC3 = bonjour.bind(c3); // La méthode bind() permet de créer un clone d'une fonction en liant définitivement la valeur de this à l'argument passé en premier paramètre.
-bindC3("en")
+bindC3("en");
 
 function multiplier(nombre) {
    return this * nombre;
@@ -224,7 +224,7 @@ console.log(cheese, fun, test1);
 // On déclare un objet : 
 const a4 = (a, b) => ({
    a, b, total: a + b
-})
+});
 
 console.log(a4(2, 3));
 
@@ -232,7 +232,7 @@ console.log(a4(2, 3));
 
 const a5 = () => {
    console.log(this);
-}
+};
 // function a5() {
 //    console.log(this);
 // }
@@ -240,10 +240,10 @@ const a5 = () => {
 a5();
 const b5 = {
    foo: "bar"
-}
+};
 
-a5.call(b5)
-a5(b5) // Lorsque l'on déclarer une arrow function, le this est toujours le this du contexte de l'environnement lexical du parent.
+a5.call(b5);
+a5(b5); // Lorsque l'on déclarer une arrow function, le this est toujours le this du contexte de l'environnement lexical du parent.
 console.log(a5.call(b5) === a5(b5)); // true
 
 // On déclare une méthode avec les functions pour que le this fasse référence  l'objet parent et non l'objet global :  
@@ -262,15 +262,15 @@ const a6 = {
    fn6() {
       const fn7 = () => {
          console.log('fn7 inside fn6 : ', this);
-      }
-      fn7()
+      };
+      fn7();
    }
-}
+};
 
-a6.fn1() // Correspond à l'objet global donc objet vide car pas de mode strict
-a6.fn4()
-a6.fn5()
-a6.fn6() // Correspond à l'environnement lexicale de l'objet a6. Même résultat que fn4 et fn5.
+a6.fn1(); // Correspond à l'objet global donc objet vide car pas de mode strict
+a6.fn4();
+a6.fn5();
+a6.fn6(); // Correspond à l'environnement lexicale de l'objet a6. Même résultat que fn4 et fn5.
 br();
 
 // **************** 56) Les fonctions de rappel (callback) **************************
@@ -278,8 +278,8 @@ br();
 
 function fn3(a, cb) {
    console.log("a : ", a);
-   const p1 = 1, p2 = 2
-   cb(p1, p2)
+   const p1 = 1, p2 = 2;
+   cb(p1, p2);
 }
 
 fn3('affichage de a', (p1, p2) => console.log('cb', p1, p2));
@@ -289,11 +289,11 @@ br();
 
 function powerBy(power) {
    return function(number) {
-      return number ** power
-   }
+      return number ** power;
+   };
 }
 
-const powerBy2 = powerBy(2)
+const powerBy2 = powerBy(2);
 console.log(powerBy2(3));
 
 console.log(powerBy(2)(3));
@@ -304,10 +304,10 @@ const closure = () => {
    for (var i=0; i<3; i++) {
       arr.push(function() {
          console.log(i);
-      })
+      });
    }
    return arr;
-}
+};
 
 const tab = closure();
 tab[0]();

@@ -1,6 +1,6 @@
-import '../style/style.css'
+import '../style/style.css';
 
-const br = () => console.log('\n'); br()
+const br = () => console.log('\n'); br();
 
 // **************** 104) Les fonctions asynchrones avec async / await  **************************
 
@@ -17,7 +17,7 @@ button1.addEventListener('click', () => {
 
    const promesse = new Promise((resolve, reject) => {
       setTimeout(() => resolve(), 4000);
-   })
+   });
 
    promesse.then(() => console.log('promesse 4000'));
 
@@ -30,7 +30,7 @@ button1.addEventListener('click', () => {
    }, 0);
 
    console.log("fin");
-})
+});
 
 //! Notes : 
 // Tout le code associé au setTimeout qui est positionné dans la fonction de callback va être passé à la callback queue. Et la callback queue ne va être vidé que si la stack est vide et disponible. 
@@ -53,7 +53,7 @@ button2.addEventListener('click', () => {
    Promise.resolve().then(() => console.log("La promesse 2"));
 
    console.log("Le code synchrone"); // 1
-})
+});
 
 
 
@@ -61,7 +61,7 @@ button2.addEventListener('click', () => {
 const button3 = document.querySelector("#button3");
 
 button3.addEventListener("click", () => {
-   br()
+   br();
    Promise.resolve().then(() => console.log("La promesse 1"));
    console.log("Le clic 1");
 });

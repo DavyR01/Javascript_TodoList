@@ -11,7 +11,7 @@ Object.defineProperty(obj, 'key', {
    writable: false, // To protect a property
    enumerable: false, // To prevent display enumeration.
    configurable: false // To prevent to modify property characteristics.
-})
+});
 
 // Object.defineProperty(obj, 'key', {
 //    writable: true
@@ -41,9 +41,9 @@ const user = {
       return this.firstname + " " + this.lastname;
    },
    set fullname1(value) {
-      [this.firstname, this.lastname] = value.split(" ")
+      [this.firstname, this.lastname] = value.split(" ");
    }
-}
+};
 
 console.log(user.fullname1);
 console.log(user.fullname2());
@@ -58,20 +58,20 @@ console.log(user.fullname1);
 const user2 = {
    firstname: "Robert",
    lastname: 'DENIRO',
-}
+};
 
 Object.defineProperty(user2, "fullname1", {
    get: function () {
       return this.firstname + " " + this.lastname;
    },
    set() {
-      [this.firstname, this.lastname] = value.split(" ")
+      [this.firstname, this.lastname] = value.split(" ");
    },
    enumerable: true,
    configurable: true
-})
+});
 
-const descriptor2 = Object.getOwnPropertyDescriptor(user2, 'fullname1')
+const descriptor2 = Object.getOwnPropertyDescriptor(user2, 'fullname1');
 
 console.log(descriptor2);
 console.log(user2.fullname1);
@@ -109,16 +109,16 @@ function Car(brand) {
    };
    this.stop = function () {
       console.log('Break');
-   }
+   };
 
    // return this // Par défautl le this est retourné, sinon on peut retourner un objet comme un objet vide. C'est cette objet vide qui sera pris en compte.
 }
 
 const tesla = new Car('tesla');
-const renault = new Car("renault")
+const renault = new Car("renault");
 
 console.log(tesla);
 console.log(renault);
 
-tesla.start()
-tesla.stop()
+tesla.start();
+tesla.stop();

@@ -1,6 +1,6 @@
 
 
-let test = '123'
+let test = '123';
 
 console.log(test);
 
@@ -33,14 +33,14 @@ for (let i = 0; i < 5; i++) {
 // **************** 21) Opérateur de coalescence des nuls ****************
 
 
-const user = {}
-let username = user.username || "John Doe"
-let username3 = 1 || "John Doe"
-let username2 = "" || "John Doe"
+const user = {};
+let username = user.username || "John Doe";
+let username3 = 1 || "John Doe";
+let username2 = "" || "John Doe";
 console.log(username, username2, username3);
 
-let username4 = 0 ?? "Jane"
-let username5 = 1 ?? "Jane"
-let username6 = undefined ?? "Jane"
+let username4 = 0 ?? "Jane";
+let username5 = 1 ?? "Jane";
+let username6 = undefined ?? "Jane";
 console.log(username4, username5, username6);
 

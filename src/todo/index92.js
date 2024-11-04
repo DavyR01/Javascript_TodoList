@@ -1,11 +1,11 @@
 
 // **************** 92) Présentation du projet Todo **************************
 
-import './style92.css'
+import './style92.css';
 
 // **************** 93) Affichage des todos **************************
 
-const ul = document.querySelector('ul')
+const ul = document.querySelector('ul');
 
 const todos = [
    {
@@ -18,42 +18,42 @@ const todos = [
       done: true,
       editMode: false
    }
-]
+];
 
 const displayTodos = (/* todosArray */) => {
    const todosNode = todos.map((todo, index) => {
       if (todo.editMode) {
-         return createTodoEditElement(todo, index)
+         return createTodoEditElement(todo, index);
       } else {
-         return createTodoElement(todo, index)
+         return createTodoElement(todo, index);
       }
-   })
+   });
    console.log(todosNode);
    ul.innerHTML = ''; // on vide le HTML éventellement contenu dans ul.
-   ul.append(...todosNode) // On chercher à avoir une liste de node. Actuellement, on a un tableau d'éléments HTML. L'opérateur spread va permettre de convertir le tableau de nodes en une liste de nodes HTML séparés par des virgules. Cette conversion est nécessaire, en effet, append() prend une liste de noeuds séparés par des virgules et non un tableau.
+   ul.append(...todosNode); // On chercher à avoir une liste de node. Actuellement, on a un tableau d'éléments HTML. L'opérateur spread va permettre de convertir le tableau de nodes en une liste de nodes HTML séparés par des virgules. Cette conversion est nécessaire, en effet, append() prend une liste de noeuds séparés par des virgules et non un tableau.
    console.log(...todosNode);
-}
+};
 
 const createTodoElement = (todo, index) => {
    const li = document.createElement("li");
 
-   const buttonDelete = document.createElement("button")
+   const buttonDelete = document.createElement("button");
    buttonDelete.innerHTML = `Supprimer`;
 
-   const buttonEdit = document.createElement("button")
+   const buttonEdit = document.createElement("button");
    buttonEdit.innerHTML = `Editer`;
 
    buttonDelete.addEventListener('click', (event) => {
-      event.stopPropagation()
+      event.stopPropagation();
       console.log(event);
       console.log('index : ', index);
-      deleteTodo(index) // closure avec index, La valeur de l'index passé est ainsi liée à l'environnement lexical et non au contexte d'exécution.
+      deleteTodo(index); // closure avec index, La valeur de l'index passé est ainsi liée à l'environnement lexical et non au contexte d'exécution.
       console.log(todos);
-   })
+   });
    buttonEdit.addEventListener('click', event => {
       event.stopPropagation();
-      toggleEditMode(index)
-   })
+      toggleEditMode(index);
+   });
    li.innerHTML = `
       <span class="todo ${todo.done ? 'done' : ''}"></span>
       <p>${todo.text}</p>
@@ -61,10 +61,10 @@ const createTodoElement = (todo, index) => {
    li.addEventListener('click', (event) => {
       console.log(index);
       toggleTodo(index);
-   })
-   li.append(buttonEdit, buttonDelete)
+   });
+   li.append(buttonEdit, buttonDelete);
    return li;
-}
+};
 
 
 // **************** 94) Ajouter une todo **************************
@@ -75,16 +75,16 @@ const input = document.querySelector('form > input'); // Pour sélectionner uniq
 console.log(form, input);
 
 form.addEventListener('submit', (e) => {
-   e.preventDefault()
+   e.preventDefault();
    // console.log(input);
-   let value = input.value.trim()
+   let value = input.value.trim();
    if (value !== '') {
-   value = value[0].toUpperCase() + value.slice(1) /* value.substring(1) */ /* value.replace(value[0], '') */
+   value = value[0].toUpperCase() + value.slice(1); /* value.substring(1) */ /* value.replace(value[0], '') */
    console.log(value);
-   input.value = '' // Permet de vider le champ
-   addTodo(value)
+   input.value = ''; // Permet de vider le champ
+   addTodo(value);
    console.log(todos);
-}})
+}});
 
 const addTodo = (text) => {
    if (text !== '' && text !== null) {
@@ -93,10 +93,10 @@ const addTodo = (text) => {
             text, // text: text
             done: false
          }
-      )
+      );
    }
    displayTodos(todos); // On réinvoque la méthode en rafraichissant la liste des todos.
-}
+};
 
 console.log('One time');
 
@@ -106,16 +106,16 @@ console.log('One time');
 // **************** 95) Supprimer une todo **************************
 
 const deleteTodo = (index) => {
-   todos.splice(index, 1)
-   displayTodos(/* todosArray */)
-}
+   todos.splice(index, 1);
+   displayTodos(/* todosArray */);
+};
 
 // **************** 96) Modifier le statut d'une todo**************************
 
 const toggleTodo = (index) => {
-   todos[index].done = !todos[index].done
-   displayTodos()
-}
+   todos[index].done = !todos[index].done;
+   displayTodos();
+};
 
 // const toggleTodo = (index) => {
 //    if (todos[index].done == true) {
@@ -150,25 +150,25 @@ const createTodoEditElement = (todo, index) => {
    buttonCancel.innerHTML = 'Cancel';
    buttonCancel.addEventListener('click', event => {
       event.stopPropagation();
-      toggleEditMode(index)
-   })
+      toggleEditMode(index);
+   });
    buttonSave.addEventListener('click', (event) => {
-      event.stopPropagation()
-      editTodo(index, input)
-   })
+      event.stopPropagation();
+      editTodo(index, input);
+   });
    li.append(input, buttonCancel, buttonSave);
    return li;
 };
 
 const toggleEditMode = (index) => {
    todos[index].editMode = !todos[index].editMode;
-   displayTodos()
-}
+   displayTodos();
+};
 
 const editTodo = (index, input) => {
    todos[index].text = input.value;
-   toggleEditMode(index)
-}
+   toggleEditMode(index);
+};
 
 
-displayTodos(todos)
+displayTodos(todos);
