@@ -239,7 +239,7 @@ console.log(pop);
 
 
 // **************** 156) Les Maps **************************
-
+br(); br();
 //? Un Map est une collection de données clé-valeur, similaire à un objet. La principale différence réside dans le fait que Map accepte des clés de tout type..
 //! Map conserve l'ordre d'insertion, contrairement à un objet standard littéral.
 
@@ -253,8 +253,14 @@ myMap.set(user, 'hasPaid'); //? Utilisation d'objets comme clé avec l'objet Map
 myMap.set(func, 'une fonction');
 myMap.set('mykey', 'other key');
 
+console.log("myMap :", myMap); //? Affiche l'objet map.
+console.log("myMap :", myMap.entries()); //? Affiche l'objet map sous forme d'un objet itérable contenant un tableau [clé, valeur] pour chaque élément du Map.
+console.log("Array.from(myMap.entries()) :", Array.from(myMap.entries()));
+
 console.log(myMap.keys());
 console.log(myMap.values());
+console.log(Array.from(myMap)); //? Affiche l'objet myMap en entier en le convertissant en tableau.
+
 
 console.log(myMap.get('key'));
 console.log(myMap.size); //4
@@ -285,10 +291,41 @@ myMap.forEach((value, key) => {
 // myMap.clear();
 // console.log(myMap.size);
 
-const user2 = {nom: "Fred"};
-console.log(typeof(user2));
+const user2 = { nom: "Fred" };
+console.log(typeof (user2));
 
 const map = new Map(Object.entries(user2));
 console.log(map.get("nom"));
-console.log(typeof(map));
+console.log(typeof (map));
+
+
+// **************** 157) Les Sets **************************
+
+//? Un Set garde l'unicité des valeurs au sein d'une collection. Sensiblement les mêmes méthodes que pour les maps. Set est particulièrement utile pour éliminer les doublons dans une collection de données.
+br(); br();
+
+const mySet = new Set([1, 3, 3]);
+console.log(mySet);
+
+mySet.add(1);
+mySet.add(3);
+console.log(mySet);
+mySet.add(4);
+console.log(mySet);
+
+//? Objectif : Enlever les doublons d'un tableau guess en le convertissant en objet Set puis de nouveau en un objet Array à partir de cet objet Set.
+let guess = ["Marie", "Maxime", "Marie", "Pierre", "Marie", "Bernard", 'Maxime', "Pierre"];
+console.log(guess);
+const setGuess = new Set(guess);
+console.log(setGuess);
+guess = Array.from(setGuess);
+console.log(guess);
+
+const permission = new Set(["read", "write", "read"]);
+console.log(permission);
+console.log(permission.entries());
+
+
+// **************** 158) La méthode groupBy() ****************
+
 
