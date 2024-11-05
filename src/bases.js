@@ -30,6 +30,16 @@ for (let i = 0; i < 5; i++) {
 	console.count();
 }
 
+
+// **************** 17) Les opérateurs et les notions de précédence et d'associativité ****************
+
+//! https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Operators/Operator_precedence
+
+//? Lorque 2 opérateurs ont le même précédence, on prend en considération l'associativité pour déterminer l'ordre d'exécution de l'opération.
+
+const trial = undefined || 1; //? 1 car l'opérateur || a une précédence supérieure (4) au signe = (3). La valeur 1 est une valeur truthy donc prioritaire à la valeur falsy de "undefined"
+
+
 // **************** 21) Opérateur de coalescence des nuls ****************
 
 
