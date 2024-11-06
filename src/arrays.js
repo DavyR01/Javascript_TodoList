@@ -1,4 +1,4 @@
-const br = () => console.log('\n'); br();
+export const br = () => console.log('\n'); br();
 
 // **************** 58) Introduction aux tableaux  **************************
 
@@ -33,12 +33,16 @@ arr7.length = 0; // Reset un tableau sans modifier sa référence.
 console.log(arr7);
 
 // **************** 60) Imbrication de tableaux **************************
+//? Tableaux multi dimensions
 
 const arr8 = [["terre", "lune"], "soleil"];
 
-console.log(arr8[0][0]);
-console.log(arr8[0][arr8[0].length - 1]);
+console.log(arr8[0][0]); // terre
+console.log(arr8[0][0][0]); //t
+console.log(arr8[1][4]); //i
+console.log(arr8[0][arr8[0].length - 1]); // lune
 console.log(arr8);
+
 br();
 
 
@@ -281,6 +285,9 @@ br();
 
 // **************** 70) D'autres méthodes de programmation fonctionnelle **************************
 
+//? La méthode reduce() est utilisée le plus souvent pour réduire une liste à une seule valeur. La fonction de rappel peut utiliser au minimum deux arguments et au maximum quatre.
+
+
 const panier = [
    { quantity: 1, name: 'CHAUSSURES', price: 50 },
    { quantity: 1, name: 'CHEMISES', price: 75 },
@@ -288,7 +295,9 @@ const panier = [
 ];
 
 const total = panier.reduce((acc, value, index) => {
-   console.log(`acc : ${acc}, value : ${value}, index : ${index}`);
+   console.log("acc :", acc, "value :", value, "index :", index);
+   // console.log(`acc : ${acc}, value : ${value}, index : ${index}`); //! Pas bon.
+   
    acc += value.price * value.quantity;
    return acc;
 }, 0);
@@ -300,7 +309,9 @@ const total2 = panier.reduce((acc, value) => (acc += value.price * value.quantit
 console.log(total);
 console.log(total2);
 
-// Méthode flat() :
+//? Méthode flat() : Permet de créer et de retourner un nouveau tableau contenant tous les éléments des tableaux imbriqués.
+
+
 const tableau0 = [1, 2, [3, 4], [[5], [6,7]]];
 const tableau2 = tableau0.flat();
 const tableau3 = tableau0.flat(2);
@@ -308,3 +319,16 @@ const tableau3 = tableau0.flat(2);
 console.log(tableau0); // [1, 2, 3, 4, [5], [6, 7]]
 console.log(tableau2); // [1, 2, 3, 4, [5], [6, 7]]
 console.log(tableau3); // [1, 2, 3, 4, 5, 6, 7]
+
+//? La méthode every() permet d'effectuer un test pour l'ensemble des éléments d'un tableau.
+
+const tableau4 = [2, 5, 8, 4, 12];
+const resultat1 = tableau4.every(el => el < 10);
+console.log(resultat1); // false
+
+
+//? La méthode some() permet de vérifier qu'au moins un élément d'un tableau passe un test.
+
+const tableau5 = [2, 5, 8, 4, 12];
+const resultat2 = tableau5.some(el => el < 10);
+console.log(resultat2); // true
