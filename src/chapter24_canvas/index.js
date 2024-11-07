@@ -1,5 +1,4 @@
 import './style.css';
-import img from './tile.png';
 
 // **************** 177) Introduction à canvas ******************
 //? Un canvas est un élément HTML qui permet de modifier une zone via des script. Il permet de dessiner absolument tout ce que l'on souhaite : un petit dessin, une image, des animations etc. Il peut être utiliser pour dessiner des cartes (Google Maps), des graphes (toutes les librairies de graphes), créer des jeux et beaucoup d'autres choses !
@@ -12,37 +11,37 @@ console.log(ctx);
 
 // **************** 178) Les bases de canva ******************
 
-ctx.beginPath();
-ctx.moveTo(100, 100);
-ctx.lineTo(400, 400);
-ctx.arcTo(500, 500, 400, 600, 50);
-ctx.lineTo(300, 700);
+// ctx.beginPath();
+// ctx.moveTo(100, 100);
+// ctx.lineTo(400, 400);
+// ctx.arcTo(500, 500, 400, 600, 50);
+// ctx.lineTo(300, 700);
 
-ctx.lineWidth = 5;
-ctx.strokeStyle = 'red';
-ctx.lineCap = 'round';
-ctx.lineJoin = 'round';
+// ctx.lineWidth = 5;
+// ctx.strokeStyle = 'red';
+// ctx.lineCap = 'round';
+// ctx.lineJoin = 'round';
 
-ctx.fillStyle = 'rgba(255, 0, 0, 0.5)';
+// ctx.fillStyle = 'rgba(255, 0, 0, 0.5)';
 
-ctx.fill();
-ctx.stroke();
+// ctx.fill();
+// ctx.stroke();
 
-ctx.closePath();
+// ctx.closePath();
 
 
 // **************** 179) Les cercles et les courbes de Bézier ******************
 
 //? les courbes de Bézier permettent de réaliser des formes arrondies complexes
 
-ctx.beginPath();
-ctx.moveTo(300, 300);
-ctx.bezierCurveTo(500, 400, 200, 600, 400, 700);
-ctx.moveTo(300, 300);
-ctx.quadraticCurveTo(600, 600, 400, 700);
-ctx.stroke();
-ctx.fill();
-ctx.closePath();
+// ctx.beginPath();
+// ctx.moveTo(300, 300);
+// ctx.bezierCurveTo(500, 400, 200, 600, 400, 700);
+// ctx.moveTo(300, 300);
+// ctx.quadraticCurveTo(600, 600, 400, 700);
+// ctx.stroke();
+// ctx.fill();
+// ctx.closePath();
 
 
 
@@ -102,55 +101,61 @@ ctx.fill();
 
 // **************** 182) Utiliser des images et des motifs ******************
 
-const image = new Image();
-image.src = img;
-
-image.onload = () => {
-ctx.drawImage(image, 200, 200);
-ctx.drawImage(image, 400, 400, 100, 100);
-  const pattern = ctx.createPattern(image, 'repeat');
-  ctx.rect(0, 0, 800, 800);
-  ctx.fillStyle = pattern;
-  ctx.fill();
-};
-
 // const image = new Image();
-// image.src = img2;
+// image.src = img;
 
 // image.onload = () => {
-// ctx.drawImage(image, 50, 0, 100, 95, 300, 300, 100, 100);
+//    ctx.drawImage(image, 200, 200);
+//    ctx.drawImage(image, 400, 400, 100, 100);
+//    const pattern = ctx.createPattern(image, 'repeat');
+//    ctx.rect(0, 0, 800, 800);
+//    ctx.fillStyle = pattern;
+//    ctx.fill();
 // };
 
-// ctx.font = 'bold 60px sans-serif';
-// ctx.fillStyle = 'red';
-// ctx.strokeStyle = 'green';
-// ctx.lineWidth = 2;
-// ctx.textBaseline = 'middle';
-// ctx.textAlign = 'start';
-// ctx.fillText('Hello world !', 300, 400);
+// const image2 = new Image();
+// image2.src = img2;
 
-// ctx.strokeText('Hello world !', 300, 400);
-// const mesure = ctx.measureText('Hello world !');
-// console.log(mesure);
+// image2.onload = () => {
+//    ctx.drawImage(image2, 50, 0, 100, 95, 300, 300, 100, 100);
+// };
 
-// ctx.scale(2, 1);
-// ctx.rotate(Math.PI / 8);
-// ctx.resetTransform();
-// ctx.rotate(0);
-// ctx.save();
-// ctx.rotate(Math.PI / 4);
-// ctx.save();
-// ctx.rotate(Math.PI / 8);
 
-// ctx.rect(700, 0, 100, 100);
-// ctx.restore();
-// ctx.rect(700, 0, 100, 100);
-// ctx.restore();
+// **************** 183) Utiliser des textes ******************
 
-// ctx.rect(700, 0, 100, 100);
-// ctx.fill();
+ctx.font = 'bold 60px sans-serif';
+ctx.fillStyle = 'red';
+ctx.strokeStyle = 'green';
+ctx.lineWidth = 2;
+ctx.textBaseline = 'middle';
+ctx.textAlign = 'start';
+ctx.fillText('Hello world !', 300, 400);
 
-// rotate => 0
+ctx.strokeText('Hello world !', 300, 400);
+const mesure = ctx.measureText('Hello world !');
+console.log(mesure);
+
+
+// **************** 184) Les transformations ******************
+
+ctx.scale(2, 1);
+ctx.rotate(Math.PI / 8);
+ctx.resetTransform();
+ctx.rotate(0);
+ctx.save();
+ctx.rotate(Math.PI / 4);
+ctx.save();
+ctx.rotate(Math.PI / 8);
+
+ctx.rect(700, 0, 100, 100);
+ctx.restore();
+ctx.rect(700, 0, 100, 100);
+ctx.restore();
+
+ctx.rect(700, 0, 100, 100);
+ctx.fill();
+
+rotate => 0;
 
 // ctx.save();
 // ctx.beginPath();
