@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: {
-    mainEntry : path.resolve(__dirname, "src/chapter23_cookie_localstorage_sessionstorage/index.js"), // Important
+    mainEntry : path.resolve(__dirname, "src/chapter24_canvas/index.js"), // Important
   },
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -26,7 +26,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, "src/chapter23_cookie_localstorage_sessionstorage/index.html") // Important
+      template: path.resolve(__dirname, "src/chapter24_canvas/index.html") // Important
     })
   ],
   devtool: "source-map",
