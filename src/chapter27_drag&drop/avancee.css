@@ -1,0 +1,29 @@
+* {
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
+   /*Prend en compte le padding dans la largeur de l'élément contrairement à content-box */
+}
+
+.border {
+   border: 2px solid red;
+}
+
+body {
+   height: 100vh;
+   display: flex;
+   align-items: stretch;
+   justify-content: center;
+}
+
+.block {
+   flex: 1 1 50%;
+}
+
+.left {
+   background: blue;
+}
+
+.right {
+   background: green;
+}
