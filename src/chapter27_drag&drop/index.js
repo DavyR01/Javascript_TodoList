@@ -10,11 +10,13 @@ import "@/chapter27_drag&drop/style.css";
 
 const rigthList = document.querySelector('.list-right');
 const leftList = document.querySelector('.list-left');
-let draggable;
 
 document.addEventListener('dragstart', (e) => {
    console.log('dragStart :', e);
-   draggable = e.target; //? Stocke l'élément faisant l'objet du drag and drop.
+   // draggable = e.target; //? Stocke l'élément faisant l'objet du drag and drop.
+   console.log(e.target);
+   e.dataTransfer.setData('id', e.target.id);
+   
    e.target.classList.add('drag');
    setTimeout(() => {
       e.target.classList.remove('drag');
@@ -54,21 +56,23 @@ rigthList.addEventListener('dragover', e => {
 });
 
 rigthList.addEventListener('drop', e => {
-   e.target.appendChild(draggable);
+
+   const id = e.dataTransfer.getData('id');
+   const li = document.getElementById(id);
+   e.target.appendChild(li);
    console.log('drop :', e);
 });
 
 
+// leftList.addEventListener('dragover', e => {
+//    e.preventDefault();
+//    // console.log('dragover :', e);
+// });
 
-leftList.addEventListener('dragover', e => {
-   e.preventDefault();
-   // console.log('dragover :', e);
-});
-
-leftList.addEventListener('drop', e => {
-   e.target.appendChild(draggable);
-   console.log('drop :', e);
-});
+// leftList.addEventListener('drop', e => {
+//    e.target.appendChild(draggable);
+//    console.log('drop :', e);
+// });
 
 
 // **************** 202) L'objet DataTransfer ******************
