@@ -31,11 +31,11 @@ for (let prop in bar) {
 
 // Notation avec une class
 class Foo {
-   maProp = 123; // Impossible de déclarer une propriété dans une classe, il faudra le déclarer via le constructor avec le this.
+   maProp = 123; //? Valeur par défaut
 
    constructor(name, surname) {
       this.name = name;
-      this.maProp = 456;
+      this.maProp = 456; //? Ecrasera la valeur par défaut.
       this.surname = surname;
    }
 

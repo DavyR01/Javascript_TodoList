@@ -30,7 +30,7 @@ square.onmouseleave = () => {
 // Différence fonction fléchée et fonction standard
 const input1 = document.querySelector("#fonction-flechee");
 const input2 = document.querySelector("#fonction");
-input1.onclick = () => console.log(this);
+input1.onclick = () => console.log(this); // undefined car les les fonctions flécheés ne créent pas leur propre contexte contrairement aux fonctions standard.
 input2.onclick = function () {
    console.log(this);
 };
