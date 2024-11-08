@@ -35,6 +35,7 @@ document.addEventListener('dragend', (e) => {
 //? Définir l'élément en train d'être déplacé en pointant sur une référence de l'élément avec l'event.target et le déplacer sur un autre noeud parent avec la méthode appendChild qui ajoute une node dans le noeud ciblé.
 
 rigthList.addEventListener('dragenter', e => {
+   e.target.classList.add('drop');
    console.log('dragenter :', e);
 });
 
@@ -43,6 +44,7 @@ rigthList.ondragenter = (e) => {
 }; //? Il est préférable d'utiliser un addEventListener() plutôt que les propriétés (onEvent) d'un élément pour écouter des événements tu DOM car on peut en déclarer plusieurs et il y a un risque d'écraser un autre écouteur si on en déclare un autre quelque part.
 
 rigthList.addEventListener('dragleave', e => {
+   e.target.classList.remove('drop');
    console.log('dragleave :', e);
 });
 
