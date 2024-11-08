@@ -69,6 +69,8 @@ canvas.toBlob((blob) => {
 
 // **************** 198) Les Files et l'API FileReader ******************
 
+//? Pour lire un fichier en Javascript, on utilise un objet qui s'appelle FileReader.
+
 const file = new File([new Uint8Array([72]), new Blob(['ello'])], 'myfile.txt',
    {
       type: 'plain/text'

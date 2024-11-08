@@ -80,3 +80,34 @@ rigthList.addEventListener('drop', e => {
 
 // **************** 202) L'objet DataTransfer ******************
 
+// **************** 203) Le drag and drop de fichiers ******************
+
+
+window.addEventListener('drop', (event) => {
+   event.preventDefault();
+});
+
+window.addEventListener('dragover', (event) => {
+   event.preventDefault();
+});
+
+leftList.addEventListener('dragover', (event) => {
+   event.preventDefault();
+});
+
+const fileReader = new FileReader();
+
+leftList.addEventListener('drop', (event) => {
+   // event.dataTransfer.items.forEach((i) => console.log(i));
+   Array.from(event.dataTransfer.files).forEach((file) => {
+      fileReader.readAsDataURL(file);
+      fileReader.onloadend = () => {
+         const image = new Image();
+         image.src = fileReader.result;
+         image.id = 'second';
+         // image.draggable = true;
+         leftList.appendChild(image);
+      };
+   });
+   event.preventDefault();
+});
