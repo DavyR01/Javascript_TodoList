@@ -13,11 +13,13 @@ const leftList = document.querySelector('.list-left');
 
 document.addEventListener('dragstart', (e) => {
    console.log('dragStart :', e);
-   const obj = { id: 'first' };
-   e.dataTransfer.effectAllowed = 'copy';
-   // draggable = e.target; //? Stocke l'élément faisant l'objet du drag and drop.
-   console.log(e.target);
-   e.dataTransfer.setData('options', JSON.stringify(obj));
+   // const obj = { id: 'first' };
+   // e.dataTransfer.effectAllowed = 'copy';
+   // // draggable = e.target; //? Stocke l'élément faisant l'objet du drag and drop.
+   // console.log(e.target);
+   // e.dataTransfer.setData('options', JSON.stringify(obj));
+
+   e.dataTransfer.setData('id', e.target.id);
 
    e.target.classList.add('drag');
    setTimeout(() => {
@@ -58,10 +60,10 @@ rigthList.addEventListener('dragover', e => {
 });
 
 rigthList.addEventListener('drop', e => {
-   e.dataTransfer.dropEffect = 'copy';
-   const options = JSON.parse(e.dataTransfer.getData('options'));
-   console.log("options", options);
-   const li = document.getElementById(options.id);
+   // e.dataTransfer.dropEffect = 'copy';
+   // const options = JSON.parse(e.dataTransfer.getData('options'));
+   // console.log("options", options);
+   const li = document.getElementById(e.dataTransfer.getData('id'));
    e.target.appendChild(li);
    console.log('drop :', e);
 });
@@ -99,12 +101,12 @@ const fileReader = new FileReader();
 
 leftList.addEventListener('drop', (event) => {
    // event.dataTransfer.items.forEach((i) => console.log(i));
-   Array.from(event.dataTransfer.files).forEach((file) => {
+   Array.from(event.dataTransfer.files).forEach((file, index) => {
       fileReader.readAsDataURL(file);
       fileReader.onloadend = () => {
          const image = new Image();
+         image.id = 'file-' + index;
          image.src = fileReader.result;
-         image.id = 'second';
          // image.draggable = true;
          leftList.appendChild(image);
       };
