@@ -13,10 +13,12 @@ const leftList = document.querySelector('.list-left');
 
 document.addEventListener('dragstart', (e) => {
    console.log('dragStart :', e);
+   const obj = { id: 'first' };
+   e.dataTransfer.effectAllowed = 'copy';
    // draggable = e.target; //? Stocke l'élément faisant l'objet du drag and drop.
    console.log(e.target);
-   e.dataTransfer.setData('id', e.target.id);
-   
+   e.dataTransfer.setData('options', JSON.stringify(obj));
+
    e.target.classList.add('drag');
    setTimeout(() => {
       e.target.classList.remove('drag');
@@ -42,7 +44,7 @@ rigthList.addEventListener('dragenter', e => {
 });
 
 rigthList.ondragenter = (e) => {
-   console.log('dragenter with a proprerty onevent : ',e);
+   console.log('dragenter with a proprerty onevent : ', e);
 }; //? Il est préférable d'utiliser un addEventListener() plutôt que les propriétés (onEvent) d'un élément pour écouter des événements tu DOM car on peut en déclarer plusieurs et il y a un risque d'écraser un autre écouteur si on en déclare un autre quelque part.
 
 rigthList.addEventListener('dragleave', e => {
@@ -56,9 +58,10 @@ rigthList.addEventListener('dragover', e => {
 });
 
 rigthList.addEventListener('drop', e => {
-
-   const id = e.dataTransfer.getData('id');
-   const li = document.getElementById(id);
+   e.dataTransfer.dropEffect = 'copy';
+   const options = JSON.parse(e.dataTransfer.getData('options'));
+   console.log("options", options);
+   const li = document.getElementById(options.id);
    e.target.appendChild(li);
    console.log('drop :', e);
 });
