@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
    entry: {
-      mainEntry: path.resolve(__dirname, "src/chapter27_drag&drop/avancee.js"), // Important
+      mainEntry: path.resolve(__dirname, "src/todo/index92.js"), // Important
    },
    output: {
       path: path.resolve(__dirname, "dist"),
@@ -43,7 +43,7 @@ module.exports = {
    },
    plugins: [
       new HtmlWebpackPlugin({
-         template: path.resolve(__dirname, "src/chapter27_drag&drop/avancee.html") // Important
+         template: path.resolve(__dirname, "src/todo/index92.html") // Important
       })
    ],
    devtool: "source-map",
