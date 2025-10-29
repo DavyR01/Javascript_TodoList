@@ -1,3 +1,7 @@
+const br = () => {
+   console.log("----------------------------");
+}
+
 const a = {};
 const b = Object();
 const c = new Object;
@@ -91,7 +95,7 @@ if ("resident" in terre3 && terre3.hasOwnProperty('resident')) {
 
 (terre3['isOld3'] === false)
 	? console.log('the key isOld3 has a value false in the object terre3')
-	: console.log('the key isOld3 is true');
+	: console.log('the key isOld3 is true'); br()
 
 //****************** 40) Supprimer ou écarter des propriétés ************************/
 
@@ -106,7 +110,7 @@ console.log(copyTerre3); //? De cette manière, copyTerre3 est une copie de terr
 
 copyTerre3['exemple'] = 'add exemple';
 console.log(copyTerre3);
-
+br()
 
 //************************** 41) Fusionner des objets ****************************/
 
@@ -135,7 +139,7 @@ const terreSpread = { ...terre4, ...terre5 }; //? Permet de copier un ou plusieu
 
 console.log(terreSpread);
 console.log(terre4 === terreSpread); // false
-
+br()
 
 //************************** 42) Comparer des objets ****************************/
 
@@ -145,7 +149,7 @@ const f = e;
 
 console.log(d === e); //? false car pas la même référence. On compare les références et non le contenu. Ce sont 2 références d'objet différentes. La référence à un objet correspond à son adresse dans la mémoire. 
 console.log(f === e); //? true car dans ce cas, on aura la même adresse sur la heap, elles contiennent la même référence. Ces 2 objets pointent sur le même objet de la heap donc si on modifien l'un, l'autre sera modifié.
-
+br()
 
 // ************************** 43) Itérer sur des objets ****************************/
 
@@ -165,7 +169,7 @@ for (prop in obj) {
 console.log(Object.keys(obj)); //? On extrait les différentes keys en renvoyant un tableau.
 console.log(Object.values(obj)); //? On extrait les différentes valeurs de l'objet en renvoyant un tableau
 console.log(Object.entries(obj)); //? On extrait les différentes propriétés de l'objet en renvoyant un tableau contenant des tableaux.
-
+br()
 
 // ************************** 44) Le format JSON != XML ****************************/
 
@@ -196,7 +200,7 @@ console.log("format object :", parse);
       <firstname>Jean</firstname>
       <lastname>Jean</lastname>
       <age>Jean</age>
-</object> */}
+</object> */}br()
 
 
 // *********************** 45) Copier un objet ****************************/
@@ -228,11 +232,17 @@ const j = {
 };
 
 const k = JSON.parse(JSON.stringify(j, null, 3)); //? De cette façon, il n'y a plus de partage de référence entre nos objets.
-k.foo.bar = "booboo";
+k.foo.bar = "boobooboo";
 
 console.log("objet j :", j);
 console.log("objet k :", k);
 
+
+const l = structuredClone(j)
+l.name = "Gaston"
+
+console.log("objet j :", j);
+console.log("objet l :", l); br()
 
 
 
